@@ -55,12 +55,15 @@
   "devDependencies": {
     "@commitlint/config-conventional": "^17.0.2",
     "@evilmartians/lefthook": "^1.5.0",
+    "@react-native/babel-preset": "^0.74.0",
     "@react-native/eslint-config": "^0.72.2",
     "@release-it/conventional-changelog": "^5.0.0",
     "@types/jest": "^28.1.2",
     "@types/react": "~17.0.21",
     "@types/react-native": "0.70.0",
+    "babel-plugin-module-resolver": "^5.0.0",
     "commitlint": "^17.0.2",
+    "const": "^1.0.0",
     "del-cli": "^5.0.0",
     "eslint": "^8.4.1",
     "eslint-config-prettier": "^8.5.0",
@@ -78,7 +81,8 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-reanimated": ">=3.0.0"
   },
   "workspaces": [
     "example"
@@ -132,7 +136,8 @@
           "trailingComma": "es5",
           "useTabs": false
         }
-      ]
+      ],
+      "react-hooks/exhaustive-deps": 0
     }
   },
   "eslintIgnore": [
@@ -144,7 +149,10 @@
     "singleQuote": true,
     "tabWidth": 2,
     "trailingComma": "es5",
-    "useTabs": false
+    "useTabs": false,
+    "printWidth": 150,
+    "bracketSameLine": true,
+    "bracketSpacing": false
   },
   "react-native-builder-bob": {
     "source": "src",
@@ -159,5 +167,8 @@
         }
       ]
     ]
+  },
+  "dependencies": {
+    "react-native-reanimated": "^3.6.1"
   }
 }

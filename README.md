@@ -4,19 +4,9 @@ Computools react native material components package
 
 ## Installation
 
-```sh
-npm install @computools/react-native-material-components
-```
 
 ## Usage
 
-```js
-import { multiply } from '@computools/react-native-material-components';
-
-// ...
-
-const result = await multiply(3, 7);
-```
 
 ## Contributing
 

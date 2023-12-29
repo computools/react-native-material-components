@@ -14,6 +14,8 @@ const TRACK_INACTIVE_BORDER_COLOR = '#d1d1d1';
 const TRACK_ACTIVE_BACKGROUND_COLOR = '#46cc2f';
 const TRACK_INACTIVE_BACKGROUND_COLOR = '#d1d1d1';
 
+const ANIMATION_DURATION = 220;
+
 export interface SwitchProps extends Omit<TouchableOpacityProps, 'onPress'> {
   value: boolean;
 
@@ -33,6 +35,7 @@ export interface SwitchProps extends Omit<TouchableOpacityProps, 'onPress'> {
   trackActiveBackgroundColor?: ColorValue;
   trackInactiveBackgroundColor?: ColorValue;
 
+  animationDuration?: number;
   style?: StyleProp<ViewStyle>;
   trackStyle?: StyleProp<ViewStyle>;
   hanldeStyle?: StyleProp<ViewStyle>;
@@ -64,6 +67,7 @@ export const Switch: React.FC<SwitchProps> = ({
   style,
   trackStyle,
   hanldeStyle,
+  animationDuration = ANIMATION_DURATION,
 
   onSwitch,
 
@@ -87,7 +91,7 @@ export const Switch: React.FC<SwitchProps> = ({
   }));
 
   useEffect(() => {
-    handleStart.value = withTiming(value ? SLIDE_RANGE : 0);
+    handleStart.value = withTiming(value ? SLIDE_RANGE : 0, {duration: animationDuration});
   }, [value]);
 
   const onPress = useCallback(() => onSwitch(!value), [onSwitch, value]);

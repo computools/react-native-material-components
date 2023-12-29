@@ -52,6 +52,7 @@ trackInactiveBackgroundColor: ColorValue;
 
 style: ViewStyle;
 hanldeStyle: ViewStyle;
+animationDuration?: number; - default 220 ms
 
 - Radio Button
 
@@ -64,6 +65,7 @@ onCheck: (value: T) => void; - required
 size?: number; - default 28
 labelEnd?: ReactNode;
 labelStart?: ReactNode;
+animationDuration?: number; - default 150 ms
 
 indicatorStyle?: StyleProp<ViewStyle>;
 radioButtonStyle?: StyleProp<ViewStyle>;
@@ -73,6 +75,27 @@ radioButtonBorderColor?: ColorValue;
 radioButtonBackgroundColor?: ColorValue;
 checkedRadioButtonBorderColor?: ColorValue;
 checkedRadioButtonBeckgroundColor?: ColorValue;
+
+- Checkbox
+
+*** Props ***
+
+value: T; - required
+checked: boolean; - required
+
+labelEnd?: ReactNode;
+labelStart?: ReactNode;
+checkedIcon?: ReactNode;
+
+checkboxBorderColor?: ColorValue;
+checkboxBackgroundColor?: ColorValue;
+checkedCheckboxBorderColor?: ColorValue;
+checkedCheckboxBackgroundColor?: ColorValue;
+
+size?: number; - default 28
+checkboxStyle?: StyleProp<ViewStyle>;
+
+onCheck: (value: T) => void;
 
 
 ## Contributing

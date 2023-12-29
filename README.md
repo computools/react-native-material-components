@@ -53,6 +53,28 @@ trackInactiveBackgroundColor: ColorValue;
 style: ViewStyle;
 hanldeStyle: ViewStyle;
 
+- Radio Button
+
+*** Props ***
+
+value: T - required
+checked: boolean; - required
+onCheck: (value: T) => void; - required
+
+size?: number; - default 28
+labelEnd?: ReactNode;
+labelStart?: ReactNode;
+
+indicatorStyle?: StyleProp<ViewStyle>;
+radioButtonStyle?: StyleProp<ViewStyle>;
+
+indicatorColor?: ColorValue;
+radioButtonBorderColor?: ColorValue;
+radioButtonBackgroundColor?: ColorValue;
+checkedRadioButtonBorderColor?: ColorValue;
+checkedRadioButtonBeckgroundColor?: ColorValue;
+
+
 ## Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.

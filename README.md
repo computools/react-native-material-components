@@ -54,7 +54,7 @@ style: ViewStyle;
 hanldeStyle: ViewStyle;
 animationDuration?: number; - default 220 ms
 
-![preview](https://drive.google.com/file/d/11noVhrNgz85LpLnzkUeN4OnW1HVPX_y0/view)
+![switch](https://ik.imagekit.io/Computools/rn-material-components/switch.png?updatedAt=1704380348816)
 
 - Radio Button
 
@@ -78,7 +78,7 @@ radioButtonBackgroundColor?: ColorValue;
 checkedRadioButtonBorderColor?: ColorValue;
 checkedRadioButtonBeckgroundColor?: ColorValue;
 
-![preview]https://drive.google.com/file/d/1d4KYo_s5JMgOGZkrSZrI-BTpnyERVEFm/view)
+![radio button](https://ik.imagekit.io/Computools/rn-material-components/radio-button.png?updatedAt=1704380348933)
 
 - Checkbox
 
@@ -101,7 +101,7 @@ checkboxStyle?: StyleProp<ViewStyle>;
 
 onCheck: (value: T) => void;
 
-![preview](https://drive.google.com/file/d/1j8T_TmP6GWXP5r-BFOKeh2jsbY_ErR1p/view)
+![checkbox](https://ik.imagekit.io/Computools/rn-material-components/checkbox.png?updatedAt=1704380348884)
 
 
 ## Contributing

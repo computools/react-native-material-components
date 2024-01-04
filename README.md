@@ -30,7 +30,7 @@ No additional steps are necessary.
 
 - Switch
 
-*** Props ***
+**Props**
 value: boolean - required
 onSwitch: (value: boolean) => void - required
 
@@ -54,9 +54,11 @@ style: ViewStyle;
 hanldeStyle: ViewStyle;
 animationDuration?: number; - default 220 ms
 
+![preview](https://drive.google.com/file/d/11noVhrNgz85LpLnzkUeN4OnW1HVPX_y0/view)
+
 - Radio Button
 
-*** Props ***
+***Props***
 
 value: T - required
 checked: boolean; - required
@@ -76,9 +78,11 @@ radioButtonBackgroundColor?: ColorValue;
 checkedRadioButtonBorderColor?: ColorValue;
 checkedRadioButtonBeckgroundColor?: ColorValue;
 
+![preview]https://drive.google.com/file/d/1d4KYo_s5JMgOGZkrSZrI-BTpnyERVEFm/view)
+
 - Checkbox
 
-*** Props ***
+***Props***
 
 value: T; - required
 checked: boolean; - required
@@ -96,6 +100,8 @@ size?: number; - default 28
 checkboxStyle?: StyleProp<ViewStyle>;
 
 onCheck: (value: T) => void;
+
+![preview](https://drive.google.com/file/d/1j8T_TmP6GWXP5r-BFOKeh2jsbY_ErR1p/view)
 
 
 ## Contributing

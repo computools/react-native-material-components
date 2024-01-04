@@ -31,30 +31,27 @@ No additional steps are necessary.
 <details><summary>Switch</summary>
 <br />
 
-**Props**
+**Properties**
 
-- **value:** _boolean_ - **required**
-- **onSwitch:** _(value: boolean) => void_ - **required**
-
-- labelEnd: _ReactNode_
-- labelStart: ReactNode
-- handleIcon: _ReactNode_
-
-- hideIconOnSwitchOff: _boolean_ - **_default true_**
-
-- handleActiveBorderColor: _ColorValue_
-- handleInactiveBorderColor: _ColorValue_
-- handleActiveBackgroundColor: _ColorValue_
-- handleInactiveBackgroundColor: _ColorValue_
-- trackActiveBorderColor: _ColorValue_
-- trackInactiveBorderColor: _ColorValue_
-- trackActiveBackgroundColor: _ColorValue_
-- trackInactiveBackgroundColor: _ColorValue_
-
-- style: _ViewStyle_
-- hanldeStyle: _ViewStyle_
-- animationDuration: _number_ - **_default 220 ms_**
-
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| value | required | boolean | - |
+| onSwitch | required | (value: boolean) => void | - |
+| labelEnd | - | ReactNode | - |
+| labelStart | - | ReactNode | - |
+| handleIcon | - | ReactNode | - |
+| hideIconOnSwitchOff | - | boolean | true |
+| handleActiveBorderColor | - | ColorValue | - |
+| handleInactiveBorderColor | - | ColorValue | - |
+| handleActiveBackgroundColor | - | ColorValue | - |
+| handleInactiveBackgroundColor | - | ColorValue | - |
+| trackActiveBorderColor | - | ColorValue | - |
+| trackInactiveBorderColor | - | ColorValue | - |
+| trackActiveBackgroundColor | - | ColorValue | - |
+| trackInactiveBackgroundColor | - | ColorValue | - |
+| style | - | ViewStyle | - |
+| hanldeStyle | - | ViewStyle | - |
+| animationDuration | - | number | 220 |
 
 ![switch](https://ik.imagekit.io/Computools/rn-material-components/switch.png?updatedAt=1704380348816)
 ![switch gif](https://ik.imagekit.io/Computools/rn-material-components/switch-gif.gif?updatedAt=1704382949514)
@@ -63,26 +60,24 @@ No additional steps are necessary.
 <details><summary>Radio Button</summary>
 <br />
 
-***Props***
+**Properties**
 
-- **value:** _T_ - **required**
-- **checked:** _boolean_ - **required**
-- **onCheck:** _(value: T) => void_ - **required**
-
-- size: _number_ - **_default 28_**
-- labelEnd: _ReactNode_
-- labelStart: _ReactNode_
-- animationDuration: _number_ - **_default 150 ms_**
-
-- indicatorStyle: _StyleProp<ViewStyle>_
-- radioButtonStyle: _StyleProp<ViewStyle>_
-
-- indicatorColor: _ColorValue_
-- radioButtonBorderColor: _ColorValue_
-- radioButtonBackgroundColor: _ColorValue_
-- checkedRadioButtonBorderColor: _ColorValue_
-- checkedRadioButtonBeckgroundColor: _ColorValue_
-
+| name | description | type | default |
+| ------ | ------ | ------ | ----|
+| value | required | T | - |
+| checked | required | boolean | - |
+| onCheck | required | (value: T) => void | - |
+| size | - | number | 28 |
+| labelEnd | - | ReactNode | - |
+| labelStart | - | ReactNode | - |
+| animationDuration | - | number | 150 |
+| indicatorStyle | - | ViewStyle | - |
+| radioButtonStyle | - | ViewStyle | - |
+| indicatorColor | - | ColorValue | - |
+| radioButtonBorderColor | - | ColorValue | - |
+| radioButtonBackgroundColor | - | ColorValue | - |
+| checkedRadioButtonBorderColor | - | ColorValue | - |
+| checkedRadioButtonBeckgroundColor | - | ColorValue | - |
 
 ![radio button](https://ik.imagekit.io/Computools/rn-material-components/radio-button.png?updatedAt=1704380348933)
 ![radio button gif](https://ik.imagekit.io/Computools/rn-material-components/radio-button-gif.gif?updatedAt=1704382857149)
@@ -91,24 +86,22 @@ No additional steps are necessary.
 <details><summary>Checkbox</summary>
 <br />
 
-***Props***
+**Properties**
 
-- **value:** _T_ - **required**
-- **checked:** _boolean_ - **required**
-- **onCheck:** _(value: T) => void_ - **required**
-
-- labelEnd: _ReactNode_
-- labelStart: _ReactNode_
-- checkedIcon: _ReactNode_
-
-- checkboxBorderColor: _ColorValue_
-- checkboxBackgroundColor: _ColorValue_
-- checkedCheckboxBorderColor: _ColorValue_
-- checkedCheckboxBackgroundColor: _ColorValue_
-
-- size: number - _**_default 28_**_
-- checkboxStyle: _StyleProp<ViewStyle>_
-
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| value | required | T | - |
+| checked | required | boolean | - |
+| onCheck | required | (value: T) => void | - |
+| labelEnd | - | ReactNode | - |
+| labelStart | - | ReactNode | - |
+| checkedIcon | - | ReactNode | - |
+| checkboxBorderColor | - | ColorValue | - |
+| checkboxBackgroundColor | - | ColorValue | - |
+| checkedCheckboxBorderColor | - | ColorValue | - |
+| checkedCheckboxBackgroundColor | - | ColorValue | - |
+| size | - | number | 28 |
+| checkboxStyle | - | ViewStyle | - |
 
 ![checkbox](https://ik.imagekit.io/Computools/rn-material-components/checkbox.png?updatedAt=1704380348884)
 ![checkbox gif](https://ik.imagekit.io/Computools/rn-material-components/checkbox-gif.gif?updatedAt=1704382741915)

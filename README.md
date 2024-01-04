@@ -8,9 +8,9 @@ Computools react native material components package
 
 2. ```yarn add react-native-reanimated```
 
-3. Add ***react-native-reanimated/plugin*** plugin to your babel.config.js.
+3. Add ```react-native-reanimated/plugin``` plugin to your babel.config.js.
 
-***react-native-reanimated/plugin has to be listed last.***
+_react-native-reanimated/plugin has to be listed last._
 
 See the [documentation](https://docs.swmansion.com/react-native-reanimated/) to learn more info about react-native-reanimated
 
@@ -26,81 +26,94 @@ No additional steps are necessary.
 
 ## Usage
 
-# controls
-
-- Switch
+<details><summary>Controls</summary>
+<br />
+<details><summary>Switch</summary>
+<br />
 
 **Props**
-**value:** boolean - **required**
-**onSwitch:** (value: boolean) => void - **required**
 
-labelEnd: ReactNode;
-labelStart: ReactNode;
-handleIcon: ReactNode;
+- **value:** _boolean_ - **required**
+- **onSwitch:** _(value: boolean) => void_ - **required**
 
-hideIconOnSwitchOff: boolean; - _default true_
+- labelEnd: _ReactNode_
+- labelStart: ReactNode
+- handleIcon: _ReactNode_
 
-handleActiveBorderColor: ColorValue;
-handleInactiveBorderColor: ColorValue;
-handleActiveBackgroundColor: ColorValue;
-handleInactiveBackgroundColor: ColorValue;
+- hideIconOnSwitchOff: _boolean_ - **_default true_**
 
-trackActiveBorderColor: ColorValue;
-trackInactiveBorderColor: ColorValue;
-trackActiveBackgroundColor: ColorValue;
-trackInactiveBackgroundColor: ColorValue;
+- handleActiveBorderColor: _ColorValue_
+- handleInactiveBorderColor: _ColorValue_
+- handleActiveBackgroundColor: _ColorValue_
+- handleInactiveBackgroundColor: _ColorValue_
+- trackActiveBorderColor: _ColorValue_
+- trackInactiveBorderColor: _ColorValue_
+- trackActiveBackgroundColor: _ColorValue_
+- trackInactiveBackgroundColor: _ColorValue_
 
-style: ViewStyle;
-hanldeStyle: ViewStyle;
-animationDuration: number; - _default 220 ms_
+- style: _ViewStyle_
+- hanldeStyle: _ViewStyle_
+- animationDuration: _number_ - **_default 220 ms_**
+
 
 ![switch](https://ik.imagekit.io/Computools/rn-material-components/switch.png?updatedAt=1704380348816)
+![switch gif](https://ik.imagekit.io/Computools/rn-material-components/switch-gif.gif?updatedAt=1704382949514)
+</details>
 
-- Radio Button
+<details><summary>Radio Button</summary>
+<br />
 
 ***Props***
 
-**value:** T - **required**
-**checked:** boolean; - **required**
-**onCheck:** (value: T) => void; - **required**
+- **value:** _T_ - **required**
+- **checked:** _boolean_ - **required**
+- **onCheck:** _(value: T) => void_ - **required**
 
-size: number; - _default 28_
-labelEnd: ReactNode;
-labelStart: ReactNode;
-animationDuration: number; - _default 150 ms_
+- size: _number_ - **_default 28_**
+- labelEnd: _ReactNode_
+- labelStart: _ReactNode_
+- animationDuration: _number_ - **_default 150 ms_**
 
-indicatorStyle: StyleProp<ViewStyle>;
-radioButtonStyle: StyleProp<ViewStyle>;
+- indicatorStyle: _StyleProp<ViewStyle>_
+- radioButtonStyle: _StyleProp<ViewStyle>_
 
-indicatorColor: ColorValue;
-radioButtonBorderColor: ColorValue;
-radioButtonBackgroundColor: ColorValue;
-checkedRadioButtonBorderColor: ColorValue;
-checkedRadioButtonBeckgroundColor: ColorValue;
+- indicatorColor: _ColorValue_
+- radioButtonBorderColor: _ColorValue_
+- radioButtonBackgroundColor: _ColorValue_
+- checkedRadioButtonBorderColor: _ColorValue_
+- checkedRadioButtonBeckgroundColor: _ColorValue_
+
 
 ![radio button](https://ik.imagekit.io/Computools/rn-material-components/radio-button.png?updatedAt=1704380348933)
+![radio button gif](https://ik.imagekit.io/Computools/rn-material-components/radio-button-gif.gif?updatedAt=1704382857149)
+</details>
 
-- Checkbox
+<details><summary>Checkbox</summary>
+<br />
 
 ***Props***
 
-**value:** T; - **required**
-**checked:** boolean; - **required**
-**onCheck:** (value: T) => void; - **required**
+- **value:** _T_ - **required**
+- **checked:** _boolean_ - **required**
+- **onCheck:** _(value: T) => void_ - **required**
 
-labelEnd: ReactNode;
-labelStart: ReactNode;
-checkedIcon: ReactNode;
+- labelEnd: _ReactNode_
+- labelStart: _ReactNode_
+- checkedIcon: _ReactNode_
 
-checkboxBorderColor: ColorValue;
-checkboxBackgroundColor: ColorValue;
-checkedCheckboxBorderColor: ColorValue;
-checkedCheckboxBackgroundColor: ColorValue;
+- checkboxBorderColor: _ColorValue_
+- checkboxBackgroundColor: _ColorValue_
+- checkedCheckboxBorderColor: _ColorValue_
+- checkedCheckboxBackgroundColor: _ColorValue_
 
-size: number; - _default 28_
-checkboxStyle: StyleProp<ViewStyle>;
+- size: number - _**_default 28_**_
+- checkboxStyle: _StyleProp<ViewStyle>_
+
 
 ![checkbox](https://ik.imagekit.io/Computools/rn-material-components/checkbox.png?updatedAt=1704380348884)
+![checkbox gif](https://ik.imagekit.io/Computools/rn-material-components/checkbox-gif.gif?updatedAt=1704382741915)
+</details>
+</details>
 
 
 ## Contributing

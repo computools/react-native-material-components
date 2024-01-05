@@ -24,7 +24,7 @@ const CIRCUMFERENCE = 120;
 const TRACK_COLOR = '#efefef';
 const INDICATOR_COLOR = '#8a8a8a';
 
-const DETERMINATE_ANIMATION_DURATION = 2000;
+const DETERMINATE_ANIMATION_DURATION = 1000;
 const INDETERMINATE_ANIMATION_DURATION = 800;
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);

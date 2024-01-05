@@ -107,6 +107,45 @@ No additional steps are necessary.
 ![checkbox gif](https://ik.imagekit.io/Computools/rn-material-components/checkbox-gif.gif?updatedAt=1704382741915)
 </details>
 </details>
+<br />
+<details><summary>Activity Indicators</summary>
+<br />
+<details><summary>Circular Activity Indicator</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ----|
+| progress | set up progress if you want to determinate the indicator (from 0 to 100) | number | - |
+| size | - | number | 120 |
+| strokeWidth | - | number | 3 |
+| trackColor | - | ColorValue | - |
+| indicatorColor | - | ColorValue | - |
+| determinateAnimationDuration | - | number | 2000 |
+| indeterminateAnimationDuration | - | number | 800 |
+
+![circular activity indicator gif](https://ik.imagekit.io/Computools/rn-material-components/circular-indicator-gif.gif?updatedAt=1704472978611)
+</details>
+<br />
+<details><summary>Linear Activity Indicator</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ----|
+| progress | set up progress if you want to determinate the indicator (from 0 to 100) | number | - |
+| trackHeight | - | number | 4 |
+| indicatorWidthCoeff | from 0 to 1 | number | 0.7 |
+| trackColor | - | ColorValue | - |
+| indicatorColor | - | ColorValue | - |
+| determinateAnimationDuration | - | number | 1000 |
+| indeterminateAnimationDuration | - | number | 1500 |
+
+![linear activity indicator gif](https://ik.imagekit.io/Computools/rn-material-components/linear-indicator-gif.gif?updatedAt=1704473110546)
+</details>
+</details>
 
 
 ## Contributing

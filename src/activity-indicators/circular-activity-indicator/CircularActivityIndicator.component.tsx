@@ -1,11 +1,11 @@
-import type {ColorValue} from 'react-native';
 import {Circle, G, Svg} from 'react-native-svg';
 import React, {useCallback, useEffect} from 'react';
+import {type ColorValue, type ViewProps, View} from 'react-native';
 import Animated, {Easing, useAnimatedProps, useAnimatedStyle, useSharedValue, withRepeat, withSequence, withTiming} from 'react-native-reanimated';
 
 import {styles} from './circular-activity-indicator.styles';
 
-export interface CircularActivityIndicatorProps {
+export interface CircularActivityIndicatorProps extends ViewProps {
   progress?: number;
 
   size?: number;
@@ -40,6 +40,9 @@ export const CircularActivityIndicator: React.FC<CircularActivityIndicatorProps>
 
   determinateAnimationDuration = DETERMINATE_ANIMATION_DURATION,
   indeterminateAnimationDuration = INDETERMINATE_ANIMATION_DURATION,
+
+  style,
+  ...props
 }) => {
   const radius = size / (2 * Math.PI);
   const halfCircle = radius + strokeWidth;
@@ -87,22 +90,24 @@ export const CircularActivityIndicator: React.FC<CircularActivityIndicatorProps>
   }, []);
 
   return (
-    <Animated.View style={[styles.container, animatedViewStyle]}>
-      <Svg width={diameter} height={diameter} viewBox={`0 0 ${diameter} ${diameter}`}>
-        <G origin={halfCircle} rotation="-90">
-          <Circle cx={'50%'} cy={'50%'} r={radius} stroke={trackColor} fill="transparent" strokeWidth={strokeWidth} />
-          <AnimatedCircle
-            cx="50%"
-            cy="50%"
-            r={radius}
-            animatedProps={animatedCircleProps}
-            strokeWidth={strokeWidth}
-            stroke={indicatorColor}
-            fill="transparent"
-            strokeDasharray={size}
-          />
-        </G>
-      </Svg>
-    </Animated.View>
+    <View style={[styles.container, style]} {...props}>
+      <Animated.View style={animatedViewStyle}>
+        <Svg width={diameter} height={diameter} viewBox={`0 0 ${diameter} ${diameter}`}>
+          <G origin={halfCircle} rotation="-90">
+            <Circle cx={'50%'} cy={'50%'} r={radius} stroke={trackColor} fill="transparent" strokeWidth={strokeWidth} />
+            <AnimatedCircle
+              cx="50%"
+              cy="50%"
+              r={radius}
+              animatedProps={animatedCircleProps}
+              strokeWidth={strokeWidth}
+              stroke={indicatorColor}
+              fill="transparent"
+              strokeDasharray={size}
+            />
+          </G>
+        </Svg>
+      </Animated.View>
+    </View>
   );
 };

@@ -1,42 +1,90 @@
-import {View} from 'react-native';
-import React, {useEffect} from 'react';
-import Animated, {
-  Easing,
-  Extrapolation,
-  interpolate,
-  useAnimatedStyle,
-  useSharedValue,
-  withDelay,
-  withRepeat,
-  withTiming,
-} from 'react-native-reanimated';
+import React, {useCallback, useEffect} from 'react';
+import {type ColorValue, type ViewProps, View} from 'react-native';
+import Animated, {Easing, useAnimatedStyle, useSharedValue, withDelay, withRepeat, withSequence, withTiming} from 'react-native-reanimated';
 
 import {styles} from './linear-activity-indicator.styles';
-import {Dimensions} from 'react-native';
 
-const TRACK_BACKGROUND_COLOR = '#d1d1d1';
-const INDICATOR_BACKGROUND_COLOR = '#000000';
-const {width: SCREEN_WIDTH} = Dimensions.get('window');
+const TRACK_COLOR = '#efefef';
+const INDICATOR_COLOR = '#8a8a8a';
 
-export const LinearActivityIndicator: React.FC = () => {
-  const anim = useSharedValue(0);
+const TRACK_HEIGHT = 4;
+const INDICATOR_WIDTH_COEFF = 0.7;
+
+const DETERMINATE_ANIMATION_DURATION = 1000;
+const INDETERMINATE_ANIMATION_DURATION = 1500;
+
+interface LinearActivityIndicatorProps extends ViewProps {
+  progress?: number;
+
+  trackHeight?: number;
+  indicatorWidthCoeff?: number;
+
+  trackColor?: ColorValue;
+  indicatorColor?: ColorValue;
+
+  determinateAnimationDuration?: number;
+  indeterminateAnimationDuration?: number;
+}
+
+export const LinearActivityIndicator: React.FC<LinearActivityIndicatorProps> = ({
+  progress,
+
+  trackHeight = TRACK_HEIGHT,
+  indicatorWidthCoeff = INDICATOR_WIDTH_COEFF,
+
+  trackColor = TRACK_COLOR,
+  indicatorColor = INDICATOR_COLOR,
+
+  determinateAnimationDuration = DETERMINATE_ANIMATION_DURATION,
+  indeterminateAnimationDuration = INDETERMINATE_ANIMATION_DURATION,
+
+  style,
+  ...props
+}) => {
+  const position = useSharedValue(0);
+  const indicatorProgress = useSharedValue(0);
+
+  const indicatorAnimatedStyle = useAnimatedStyle(
+    () => ({
+      width: `${indicatorProgress.value * 100}%`,
+      start: `${position.value * 100}%`,
+    }),
+    []
+  );
 
   useEffect(() => {
-    anim.value = withRepeat(withDelay(750, withTiming(1, {duration: 1500, easing: Easing.inOut(Easing.ease)})), -1, false, () => {
-      anim.value = 1;
-    });
+    if (typeof progress === 'undefined') {
+      startIndererminateAnimation();
+    }
   }, []);
 
-  const indicatorAnimatedStyle = useAnimatedStyle(() => ({
-    // start: interpolate(anim.value, [0, 1], [-SCREEN_WIDTH / 2, SCREEN_WIDTH], Extrapolation.CLAMP),
-    // width: SCREEN_WIDTH / 2,
-    start: interpolate(anim.value, [0, 1], [SCREEN_WIDTH, 0], Extrapolation.CLAMP),
-    end: interpolate(anim.value, [0, 1], [SCREEN_WIDTH, 0], Extrapolation.CLAMP),
-  }));
+  useEffect(() => {
+    if (typeof progress === 'number') {
+      indicatorProgress.value = withTiming(progress / 100, {duration: determinateAnimationDuration, easing: Easing.linear});
+    }
+  }, [progress]);
+
+  const startIndererminateAnimation = useCallback(() => {
+    indicatorProgress.value = withRepeat(
+      withDelay(
+        indeterminateAnimationDuration * 0.2,
+        withSequence(
+          withTiming(indicatorWidthCoeff, {
+            duration: indeterminateAnimationDuration * 0.4,
+            easing: Easing.inOut(Easing.ease),
+          }),
+          withTiming(0, {duration: indeterminateAnimationDuration * 0.4, easing: Easing.in(Easing.ease)})
+        )
+      ),
+      -1,
+      true
+    );
+    position.value = withRepeat(withDelay(indeterminateAnimationDuration * 0.4, withTiming(1, {duration: indeterminateAnimationDuration * 0.6})), -1);
+  }, []);
 
   return (
-    <View style={[styles.track, {backgroundColor: TRACK_BACKGROUND_COLOR}]}>
-      <Animated.View style={[styles.indicator, {backgroundColor: INDICATOR_BACKGROUND_COLOR}, indicatorAnimatedStyle]} />
+    <View style={[styles.track, {backgroundColor: trackColor, height: trackHeight}, style]} {...props}>
+      <Animated.View style={[styles.indicator, {backgroundColor: indicatorColor}, indicatorAnimatedStyle]} />
     </View>
   );
 };

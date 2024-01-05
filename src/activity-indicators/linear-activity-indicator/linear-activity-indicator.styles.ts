@@ -2,8 +2,9 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   track: {
-    height: 4,
     width: '100%',
+
+    overflow: 'hidden',
   },
   indicator: {
     position: 'absolute',

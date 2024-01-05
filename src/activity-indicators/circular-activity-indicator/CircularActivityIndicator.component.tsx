@@ -13,6 +13,9 @@ export interface CircularActivityIndicatorProps {
 
   trackColor?: ColorValue;
   indicatorColor?: ColorValue;
+
+  determinateAnimationDuration?: number;
+  indeterminateAnimationDuration?: number;
 }
 
 const STROKE_WIDTH = 3;
@@ -21,14 +24,22 @@ const CIRCUMFERENCE = 120;
 const TRACK_COLOR = '#efefef';
 const INDICATOR_COLOR = '#8a8a8a';
 
+const DETERMINATE_ANIMATION_DURATION = 2000;
+const INDETERMINATE_ANIMATION_DURATION = 800;
+
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
 export const CircularActivityIndicator: React.FC<CircularActivityIndicatorProps> = ({
   progress,
+
   size = CIRCUMFERENCE,
   strokeWidth = STROKE_WIDTH,
+
   trackColor = TRACK_COLOR,
   indicatorColor = INDICATOR_COLOR,
+
+  determinateAnimationDuration = DETERMINATE_ANIMATION_DURATION,
+  indeterminateAnimationDuration = INDETERMINATE_ANIMATION_DURATION,
 }) => {
   const radius = size / (2 * Math.PI);
   const halfCircle = radius + strokeWidth;
@@ -59,13 +70,20 @@ export const CircularActivityIndicator: React.FC<CircularActivityIndicatorProps>
 
   useEffect(() => {
     if (typeof progress === 'number') {
-      indicatorProgress.value = withTiming(progress / 100, {duration: 2000, easing: Easing.linear});
+      indicatorProgress.value = withTiming(progress / 100, {duration: determinateAnimationDuration, easing: Easing.linear});
     }
   }, [progress]);
 
   const startIndeterminateAnimation = useCallback(() => {
-    indicatorProgress.value = withRepeat(withSequence(withTiming(0.7, {duration: 800}), withTiming(0.1, {duration: 2000})), -1, true);
-    rotate.value = withRepeat(withTiming(360, {duration: 900, easing: Easing.linear}), -1);
+    indicatorProgress.value = withRepeat(
+      withSequence(
+        withTiming(0.7, {duration: indeterminateAnimationDuration / 1.25}),
+        withTiming(0.1, {duration: indeterminateAnimationDuration * 2})
+      ),
+      -1,
+      true
+    );
+    rotate.value = withRepeat(withTiming(360, {duration: indeterminateAnimationDuration, easing: Easing.linear}), -1);
   }, []);
 
   return (

@@ -122,7 +122,7 @@ No additional steps are necessary.
 | strokeWidth | - | number | 3 |
 | trackColor | - | ColorValue | - |
 | indicatorColor | - | ColorValue | - |
-| determinateAnimationDuration | - | number | 2000 |
+| determinateAnimationDuration | - | number | 1000 |
 | indeterminateAnimationDuration | - | number | 800 |
 
 ![circular activity indicator gif](https://ik.imagekit.io/Computools/rn-material-components/circular-indicator-gif.gif?updatedAt=1704472978611)

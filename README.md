@@ -8,9 +8,9 @@ Computools react native material components package
 
 2. ```yarn add react-native-reanimated```
 
-3. Add ***react-native-reanimated/plugin*** plugin to your babel.config.js.
+3. Add ```react-native-reanimated/plugin``` plugin to your babel.config.js.
 
-***react-native-reanimated/plugin has to be listed last.***
+_react-native-reanimated/plugin has to be listed last._
 
 See the [documentation](https://docs.swmansion.com/react-native-reanimated/) to learn more info about react-native-reanimated
 
@@ -26,76 +26,87 @@ No additional steps are necessary.
 
 ## Usage
 
-# controls
+<details><summary>Controls</summary>
+<br />
+<details><summary>Switch</summary>
+<br />
 
-- Switch
+**Properties**
 
-*** Props ***
-value: boolean - required
-onSwitch: (value: boolean) => void - required
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| value | required | boolean | - |
+| onSwitch | required | (value: boolean) => void | - |
+| labelEnd | - | ReactNode | - |
+| labelStart | - | ReactNode | - |
+| handleIcon | - | ReactNode | - |
+| hideIconOnSwitchOff | - | boolean | true |
+| handleActiveBorderColor | - | ColorValue | - |
+| handleInactiveBorderColor | - | ColorValue | - |
+| handleActiveBackgroundColor | - | ColorValue | - |
+| handleInactiveBackgroundColor | - | ColorValue | - |
+| trackActiveBorderColor | - | ColorValue | - |
+| trackInactiveBorderColor | - | ColorValue | - |
+| trackActiveBackgroundColor | - | ColorValue | - |
+| trackInactiveBackgroundColor | - | ColorValue | - |
+| style | - | ViewStyle | - |
+| hanldeStyle | - | ViewStyle | - |
+| animationDuration | - | number | 220 |
 
-labelEnd: ReactNode;
-labelStart: ReactNode;
-handleIcon: ReactNode;
+![switch](https://ik.imagekit.io/Computools/rn-material-components/switch.png?updatedAt=1704380348816)
+![switch gif](https://ik.imagekit.io/Computools/rn-material-components/switch-gif.gif?updatedAt=1704382949514)
+</details>
 
-hideIconOnSwitchOff: boolean; - default true
+<details><summary>Radio Button</summary>
+<br />
 
-handleActiveBorderColor: ColorValue;
-handleInactiveBorderColor: ColorValue;
-handleActiveBackgroundColor: ColorValue;
-handleInactiveBackgroundColor: ColorValue;
+**Properties**
 
-trackActiveBorderColor: ColorValue;
-trackInactiveBorderColor: ColorValue;
-trackActiveBackgroundColor: ColorValue;
-trackInactiveBackgroundColor: ColorValue;
+| name | description | type | default |
+| ------ | ------ | ------ | ----|
+| value | required | T | - |
+| checked | required | boolean | - |
+| onCheck | required | (value: T) => void | - |
+| size | - | number | 28 |
+| labelEnd | - | ReactNode | - |
+| labelStart | - | ReactNode | - |
+| animationDuration | - | number | 150 |
+| indicatorStyle | - | ViewStyle | - |
+| radioButtonStyle | - | ViewStyle | - |
+| indicatorColor | - | ColorValue | - |
+| radioButtonBorderColor | - | ColorValue | - |
+| radioButtonBackgroundColor | - | ColorValue | - |
+| checkedRadioButtonBorderColor | - | ColorValue | - |
+| checkedRadioButtonBeckgroundColor | - | ColorValue | - |
 
-style: ViewStyle;
-hanldeStyle: ViewStyle;
-animationDuration?: number; - default 220 ms
+![radio button](https://ik.imagekit.io/Computools/rn-material-components/radio-button.png?updatedAt=1704380348933)
+![radio button gif](https://ik.imagekit.io/Computools/rn-material-components/radio-button-gif.gif?updatedAt=1704382857149)
+</details>
 
-- Radio Button
+<details><summary>Checkbox</summary>
+<br />
 
-*** Props ***
+**Properties**
 
-value: T - required
-checked: boolean; - required
-onCheck: (value: T) => void; - required
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| value | required | T | - |
+| checked | required | boolean | - |
+| onCheck | required | (value: T) => void | - |
+| labelEnd | - | ReactNode | - |
+| labelStart | - | ReactNode | - |
+| checkedIcon | - | ReactNode | - |
+| checkboxBorderColor | - | ColorValue | - |
+| checkboxBackgroundColor | - | ColorValue | - |
+| checkedCheckboxBorderColor | - | ColorValue | - |
+| checkedCheckboxBackgroundColor | - | ColorValue | - |
+| size | - | number | 28 |
+| checkboxStyle | - | ViewStyle | - |
 
-size?: number; - default 28
-labelEnd?: ReactNode;
-labelStart?: ReactNode;
-animationDuration?: number; - default 150 ms
-
-indicatorStyle?: StyleProp<ViewStyle>;
-radioButtonStyle?: StyleProp<ViewStyle>;
-
-indicatorColor?: ColorValue;
-radioButtonBorderColor?: ColorValue;
-radioButtonBackgroundColor?: ColorValue;
-checkedRadioButtonBorderColor?: ColorValue;
-checkedRadioButtonBeckgroundColor?: ColorValue;
-
-- Checkbox
-
-*** Props ***
-
-value: T; - required
-checked: boolean; - required
-
-labelEnd?: ReactNode;
-labelStart?: ReactNode;
-checkedIcon?: ReactNode;
-
-checkboxBorderColor?: ColorValue;
-checkboxBackgroundColor?: ColorValue;
-checkedCheckboxBorderColor?: ColorValue;
-checkedCheckboxBackgroundColor?: ColorValue;
-
-size?: number; - default 28
-checkboxStyle?: StyleProp<ViewStyle>;
-
-onCheck: (value: T) => void;
+![checkbox](https://ik.imagekit.io/Computools/rn-material-components/checkbox.png?updatedAt=1704380348884)
+![checkbox gif](https://ik.imagekit.io/Computools/rn-material-components/checkbox-gif.gif?updatedAt=1704382741915)
+</details>
+</details>
 
 
 ## Contributing

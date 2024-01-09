@@ -26,7 +26,7 @@ No additional steps are necessary.
 
 ## Usage
 
-<details><summary>Cards</summary></details>
+<details><summary>Cards</summary>
 <br />
 <details><summary>Card</summary>
 <br />
@@ -44,7 +44,7 @@ No additional steps are necessary.
 
 ![card](https://ik.imagekit.io/Computools/rn-material-components/card.png?updatedAt=1704800414329)
 </details>
-
+</details>
 <details><summary>Controls</summary>
 <br />
 <details><summary>Switch</summary>

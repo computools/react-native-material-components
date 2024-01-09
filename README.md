@@ -26,10 +26,9 @@ No additional steps are necessary.
 
 ## Usage
 
-<details><summary>Cards</summary>
-<br />
 <details><summary>Card</summary>
 <br />
+
 **Properties**
 
 | name | description | type | default |
@@ -43,7 +42,6 @@ No additional steps are necessary.
 | elevationColor | - | ColorValue | #d1d1d1 |
 
 ![card](https://ik.imagekit.io/Computools/rn-material-components/card.png?updatedAt=1704800414329)
-</details>
 </details>
 <details><summary>Controls</summary>
 <br />

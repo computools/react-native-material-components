@@ -26,6 +26,17 @@ No additional steps are necessary.
 
 ## Usage
 
+<details><summary>Divider</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| color | - | ColorValue | #efefef |
+
+![divider](https://ik.imagekit.io/Computools/rn-material-components/divider.png?updatedAt=1704802071858)
+</details>
 <details><summary>Controls</summary>
 <br />
 <details><summary>Switch</summary>

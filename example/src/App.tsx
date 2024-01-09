@@ -1,7 +1,14 @@
 import * as React from 'react';
-
-import {Test} from '@computools/react-native-material-components';
+import {StyleSheet, View} from 'react-native';
 
 export default function App() {
-  return <Test />;
+  return <View style={styles.container} />;
 }
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 24,
+    justifyContent: 'center',
+  },
+});

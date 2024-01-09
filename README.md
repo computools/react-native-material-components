@@ -26,6 +26,25 @@ No additional steps are necessary.
 
 ## Usage
 
+<details><summary>Cards</summary></details>
+<br />
+<details><summary>Card</summary>
+<br />
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| filled | - | boolean | true |
+| elevated | - | boolean | true |
+| outlined | - | boolean | true |
+| children | - | ReactNode | - |
+| fillColor | - | ColorValue | #ffffff |
+| outlineColor | - | ColorValue | #efefef |
+| elevationColor | - | ColorValue | #d1d1d1 |
+
+![card](https://ik.imagekit.io/Computools/rn-material-components/card.png?updatedAt=1704800414329)
+</details>
+
 <details><summary>Controls</summary>
 <br />
 <details><summary>Switch</summary>

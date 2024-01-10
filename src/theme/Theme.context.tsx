@@ -10,6 +10,6 @@ export interface ThemeContainerProps {
   theme?: Theme;
 }
 
-export const ThemeContainer: React.FC<ThemeContainerProps> = ({children, theme = LightTheme}) => {
-  return <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>;
-};
+export const ThemeContainer: React.FC<ThemeContainerProps> = ({children, theme = LightTheme}) => (
+  <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
+);

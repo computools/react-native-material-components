@@ -25,7 +25,72 @@ No additional steps are necessary.
 ```cd ios && pod install && cd ..```
 
 ## Usage
+<details><summary>Theme</summary>
+<br />
 
+## Basic usage
+
+You don't need extra steps to use the theme via whole app. The default theme is ***light***.
+
+## Themes provided via the library
+
+This library provides _dark_ and _light_ themes e.g. on iOS 13+ and Android 10+, you can get user's preferred color scheme ('dark' or 'light') with the ([Appearance API](https://reactnative.dev/docs/appearance)).
+
+```
+import {useColorScheme} from 'react-native';
+import {ThemeContainer, DarkTheme, LightTheme} from '@computools/react-native-material-components';
+
+export default function App() {
+  const scheme = useColorScheme();
+
+  return (
+    <ThemeContainer theme={scheme === 'dark' ? DarkTheme : LightTheme}>
+      {/* Rest of your app code */}
+    </ThemeContainer>
+  );
+};
+```
+
+## Custom theme
+
+1. Wrap the whole app in ```ThemeContainer```
+2. Pass the theme prop to the ```ThemeContainer```
+
+```
+import {ThemeContainer, DarkTheme, type Theme} from '@computools/react-native-material-components';
+
+const CustomTheme: Theme = {...DarkTheme, primary: {...DarkTheme.primary, main: '#F8F8F8'}};
+
+export default function App() {
+  return (
+    <ThemeContainer theme={CustomTheme}>
+      {/* Rest of your app code */}
+    </ThemeContainer>
+  );
+}
+```
+
+## Using the current theme in your own components
+
+To gain access to the theme in any component you can use the useTheme hook. It returns the theme object:
+
+```
+import React from 'react';
+import {TouchableOpacity, Text} from 'react-native';
+import {useTheme} from '@computools/react-native-material-components';
+
+export const MySubmitButton() => {
+  const {primary} = useTheme();
+
+  return (
+    <TouchableOpacity style={{backgroundColor: primary.container}}>
+      <Text>Submit</Text>
+    </TouchableOpacity>
+  );
+}
+```
+
+</details>
 <details><summary>Controls</summary>
 <br />
 <details><summary>Switch</summary>

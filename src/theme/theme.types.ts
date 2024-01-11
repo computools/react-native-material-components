@@ -1,47 +1,53 @@
-import {type ColorValue} from 'react-native';
+import type {ColorValue as RNColorValue} from 'react-native';
+
+type ColorHex = `#${string}`;
+type ColorRgn = `rgb(${number}, ${number}, ${number})`;
+type ColorRgba = `rgba(${number}, ${number}, ${number}, ${number})`;
+
+export type ColorValue = ColorHex | ColorRgn | ColorRgba;
 
 export interface ThemeColors {
-  primary: string;
-  secondary: string;
-  tertiary: string;
-  error: string;
-  neutral: string;
-  neutralVariant: string;
+  primary: ColorValue;
+  secondary: ColorValue;
+  tertiary: ColorValue;
+  error: ColorValue;
+  neutral: ColorValue;
+  neutralVariant: ColorValue;
 }
 
 export interface BaseAccentThemeBlock {
-  background: ColorValue;
-  text: ColorValue;
+  background: RNColorValue;
+  text: RNColorValue;
 }
 
 export interface AccentThemeBlock extends BaseAccentThemeBlock {
-  backgroundDim: ColorValue;
-  textVariant: ColorValue;
+  backgroundDim: RNColorValue;
+  textVariant: RNColorValue;
 }
 
 export interface AccentPrimaryThemeBlock extends BaseAccentThemeBlock {
-  backgroundInverse: ColorValue;
+  backgroundInverse: RNColorValue;
 }
 
 export interface SurfaceTextColors {
-  text: ColorValue;
-  textVariant: ColorValue;
-  textInverse: ColorValue;
+  text: RNColorValue;
+  textVariant: RNColorValue;
+  textInverse: RNColorValue;
 }
 
 export interface SurfaceThemeBlock extends SurfaceTextColors {
-  background: ColorValue;
-  backgroundDim: ColorValue;
-  backgroundBright: ColorValue;
-  backgroundInverse: ColorValue;
+  background: RNColorValue;
+  backgroundDim: RNColorValue;
+  backgroundBright: RNColorValue;
+  backgroundInverse: RNColorValue;
 }
 
 export interface SurfaceContainerThemeBlock extends SurfaceTextColors {
-  background: ColorValue;
-  backgroundLow: ColorValue;
-  backgroundLowest: ColorValue;
-  backgroundHigh: ColorValue;
-  backgroundHighest: ColorValue;
+  background: RNColorValue;
+  backgroundLow: RNColorValue;
+  backgroundLowest: RNColorValue;
+  backgroundHigh: RNColorValue;
+  backgroundHighest: RNColorValue;
 }
 
 export interface Theme {
@@ -58,8 +64,8 @@ export interface Theme {
   errorContainer: BaseAccentThemeBlock;
   surface: SurfaceThemeBlock;
   surfaceContainer: SurfaceContainerThemeBlock;
-  outline: ColorValue;
-  outlineVariant: ColorValue;
-  shadow: ColorValue;
-  scrim: ColorValue;
+  outline: RNColorValue;
+  outlineVariant: RNColorValue;
+  shadow: RNColorValue;
+  scrim: RNColorValue;
 }

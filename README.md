@@ -38,6 +38,7 @@ You don't need extra steps to use the default theme via whole app. The default t
 **You need to wrap whole app in ```ThemeContainer```**
 
 This library provides an opportunity to automatically create themes from target colors. ```buildThemesFromColors``` function takes theme colors and returns light and dark themes.
+Each theme color must be one of the next color formats: hex, rgb or rgba.
 
 _See the example:_
 ```

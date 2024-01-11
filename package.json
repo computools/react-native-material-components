@@ -169,6 +169,7 @@
     ]
   },
   "dependencies": {
+    "@material/material-color-utilities": "^0.2.7",
     "react-native-reanimated": "^3.6.1",
     "react-native-svg": "^14.1.0"
   }

@@ -100,17 +100,17 @@ export const Snackbar = React.forwardRef<SnackbarRef, SnackbarProps>(
     );
 
     return (
-      <Animated.View style={[styles.container, {backgroundColor: surface.inverse}, snackbarAnimatedStyle, style]} {...props}>
-        <Text style={[{color: surface.onInverse}, styles.supportingText, contentStyle]}>{content}</Text>
+      <Animated.View style={[styles.container, {backgroundColor: surface.backgroundInverse}, snackbarAnimatedStyle, style]} {...props}>
+        <Text style={[{color: surface.textInverse}, styles.supportingText, contentStyle]}>{content}</Text>
         <View style={styles.actions}>
           {action.length > 0 && (
             <TouchableOpacity hitSlop={16} onPress={onActionPress}>
-              <Text style={[{color: primary.inverse}, styles.mainAction, actionStyle]}>{action}</Text>
+              <Text style={[{color: primary.backgroundInverse}, styles.mainAction, actionStyle]}>{action}</Text>
             </TouchableOpacity>
           )}
           {showCloseIcon && (
             <TouchableOpacity hitSlop={16} onPress={hideSnackbar}>
-              <CloseIcon size={closeIconSize} color={closeIconColor ?? surface.onInverse} />
+              <CloseIcon size={closeIconSize} color={closeIconColor ?? surface.text} />
             </TouchableOpacity>
           )}
         </View>

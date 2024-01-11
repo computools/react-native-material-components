@@ -30,11 +30,46 @@ No additional steps are necessary.
 
 ## Basic usage
 
-You don't need extra steps to use the theme via whole app. The default theme is ***light***.
+You don't need extra steps to use the default theme via whole app. The default theme is ***light***.
+
+
+## Custom theme
+
+**You need to wrap whole app in ```ThemeContainer```**
+
+This library provides an opportunity to automatically create themes from target colors. ```buildThemesFromColors``` function takes theme colors and returns light and dark themes.
+
+_See the example:_
+```
+import {buildThemesFromColors, type ThemeColors} from '@computools/react-native-material-components';
+
+export const themeColors: ThemeColors = {
+  primary: '#2e5242',
+  secondary: '#e28f00',
+  tertiary: '#cb7375',
+  error: '#E4122B',
+  neutral: '#d7a0a6',
+  neutralVariant: '#ecece8',
+};
+
+const themes = buildThemesFromColors(themeColors);
+
+export default function App() {
+  return (
+    <ThemeContainer theme={themes.light}>
+     {/* Rest of your app code */}
+    </ThemeContainer>
+  );
+}
+```
+
+Also, you can create a custom theme manually and pass it as a property to the ThemeContainer component. (hint: Check Theme interface provided by the library)
 
 ## Themes provided via the library
 
 This library provides _dark_ and _light_ themes e.g. on iOS 13+ and Android 10+, you can get user's preferred color scheme ('dark' or 'light') with the ([Appearance API](https://reactnative.dev/docs/appearance)).
+
+**You need to wrap whole app in ```ThemeContainer```**
 
 ```
 import {useColorScheme} from 'react-native';
@@ -49,25 +84,6 @@ export default function App() {
     </ThemeContainer>
   );
 };
-```
-
-## Custom theme
-
-1. Wrap the whole app in ```ThemeContainer```
-2. Pass the theme prop to the ```ThemeContainer```
-
-```
-import {ThemeContainer, DarkTheme, type Theme} from '@computools/react-native-material-components';
-
-const CustomTheme: Theme = {...DarkTheme, primary: {...DarkTheme.primary, main: '#F8F8F8'}};
-
-export default function App() {
-  return (
-    <ThemeContainer theme={CustomTheme}>
-      {/* Rest of your app code */}
-    </ThemeContainer>
-  );
-}
 ```
 
 ## Using the current theme in your own components

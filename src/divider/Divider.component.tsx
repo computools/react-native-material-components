@@ -1,12 +1,15 @@
 import React from 'react';
-import {View, type ViewProps, type ColorValue} from 'react-native';
+import {View, type ViewProps} from 'react-native';
 
 import {styles} from './divider.styles';
+import {useTheme} from '../theme/useTheme.hook';
 
 export interface DividerProps extends ViewProps {
-  color?: ColorValue;
+  horizontal?: boolean;
 }
 
-export const Divider: React.FC<DividerProps> = ({color = '#efefef', style, ...props}) => (
-  <View style={[styles.container, {backgroundColor: color}, style]} {...props} />
-);
+export const Divider: React.FC<DividerProps> = ({horizontal = true, style, ...props}) => {
+  const {outlineVariant} = useTheme();
+
+  return <View style={[horizontal ? styles.dividerHorizontal : styles.dividerVertical, {backgroundColor: outlineVariant}, style]} {...props} />;
+};

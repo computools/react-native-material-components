@@ -1,7 +1,11 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
-  container: {
-    height: 2,
+  dividerHorizontal: {
+    height: 1,
+  },
+  dividerVertical: {
+    width: 1,
+    height: '100%',
   },
 });

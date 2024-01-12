@@ -1,4 +1,5 @@
-export {Divider} from './divider/Divider.component';
+export {Divider, type DividerProps} from './divider/Divider.component';
+
 export {Checkbox} from './controls/checkbox/checkbox.component';
 export {Switch, type SwitchProps} from './controls/switch/switch.component';
 export {Snackbar, type SnackbarProps, type SnackbarRef} from './snackbar/Snackbar.component';

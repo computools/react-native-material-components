@@ -108,14 +108,13 @@ export const MySubmitButton() => {
 </details>
 <details><summary>Divider</summary>
 <br />
-
 **Properties**
 
 | name | description | type | default |
 | ------ | ------ | ------ | ---- |
-| color | - | ColorValue | #efefef |
+| horizontal | - | boolean | true |
 
-![divider](https://ik.imagekit.io/Computools/rn-material-components/divider.png?updatedAt=1704802071858)
+![divider](https://ik.imagekit.io/Computools/rn-material-components/divider.png?updatedAt=1705067870577)
 </details>
 <details><summary>Controls</summary>
 <br />

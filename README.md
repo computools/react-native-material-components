@@ -57,7 +57,7 @@ const themes = buildThemesFromColors(themeColors);
 
 export default function App() {
   return (
-    <ThemeContainer theme={themes.light}>
+    <ThemeContainer theme={themes.lightTheme}>
      {/* Rest of your app code */}
     </ThemeContainer>
   );

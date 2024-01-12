@@ -4,18 +4,8 @@ import type {Palette} from './palette.types';
 import {type ThemeColors} from './theme.types';
 
 const HEX_REGEX = /^#(?:[A-Fa-f0-9]{3}){1,2}$/;
-const RGB_REGEX = /^rgb\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\)$/;
+const RGB_REGEX = /^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/;
 const RGBA_REGEX = /^rgba\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/;
-
-interface Rgb {
-  r: number;
-  g: number;
-  b: number;
-}
-
-interface Rgba extends Rgb {
-  a: number;
-}
 
 export const getPalette = (themeColros: ThemeColors) => {
   const palette = {} as Palette;
@@ -44,58 +34,28 @@ const getArgbColor = (color: string) => {
     return argbFromHex(color);
   }
 
-  if (RGB_REGEX.test(color)) {
-    const rgb = getRgb(color);
+  const rgb = getRgb(color);
+  const rgba = getRgba(color);
 
-    if (rgb) {
-      return argbFromRgb(rgb.r, rgb.g, rgb.b);
-    }
+  if (rgb) {
+    return argbFromRgb(rgb.r, rgb.g, rgb.b);
   }
 
-  if (RGBA_REGEX.test(color)) {
-    const rgba = getRgba(color);
-
-    if (rgba) {
-      return argbFromRgba(rgba);
-    }
+  if (rgba) {
+    return argbFromRgba(rgba);
   }
 
   throw new Error('Provided colors must be hex, rgb or rgba');
 };
 
 const getRgb = (color: string) => {
-  const match = color.match(/\d+/g);
-  const rgb = {} as Rgb;
+  const match = color.match(RGB_REGEX);
 
-  if (!match) {
-    return null;
-  }
-
-  rgb.r = Number(match[0]);
-
-  if (match[1]) {
-    rgb.g = Number(match[1]);
-  }
-
-  if (match[2]) {
-    rgb.b = Number(match[2]);
-  }
-
-  return rgb;
+  return match ? {r: Number(match[1]), g: Number(match[2]), b: Number(match[3])} : null;
 };
 
 const getRgba = (color: string) => {
-  const rgb = getRgb(color);
-  const rgba = {...rgb} as Rgba;
   const match = color.match(RGBA_REGEX);
 
-  if (!match) {
-    return null;
-  }
-
-  if (match[4]) {
-    rgba.a = Number(match[4]);
-  }
-
-  return rgba;
+  return match ? {r: Number(match[1]), g: Number(match[2]), b: Number(match[3]), a: Number(match[4])} : null;
 };

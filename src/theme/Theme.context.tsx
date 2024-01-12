@@ -12,7 +12,7 @@ export const defaultThemeColors: ThemeColors = {
   neutralVariant: '#605D66',
 };
 
-export const {light: LightTheme, dark: DarkTheme} = buildThemesFromColors(defaultThemeColors);
+export const {lightTheme: LightTheme, darkTheme: DarkTheme} = buildThemesFromColors(defaultThemeColors);
 export const ThemeContext = createContext<Theme>(LightTheme);
 
 export interface ThemeContainerProps {

@@ -1,5 +1,6 @@
 export {Checkbox} from './controls/checkbox/checkbox.component';
 export {Switch, type SwitchProps} from './controls/switch/switch.component';
+export {Snackbar, type SnackbarProps, type SnackbarRef} from './snackbar/Snackbar.component';
 export {RadioButton, type RadioButtonProps} from './controls/radio-button/RadioButton.component';
 
 export {

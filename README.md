@@ -106,7 +106,6 @@ export const MySubmitButton() => {
   );
 }
 ```
-
 </details>
 <details><summary>Controls</summary>
 <br />
@@ -189,7 +188,29 @@ export const MySubmitButton() => {
 ![checkbox gif](https://ik.imagekit.io/Computools/rn-material-components/checkbox-gif.gif?updatedAt=1704382741915)
 </details>
 </details>
+<details><summary>Snackbar</summary>
+<br />
 
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| content | Required. Snackbar supporting text | string | - |
+| action | Title for action button | string | - |
+| offset | Distance to the bottom | number | 64 |
+| duration | - | number | 2000 |
+| showCloseIcon | - | boolean | false |
+| closeIconSize | - | number | 20 |
+| closeIconColor | - | ColorValue | - |
+| animationDuration | - | number | 500 |
+| actionStyle | - | TextStyle | - |
+| contentStyle | - | TextStyle | - |
+| onActionPress | - | () => void | - |
+
+![snackbar](https://ik.imagekit.io/Computools/rn-material-components/snackbar.png?updatedAt=1704887400534)
+![snackbar with icon](https://ik.imagekit.io/Computools/rn-material-components/snackbar-with-icon.png?updatedAt=1704887400512)
+![snackbar gif](https://ik.imagekit.io/Computools/rn-material-components/snackbar-gif.gif?updatedAt=1704887530020)
+</details>
 
 ## Contributing
 

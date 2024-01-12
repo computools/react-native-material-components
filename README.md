@@ -106,17 +106,6 @@ export const MySubmitButton() => {
 }
 ```
 </details>
-<details><summary>Divider</summary>
-<br />
-
-**Properties**
-
-| name | description | type | default |
-| ------ | ------ | ------ | ---- |
-| horizontal | - | boolean | true |
-
-![divider](https://ik.imagekit.io/Computools/rn-material-components/divider.png?updatedAt=1705067870577)
-</details>
 <details><summary>Controls</summary>
 <br />
 <details><summary>Switch</summary>
@@ -198,6 +187,19 @@ export const MySubmitButton() => {
 ![checkbox gif](https://ik.imagekit.io/Computools/rn-material-components/checkbox-gif.gif?updatedAt=1704382741915)
 </details>
 </details>
+
+<details><summary>Divider</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| horizontal | - | boolean | true |
+
+![divider](https://ik.imagekit.io/Computools/rn-material-components/divider.png?updatedAt=1705067870577)
+</details>
+
 <details><summary>Snackbar</summary>
 <br />
 

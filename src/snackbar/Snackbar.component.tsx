@@ -88,7 +88,7 @@ export const Snackbar = React.forwardRef<SnackbarRef, SnackbarProps>(
           timeout.current = null;
         },
       }),
-      [hideSnackbar, animationDuration]
+      [hideSnackbar, animationDuration, duration]
     );
 
     const snackbarAnimatedStyle = useAnimatedStyle(
@@ -96,7 +96,7 @@ export const Snackbar = React.forwardRef<SnackbarRef, SnackbarProps>(
         opacity: visibility.value,
         bottom: interpolate(visibility.value, [0, 1], [offset * DISAPPEAR_COEFF, offset]),
       }),
-      []
+      [offset]
     );
 
     return (

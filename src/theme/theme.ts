@@ -1,10 +1,18 @@
 import {getPalette} from './get-palette';
+import {type Palette} from './palette.types';
 import {type Theme, type ThemeColors} from './theme.types';
 
 export const buildThemesFromColors = (themeColors: ThemeColors) => {
   const palette = getPalette(themeColors);
 
-  const lightTheme: Theme = {
+  const lightTheme = MaterialTheme.generateLightTheme(palette);
+  const darkTheme = MaterialTheme.generateDarkTheme(palette);
+
+  return {lightTheme, darkTheme};
+};
+
+class MaterialTheme {
+  public static readonly generateLightTheme = (palette: Palette): Theme => ({
     primary: {
       background: palette.primary40,
       backgroundInverse: palette.primary80,
@@ -79,9 +87,9 @@ export const buildThemesFromColors = (themeColors: ThemeColors) => {
     outlineVariant: palette.neutralVariant80,
     scrim: palette.neutral0,
     shadow: palette.neutral0,
-  };
+  });
 
-  const darkTheme: Theme = {
+  public static readonly generateDarkTheme = (palette: Palette): Theme => ({
     primary: {
       background: palette.primary80,
       backgroundInverse: palette.primary40,
@@ -156,7 +164,5 @@ export const buildThemesFromColors = (themeColors: ThemeColors) => {
     outlineVariant: palette.neutralVariant30,
     scrim: palette.neutral0,
     shadow: palette.neutral0,
-  };
-
-  return {light: lightTheme, dark: darkTheme};
-};
+  });
+}

@@ -5,6 +5,7 @@ export {RadioButton, type RadioButtonProps} from './controls/radio-button/RadioB
 
 export {
   type Theme,
+  type ColorValue,
   type ThemeColors,
   type AccentThemeBlock,
   type SurfaceTextColors,

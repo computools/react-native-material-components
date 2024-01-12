@@ -106,7 +106,6 @@ export const MySubmitButton() => {
   );
 }
 ```
-
 </details>
 <details><summary>Controls</summary>
 <br />
@@ -188,7 +187,7 @@ export const MySubmitButton() => {
 ![checkbox](https://ik.imagekit.io/Computools/rn-material-components/checkbox.png?updatedAt=1704380348884)
 ![checkbox gif](https://ik.imagekit.io/Computools/rn-material-components/checkbox-gif.gif?updatedAt=1704382741915)
 </details>
-
+</details>
 <details><summary>Snackbar</summary>
 <br />
 
@@ -211,11 +210,7 @@ export const MySubmitButton() => {
 ![snackbar](https://ik.imagekit.io/Computools/rn-material-components/snackbar.png?updatedAt=1704887400534)
 ![snackbar with icon](https://ik.imagekit.io/Computools/rn-material-components/snackbar-with-icon.png?updatedAt=1704887400512)
 ![snackbar gif](https://ik.imagekit.io/Computools/rn-material-components/snackbar-gif.gif?updatedAt=1704887530020)
-
 </details>
-
-</details>
-
 
 ## Contributing
 

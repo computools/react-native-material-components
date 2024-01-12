@@ -3,6 +3,7 @@ import React, {useCallback, useEffect} from 'react';
 import {type ColorValue, type ViewProps, View} from 'react-native';
 import Animated, {Easing, useAnimatedProps, useAnimatedStyle, useSharedValue, withRepeat, withSequence, withTiming} from 'react-native-reanimated';
 
+import {useTheme} from '../../theme/useTheme.hook';
 import {styles} from './circular-activity-indicator.styles';
 
 export interface CircularActivityIndicatorProps extends ViewProps {
@@ -18,11 +19,9 @@ export interface CircularActivityIndicatorProps extends ViewProps {
   indeterminateAnimationDuration?: number;
 }
 
-const STROKE_WIDTH = 3;
 const CIRCUMFERENCE = 120;
-
-const TRACK_COLOR = '#efefef';
-const INDICATOR_COLOR = '#8a8a8a';
+const STROKE_WIDTH_COEFF = 0.04;
+const TRANSPARENT_COLOR = 'transparent';
 
 const DETERMINATE_ANIMATION_DURATION = 1000;
 const INDETERMINATE_ANIMATION_DURATION = 800;
@@ -32,11 +31,11 @@ const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 export const CircularActivityIndicator: React.FC<CircularActivityIndicatorProps> = ({
   progress,
 
-  size = CIRCUMFERENCE,
-  strokeWidth = STROKE_WIDTH,
+  trackColor,
+  indicatorColor,
 
-  trackColor = TRACK_COLOR,
-  indicatorColor = INDICATOR_COLOR,
+  strokeWidth,
+  size = CIRCUMFERENCE,
 
   determinateAnimationDuration = DETERMINATE_ANIMATION_DURATION,
   indeterminateAnimationDuration = INDETERMINATE_ANIMATION_DURATION,
@@ -44,19 +43,15 @@ export const CircularActivityIndicator: React.FC<CircularActivityIndicatorProps>
   style,
   ...props
 }) => {
+  const appliedStrokeWidth = strokeWidth ?? size * STROKE_WIDTH_COEFF;
   const radius = size / (2 * Math.PI);
-  const halfCircle = radius + strokeWidth;
+  const halfCircle = radius + appliedStrokeWidth;
   const diameter = 2 * halfCircle;
+
+  const {primary} = useTheme();
 
   const rotate = useSharedValue(0);
   const indicatorProgress = useSharedValue(0);
-
-  const animatedCircleProps = useAnimatedProps(
-    () => ({
-      strokeDashoffset: size * (1 - indicatorProgress.value),
-    }),
-    []
-  );
 
   const animatedViewStyle = useAnimatedStyle(
     () => ({
@@ -65,13 +60,18 @@ export const CircularActivityIndicator: React.FC<CircularActivityIndicatorProps>
     []
   );
 
+  const animatedCircleProps = useAnimatedProps(
+    () => ({
+      strokeDashoffset: size * (1 - indicatorProgress.value),
+    }),
+    []
+  );
+
   useEffect(() => {
     if (typeof progress === 'undefined') {
       startIndeterminateAnimation();
     }
-  }, []);
 
-  useEffect(() => {
     if (typeof progress === 'number') {
       indicatorProgress.value = withTiming(progress / 100, {duration: determinateAnimationDuration, easing: Easing.linear});
     }
@@ -94,15 +94,15 @@ export const CircularActivityIndicator: React.FC<CircularActivityIndicatorProps>
       <Animated.View style={animatedViewStyle}>
         <Svg width={diameter} height={diameter} viewBox={`0 0 ${diameter} ${diameter}`}>
           <G origin={halfCircle} rotation="-90">
-            <Circle cx={'50%'} cy={'50%'} r={radius} stroke={trackColor} fill="transparent" strokeWidth={strokeWidth} />
+            <Circle cx={'50%'} cy={'50%'} r={radius} stroke={trackColor ?? TRANSPARENT_COLOR} fill={TRANSPARENT_COLOR} strokeWidth={strokeWidth} />
             <AnimatedCircle
               cx="50%"
               cy="50%"
               r={radius}
               animatedProps={animatedCircleProps}
-              strokeWidth={strokeWidth}
-              stroke={indicatorColor}
-              fill="transparent"
+              strokeWidth={appliedStrokeWidth}
+              stroke={indicatorColor ?? primary.background}
+              fill={TRANSPARENT_COLOR}
               strokeDasharray={size}
             />
           </G>

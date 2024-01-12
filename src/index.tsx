@@ -1,9 +1,12 @@
-export {Card, type CardProps} from './card/Card.component';
-export {Snackbar, type SnackbarProps, type SnackbarRef} from './snackbar/Snackbar.component';
-
 export {Checkbox} from './controls/checkbox/checkbox.component';
 export {Switch, type SwitchProps} from './controls/switch/switch.component';
 export {RadioButton, type RadioButtonProps} from './controls/radio-button/RadioButton.component';
+
+export {FilledCard} from './cards/filled-card/FilledCard.component';
+export {OutlinedCard} from './cards/outlined-card/OutlinedCard.component';
+export {ElevatedCard} from './cards/elevated-card/ElevatedCard.cpmponent';
+
+export {Snackbar, type SnackbarProps, type SnackbarRef} from './snackbar/Snackbar.component';
 
 export {
   type Theme,

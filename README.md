@@ -108,6 +108,7 @@ export const MySubmitButton() => {
 </details>
 <details><summary>Divider</summary>
 <br />
+
 **Properties**
 
 | name | description | type | default |

@@ -27,7 +27,6 @@ No additional steps are necessary.
 ## Usage
 <details><summary>Theme</summary>
 <br />
-
 ## Basic usage
 
 You don't need extra steps to use the default theme via whole app. The default theme is ***light***.
@@ -235,6 +234,19 @@ Outlined card is touchable.
 ![checkbox gif](https://ik.imagekit.io/Computools/rn-material-components/checkbox-gif.gif?updatedAt=1704382741915)
 </details>
 </details>
+
+<details><summary>Divider</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| horizontal | - | boolean | true |
+
+![divider](https://ik.imagekit.io/Computools/rn-material-components/divider.png?updatedAt=1705067870577)
+</details>
+
 <details><summary>Snackbar</summary>
 <br />
 

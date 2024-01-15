@@ -1,8 +1,8 @@
 import {StyleSheet} from 'react-native';
 
 const HALF = 0.5;
-const INDICATOR_SIZE_COEFICIENT = 0.5;
-const BORDER_WIDTH_SIZE_COEFICIENT = 0.1;
+const BORDER_WIDTH_COEFF = 0.1;
+const INDICATOR_SIZE_COEFF = 0.5;
 
 export const ENABLED_OPACITY = 1;
 export const DISABLED_OPACITY = 0.38;
@@ -20,10 +20,10 @@ export const styles = StyleSheet.create({
 });
 
 export const getRadioButtonFrameStyles = (size: number) => {
-  const indicatorSize = INDICATOR_SIZE_COEFICIENT * size;
+  const indicatorSize = INDICATOR_SIZE_COEFF * size;
   const indicatorRadius = indicatorSize * HALF;
   const radioButtonRadius = size * HALF;
-  const radioButtonBorderWidth = size * BORDER_WIDTH_SIZE_COEFICIENT;
+  const radioButtonBorderWidth = size * BORDER_WIDTH_COEFF;
 
   return StyleSheet.create({
     radioButton: {

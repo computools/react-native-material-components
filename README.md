@@ -109,6 +109,52 @@ export const MySubmitButton() => {
 </details>
 <details><summary>Controls</summary>
 <br />
+
+<details><summary>Checkbox</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| value | required | T | - |
+| checked | required | boolean | - |
+| onCheck | required | (value: T) => void | - |
+| labelEnd | - | ReactNode | - |
+| labelStart | - | ReactNode | - |
+| checkedIcon | - | ReactNode | - |
+| size | - | number | 28 |
+| checkboxStyle | - | ViewStyle | - |
+| errorColor | - | ColorValue | - |
+| borderColor | - | ColorValue | - |
+| checkedBorderColor | - | ColorValue | - |
+| checkedBackgroundColor | - | ColorValue | - |
+| errorAnimationDuration | - | number | 300 |
+
+![checkbox gif](https://ik.imagekit.io/Computools/rn-material-components/checkbox.gif?updatedAt=1705332263293)
+</details>
+<details><summary>Radio Button</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ----|
+| value | required | T | - |
+| checked | required | boolean | - |
+| onCheck | required | (value: T) => void | - |
+| size | - | number | 24 |
+| labelEnd | - | ReactNode | - |
+| labelStart | - | ReactNode | - |
+| animationDuration | - | number | 150 |
+| indicatorStyle | - | ViewStyle | - |
+| radioButtonStyle | - | ViewStyle | - |
+| radioButtonColor | - | ColorValue | - |
+| checkedRadioButtonColor | - | ColorValue | - |
+
+![radio button gif](https://ik.imagekit.io/Computools/rn-material-components/radio-button.gif?updatedAt=1705324901706)
+</details>
+
 <details><summary>Switch</summary>
 <br />
 
@@ -136,52 +182,6 @@ export const MySubmitButton() => {
 
 ![switch](https://ik.imagekit.io/Computools/rn-material-components/switch.png?updatedAt=1704380348816)
 ![switch gif](https://ik.imagekit.io/Computools/rn-material-components/switch-gif.gif?updatedAt=1704382949514)
-</details>
-
-<details><summary>Radio Button</summary>
-<br />
-
-**Properties**
-
-| name | description | type | default |
-| ------ | ------ | ------ | ----|
-| value | required | T | - |
-| checked | required | boolean | - |
-| onCheck | required | (value: T) => void | - |
-| size | - | number | 24 |
-| labelEnd | - | ReactNode | - |
-| labelStart | - | ReactNode | - |
-| animationDuration | - | number | 150 |
-| indicatorStyle | - | ViewStyle | - |
-| radioButtonStyle | - | ViewStyle | - |
-| radioButtonColor | - | ColorValue | - |
-| checkedRadioButtonColor | - | ColorValue | - |
-
-![radio button gif](https://ik.imagekit.io/Computools/rn-material-components/radio-button.gif?updatedAt=1705324901706)
-</details>
-
-<details><summary>Checkbox</summary>
-<br />
-
-**Properties**
-
-| name | description | type | default |
-| ------ | ------ | ------ | ---- |
-| value | required | T | - |
-| checked | required | boolean | - |
-| onCheck | required | (value: T) => void | - |
-| labelEnd | - | ReactNode | - |
-| labelStart | - | ReactNode | - |
-| checkedIcon | - | ReactNode | - |
-| checkboxBorderColor | - | ColorValue | - |
-| checkboxBackgroundColor | - | ColorValue | - |
-| checkedCheckboxBorderColor | - | ColorValue | - |
-| checkedCheckboxBackgroundColor | - | ColorValue | - |
-| size | - | number | 28 |
-| checkboxStyle | - | ViewStyle | - |
-
-![checkbox](https://ik.imagekit.io/Computools/rn-material-components/checkbox.png?updatedAt=1704380348884)
-![checkbox gif](https://ik.imagekit.io/Computools/rn-material-components/checkbox-gif.gif?updatedAt=1704382741915)
 </details>
 </details>
 <details><summary>Snackbar</summary>

@@ -148,20 +148,16 @@ export const MySubmitButton() => {
 | value | required | T | - |
 | checked | required | boolean | - |
 | onCheck | required | (value: T) => void | - |
-| size | - | number | 28 |
+| size | - | number | 24 |
 | labelEnd | - | ReactNode | - |
 | labelStart | - | ReactNode | - |
 | animationDuration | - | number | 150 |
 | indicatorStyle | - | ViewStyle | - |
 | radioButtonStyle | - | ViewStyle | - |
-| indicatorColor | - | ColorValue | - |
-| radioButtonBorderColor | - | ColorValue | - |
-| radioButtonBackgroundColor | - | ColorValue | - |
-| checkedRadioButtonBorderColor | - | ColorValue | - |
-| checkedRadioButtonBeckgroundColor | - | ColorValue | - |
+| radioButtonColor | - | ColorValue | - |
+| checkedRadioButtonColor | - | ColorValue | - |
 
-![radio button](https://ik.imagekit.io/Computools/rn-material-components/radio-button.png?updatedAt=1704380348933)
-![radio button gif](https://ik.imagekit.io/Computools/rn-material-components/radio-button-gif.gif?updatedAt=1704382857149)
+![radio button gif](https://ik.imagekit.io/Computools/rn-material-components/radio-button.gif?updatedAt=1705324901706)
 </details>
 
 <details><summary>Checkbox</summary>

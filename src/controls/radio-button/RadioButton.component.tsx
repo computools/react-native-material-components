@@ -55,10 +55,10 @@ export const RadioButton = <T extends any>({
     () => ({
       borderColor: interpolateColor(anim.value, [0, 1], [
         radioButtonColor ?? surface.textVariant,
-        props.disabled ? surface.text : checkedRadioButtonColor ?? primary.background,
+        checkedRadioButtonColor ?? primary.background,
       ] as string[]),
     }),
-    [props.disabled, radioButtonColor, checkedRadioButtonColor]
+    [radioButtonColor, checkedRadioButtonColor]
   );
 
   const indicatorAnimatedStyle = useAnimatedStyle(
@@ -78,7 +78,13 @@ export const RadioButton = <T extends any>({
   return (
     <TouchableOpacity onPress={onPress} style={[styles.container, {opacity: props.disabled ? DISABLED_OPACITY : ENABLED_OPACITY}, style]} {...props}>
       {labelStart}
-      <Animated.View style={[styles.radioButton, frameStyles.radioButton, radioButtonAnimatedStyle, radioButtonStyle]}>
+      <Animated.View
+        style={[
+          styles.radioButton,
+          frameStyles.radioButton,
+          props.disabled ? {borderColor: surface.text} : radioButtonAnimatedStyle,
+          radioButtonStyle,
+        ]}>
         <Animated.View
           style={[
             {borderRadius: frameStyles.indicator.borderRadius},

@@ -43,9 +43,9 @@ export const Checkbox: <T extends any>(props: CheckboxProps<T>) => ReactElement 
   checkedIcon,
 
   errorColor,
-  borderColor,
-  checkedBorderColor,
-  checkedBackgroundColor,
+  borderColor: borderColorProp,
+  checkedBorderColor: checkedBorderColorProp,
+  checkedBackgroundColor: checkedBackgroundColorProp,
 
   style,
   checkboxStyle,
@@ -63,9 +63,11 @@ export const Checkbox: <T extends any>(props: CheckboxProps<T>) => ReactElement 
   const checkmarkSize = size * CHECKMARK_SIZE_COEFF;
   const icon = checkedIcon ?? <CheckmarkIcon size={checkmarkSize} />;
 
-  const [appliedBackgroundColor, appliedBorderColor] = checked
-    ? [checkedBackgroundColor ?? primary.background, checkedBorderColor ?? primary.background]
-    : ['transparent', borderColor ?? surface.textVariant];
+  const checkedBackgroundColor = props.disabled ? surface.text : checkedBackgroundColorProp ?? primary.background;
+  const [checkedBorderColor, borderColor] = props.disabled
+    ? [surface.text, surface.text]
+    : [checkedBorderColorProp ?? primary.background, borderColorProp ?? surface.textVariant];
+  const [appliedBackgroundColor, appliedBorderColor] = checked ? [checkedBackgroundColor, checkedBorderColor] : ['transparent', borderColor];
 
   const checkboxColorsAnimatedStyle = useAnimatedStyle(
     () => ({
@@ -75,7 +77,7 @@ export const Checkbox: <T extends any>(props: CheckboxProps<T>) => ReactElement 
       ] as string[]),
       borderColor: interpolateColor(errorAnim.value, [0, 1], [appliedBorderColor, errorColor ?? error.background] as string[]),
     }),
-    [appliedBackgroundColor, appliedBorderColor, errorColor]
+    [appliedBackgroundColor, appliedBorderColor, errorColor, checked]
   );
 
   useEffect(() => {

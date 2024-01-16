@@ -178,10 +178,10 @@ export const MySubmitButton() => {
 | trackInactiveBackgroundColor | - | ColorValue | - |
 | style | - | ViewStyle | - |
 | hanldeStyle | - | ViewStyle | - |
+| trackStyle | - | ViewStyle | - |
 | animationDuration | - | number | 220 |
 
-![switch](https://ik.imagekit.io/Computools/rn-material-components/switch.png?updatedAt=1704380348816)
-![switch gif](https://ik.imagekit.io/Computools/rn-material-components/switch-gif.gif?updatedAt=1704382949514)
+![switch gif](https://ik.imagekit.io/Computools/rn-material-components/switch.gif?updatedAt=1705397969649)
 </details>
 </details>
 <details><summary>Snackbar</summary>

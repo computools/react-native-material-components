@@ -27,7 +27,6 @@ No additional steps are necessary.
 ## Usage
 <details><summary>Theme</summary>
 <br />
-
 ## Basic usage
 
 You don't need extra steps to use the default theme via whole app. The default theme is ***light***.
@@ -143,6 +142,53 @@ export const MySubmitButton() => {
 ![linear activity indicator gif](https://ik.imagekit.io/Computools/rn-material-components/linear-indicator-gif.gif?updatedAt=1705066319092)
 </details>
 </details>
+<details><summary>Cards</summary>
+<br />
+<details><summary>Filled Card</summary>
+<br />
+
+Filled card is non-touchable.
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| children | - | ReactNode | - |
+
+![card](https://ik.imagekit.io/Computools/rn-material-components/filled-card.png?updatedAt=1705074211963)
+</details>
+
+<details><summary>Outlined Card</summary>
+<br />
+
+Outlined card is non-touchable.
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| children | - | ReactNode | - |
+
+![outlined card](https://ik.imagekit.io/Computools/rn-material-components/outlined-card.png?updatedAt=1705074212036)
+</details>
+
+<details><summary>Elevated Card</summary>
+<br />
+
+Outlined card is touchable.
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| children | - | ReactNode | - |
+
+![card](https://ik.imagekit.io/Computools/rn-material-components/elevated-card.png?updatedAt=1705074211931)
+</details>
+</details>
 <details><summary>Controls</summary>
 <br />
 <details><summary>Switch</summary>
@@ -223,6 +269,19 @@ export const MySubmitButton() => {
 ![checkbox gif](https://ik.imagekit.io/Computools/rn-material-components/checkbox-gif.gif?updatedAt=1704382741915)
 </details>
 </details>
+
+<details><summary>Divider</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| horizontal | - | boolean | true |
+
+![divider](https://ik.imagekit.io/Computools/rn-material-components/divider.png?updatedAt=1705067870577)
+</details>
+
 <details><summary>Snackbar</summary>
 <br />
 **Properties**

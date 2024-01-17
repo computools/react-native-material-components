@@ -110,6 +110,7 @@ export const MySubmitButton() => {
 <br />
 <details><summary>Circular Activity Indicator</summary>
 <br />
+
 **Properties**
 
 | name | description | type | default |
@@ -124,9 +125,9 @@ export const MySubmitButton() => {
 
 ![circular activity indicator gif](https://ik.imagekit.io/Computools/rn-material-components/circular-indicator-gif.gif?updatedAt=1705066319093)
 </details>
-<br />
 <details><summary>Linear Activity Indicator</summary>
 <br />
+
 **Properties**
 
 | name | description | type | default |
@@ -191,8 +192,55 @@ Outlined card is touchable.
 </details>
 <details><summary>Controls</summary>
 <br />
+
+<details><summary>Checkbox</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| value | required | T | - |
+| checked | required | boolean | - |
+| onCheck | required | (value: T) => void | - |
+| labelEnd | - | ReactNode | - |
+| labelStart | - | ReactNode | - |
+| checkedIcon | - | ReactNode | - |
+| size | - | number | 28 |
+| checkboxStyle | - | ViewStyle | - |
+| errorColor | - | ColorValue | - |
+| borderColor | - | ColorValue | - |
+| checkedBorderColor | - | ColorValue | - |
+| checkedBackgroundColor | - | ColorValue | - |
+| errorAnimationDuration | - | number | 300 |
+
+![checkbox gif](https://ik.imagekit.io/Computools/rn-material-components/checkbox.gif?updatedAt=1705332263293)
+</details>
+<details><summary>Radio Button</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ----|
+| value | required | T | - |
+| checked | required | boolean | - |
+| onCheck | required | (value: T) => void | - |
+| size | - | number | 24 |
+| labelEnd | - | ReactNode | - |
+| labelStart | - | ReactNode | - |
+| animationDuration | - | number | 150 |
+| indicatorStyle | - | ViewStyle | - |
+| radioButtonStyle | - | ViewStyle | - |
+| radioButtonColor | - | ColorValue | - |
+| checkedRadioButtonColor | - | ColorValue | - |
+
+![radio button gif](https://ik.imagekit.io/Computools/rn-material-components/radio-button.gif?updatedAt=1705324901706)
+</details>
+
 <details><summary>Switch</summary>
 <br />
+
 **Properties**
 
 | name | description | type | default |
@@ -213,60 +261,10 @@ Outlined card is touchable.
 | trackInactiveBackgroundColor | - | ColorValue | - |
 | style | - | ViewStyle | - |
 | hanldeStyle | - | ViewStyle | - |
+| trackStyle | - | ViewStyle | - |
 | animationDuration | - | number | 220 |
 
-![switch](https://ik.imagekit.io/Computools/rn-material-components/switch.png?updatedAt=1704380348816)
-![switch gif](https://ik.imagekit.io/Computools/rn-material-components/switch-gif.gif?updatedAt=1704382949514)
-</details>
-
-<details><summary>Radio Button</summary>
-<br />
-
-**Properties**
-
-| name | description | type | default |
-| ------ | ------ | ------ | ----|
-| value | required | T | - |
-| checked | required | boolean | - |
-| onCheck | required | (value: T) => void | - |
-| size | - | number | 28 |
-| labelEnd | - | ReactNode | - |
-| labelStart | - | ReactNode | - |
-| animationDuration | - | number | 150 |
-| indicatorStyle | - | ViewStyle | - |
-| radioButtonStyle | - | ViewStyle | - |
-| indicatorColor | - | ColorValue | - |
-| radioButtonBorderColor | - | ColorValue | - |
-| radioButtonBackgroundColor | - | ColorValue | - |
-| checkedRadioButtonBorderColor | - | ColorValue | - |
-| checkedRadioButtonBeckgroundColor | - | ColorValue | - |
-
-![radio button](https://ik.imagekit.io/Computools/rn-material-components/radio-button.png?updatedAt=1704380348933)
-![radio button gif](https://ik.imagekit.io/Computools/rn-material-components/radio-button-gif.gif?updatedAt=1704382857149)
-</details>
-
-<details><summary>Checkbox</summary>
-<br />
-
-**Properties**
-
-| name | description | type | default |
-| ------ | ------ | ------ | ---- |
-| value | required | T | - |
-| checked | required | boolean | - |
-| onCheck | required | (value: T) => void | - |
-| labelEnd | - | ReactNode | - |
-| labelStart | - | ReactNode | - |
-| checkedIcon | - | ReactNode | - |
-| checkboxBorderColor | - | ColorValue | - |
-| checkboxBackgroundColor | - | ColorValue | - |
-| checkedCheckboxBorderColor | - | ColorValue | - |
-| checkedCheckboxBackgroundColor | - | ColorValue | - |
-| size | - | number | 28 |
-| checkboxStyle | - | ViewStyle | - |
-
-![checkbox](https://ik.imagekit.io/Computools/rn-material-components/checkbox.png?updatedAt=1704380348884)
-![checkbox gif](https://ik.imagekit.io/Computools/rn-material-components/checkbox-gif.gif?updatedAt=1704382741915)
+![switch gif](https://ik.imagekit.io/Computools/rn-material-components/switch.gif?updatedAt=1705397969649)
 </details>
 </details>
 
@@ -284,6 +282,7 @@ Outlined card is touchable.
 
 <details><summary>Snackbar</summary>
 <br />
+
 **Properties**
 
 | name | description | type | default |

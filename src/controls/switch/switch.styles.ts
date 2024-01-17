@@ -1,25 +1,29 @@
 import {StyleSheet} from 'react-native';
 
+export const ENABLED_OPACITY = 1;
+export const DISABLED_OPACITY = 0.38;
+
 export const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   track: {
-    justifyContent: 'center',
-
-    width: 55,
-    height: 30,
-
-    borderRadius: 16,
-  },
-  handle: {
-    position: 'absolute',
-
-    justifyContent: 'center',
+    flexDirection: 'row',
     alignItems: 'center',
 
-    marginHorizontal: 2,
+    height: 32,
+    width: 52,
+    paddingHorizontal: 2,
+
+    borderWidth: 2,
+    borderRadius: 100,
+  },
+  handle: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginStart: 'auto',
+
     width: 24,
     height: 24,
 

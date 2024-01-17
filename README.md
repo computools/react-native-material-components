@@ -27,7 +27,6 @@ No additional steps are necessary.
 ## Usage
 <details><summary>Theme</summary>
 <br />
-
 ## Basic usage
 
 You don't need extra steps to use the default theme via whole app. The default theme is ***light***.
@@ -107,6 +106,90 @@ export const MySubmitButton() => {
 }
 ```
 </details>
+<details><summary>Activity Indicators</summary>
+<br />
+<details><summary>Circular Activity Indicator</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ----|
+| progress | set up progress if you want to determinate the indicator (from 0 to 100) | number | - |
+| size | - | number | 120 |
+| strokeWidth | - | number | 0.04 of the size |
+| trackColor | - | ColorValue | - |
+| indicatorColor | - | ColorValue | - |
+| determinateAnimationDuration | - | number | 1000 |
+| indeterminateAnimationDuration | - | number | 800 |
+
+![circular activity indicator gif](https://ik.imagekit.io/Computools/rn-material-components/circular-indicator-gif.gif?updatedAt=1705066319093)
+</details>
+<details><summary>Linear Activity Indicator</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ----|
+| progress | set up progress if you want to determinate the indicator (from 0 to 100) | number | - |
+| trackHeight | - | number | 4 |
+| indicatorWidthCoeff | from 0 to 1 | number | 0.7 |
+| trackColor | - | ColorValue | - |
+| indicatorColor | - | ColorValue | - |
+| determinateAnimationDuration | - | number | 1000 |
+| indeterminateAnimationDuration | - | number | 1500 |
+
+![linear activity indicator gif](https://ik.imagekit.io/Computools/rn-material-components/linear-indicator-gif.gif?updatedAt=1705066319092)
+</details>
+</details>
+<details><summary>Cards</summary>
+<br />
+<details><summary>Filled Card</summary>
+<br />
+
+Filled card is non-touchable.
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| children | - | ReactNode | - |
+
+![card](https://ik.imagekit.io/Computools/rn-material-components/filled-card.png?updatedAt=1705074211963)
+</details>
+
+<details><summary>Outlined Card</summary>
+<br />
+
+Outlined card is non-touchable.
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| children | - | ReactNode | - |
+
+![outlined card](https://ik.imagekit.io/Computools/rn-material-components/outlined-card.png?updatedAt=1705074212036)
+</details>
+
+<details><summary>Elevated Card</summary>
+<br />
+
+Outlined card is touchable.
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| children | - | ReactNode | - |
+
+![card](https://ik.imagekit.io/Computools/rn-material-components/elevated-card.png?updatedAt=1705074211931)
+</details>
+</details>
 <details><summary>Controls</summary>
 <br />
 
@@ -184,6 +267,19 @@ export const MySubmitButton() => {
 ![switch gif](https://ik.imagekit.io/Computools/rn-material-components/switch.gif?updatedAt=1705397969649)
 </details>
 </details>
+
+<details><summary>Divider</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| horizontal | - | boolean | true |
+
+![divider](https://ik.imagekit.io/Computools/rn-material-components/divider.png?updatedAt=1705067870577)
+</details>
+
 <details><summary>Snackbar</summary>
 <br />
 

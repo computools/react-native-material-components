@@ -94,7 +94,7 @@ export const CircularActivityIndicator: React.FC<CircularActivityIndicatorProps>
       <Animated.View style={animatedViewStyle}>
         <Svg width={diameter} height={diameter} viewBox={`0 0 ${diameter} ${diameter}`}>
           <G origin={halfCircle} rotation="-90">
-            <Circle cx={'50%'} cy={'50%'} r={radius} stroke={trackColor ?? TRANSPARENT_COLOR} fill={TRANSPARENT_COLOR} strokeWidth={strokeWidth} />
+            <Circle cx="50%" cy="50%" r={radius} stroke={trackColor ?? TRANSPARENT_COLOR} fill={TRANSPARENT_COLOR} strokeWidth={strokeWidth} />
             <AnimatedCircle
               cx="50%"
               cy="50%"

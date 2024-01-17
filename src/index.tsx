@@ -11,6 +11,12 @@ export {ElevatedCard} from './cards/elevated-card/ElevatedCard.cpmponent';
 export {Snackbar, type SnackbarProps, type SnackbarRef} from './snackbar/Snackbar.component';
 
 export {
+  CircularActivityIndicator,
+  type CircularActivityIndicatorProps,
+} from './activity-indicators/circular-activity-indicator/CircularActivityIndicator.component';
+export {LinearActivityIndicator} from './activity-indicators/linear-activity-indicator/LinearActivityIndicator.component';
+
+export {
   type Theme,
   type ColorValue,
   type ThemeColors,

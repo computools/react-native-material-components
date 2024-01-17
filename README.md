@@ -106,6 +106,42 @@ export const MySubmitButton() => {
 }
 ```
 </details>
+<details><summary>Activity Indicators</summary>
+<br />
+<details><summary>Circular Activity Indicator</summary>
+<br />
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ----|
+| progress | set up progress if you want to determinate the indicator (from 0 to 100) | number | - |
+| size | - | number | 120 |
+| strokeWidth | - | number | 0.04 of the size |
+| trackColor | - | ColorValue | - |
+| indicatorColor | - | ColorValue | - |
+| determinateAnimationDuration | - | number | 1000 |
+| indeterminateAnimationDuration | - | number | 800 |
+
+![circular activity indicator gif](https://ik.imagekit.io/Computools/rn-material-components/circular-indicator-gif.gif?updatedAt=1705066319093)
+</details>
+<br />
+<details><summary>Linear Activity Indicator</summary>
+<br />
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ----|
+| progress | set up progress if you want to determinate the indicator (from 0 to 100) | number | - |
+| trackHeight | - | number | 4 |
+| indicatorWidthCoeff | from 0 to 1 | number | 0.7 |
+| trackColor | - | ColorValue | - |
+| indicatorColor | - | ColorValue | - |
+| determinateAnimationDuration | - | number | 1000 |
+| indeterminateAnimationDuration | - | number | 1500 |
+
+![linear activity indicator gif](https://ik.imagekit.io/Computools/rn-material-components/linear-indicator-gif.gif?updatedAt=1705066319092)
+</details>
+</details>
 <details><summary>Cards</summary>
 <br />
 <details><summary>Filled Card</summary>
@@ -157,7 +193,6 @@ Outlined card is touchable.
 <br />
 <details><summary>Switch</summary>
 <br />
-
 **Properties**
 
 | name | description | type | default |
@@ -249,7 +284,6 @@ Outlined card is touchable.
 
 <details><summary>Snackbar</summary>
 <br />
-
 **Properties**
 
 | name | description | type | default |

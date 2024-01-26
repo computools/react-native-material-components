@@ -28,5 +28,10 @@ export {
   type SurfaceContainerThemeBlock,
 } from './theme/theme.types';
 export {useTheme} from './theme/useTheme.hook';
-export {buildThemesFromColors} from './theme/theme';
-export {LightTheme, DarkTheme, ThemeContainer, defaultThemeColors, type ThemeContainerProps} from './theme/Theme.context';
+export {LightTheme, DarkTheme, defaultThemeColors, buildThemesFromColors} from './theme/build-theme';
+
+export {materialTypography} from './typography/typography.styles';
+export {useTypography} from './typography/useTypography.component';
+export {type MaterialTypography} from './typography/typography.types';
+
+export {type MaterialComponentsProviderProps, MaterialComponentsProvider} from './provider/MaterialComponents.context';

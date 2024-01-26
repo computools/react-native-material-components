@@ -1,9 +1,9 @@
 import {useContext} from 'react';
 
-import {ThemeContext} from './Theme.context';
+import {MaterialComponentsContext} from '../provider/MaterialComponents.context';
 
 export const useTheme = () => {
-  const theme = useContext(ThemeContext);
+  const {theme} = useContext(MaterialComponentsContext);
 
   return theme;
 };

@@ -1,17 +1,7 @@
-import {getPalette} from './get-palette';
+import {type Theme} from './theme.types';
 import {type Palette} from './palette.types';
-import {type Theme, type ThemeColors} from './theme.types';
 
-export const buildThemesFromColors = (themeColors: ThemeColors) => {
-  const palette = getPalette(themeColors);
-
-  const lightTheme = MaterialTheme.generateLightTheme(palette);
-  const darkTheme = MaterialTheme.generateDarkTheme(palette);
-
-  return {lightTheme, darkTheme};
-};
-
-class MaterialTheme {
+export class MaterialTheme {
   public static readonly generateLightTheme = (palette: Palette): Theme => ({
     primary: {
       background: palette.primary40,

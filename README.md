@@ -27,14 +27,15 @@ No additional steps are necessary.
 ## Usage
 <details><summary>Theme</summary>
 <br />
+
 ## Basic usage
 
 You don't need extra steps to use the default theme via whole app. The default theme is ***light***.
 
 
-## Custom theme
+## Custom Theme
 
-**You need to wrap whole app in ```ThemeContainer```**
+**You need to wrap whole app in ```MaterialComponentsProvider```**
 
 This library provides an opportunity to automatically create themes from target colors. ```buildThemesFromColors``` function takes theme colors and returns light and dark themes.
 Each theme color must be one of the next color formats: hex, rgb or rgba.
@@ -56,56 +57,99 @@ const themes = buildThemesFromColors(themeColors);
 
 export default function App() {
   return (
-    <ThemeContainer theme={themes.lightTheme}>
+    <MaterialComponentsProvider theme={themes.lightTheme}>
      {/* Rest of your app code */}
-    </ThemeContainer>
+    </MaterialComponentsProvider>
   );
 }
 ```
 
-Also, you can create a custom theme manually and pass it as a property to the ThemeContainer component. (hint: Check Theme interface provided by the library)
+Also, you can create a custom theme manually and pass it as a property to the MaterialComponentsProvider component. (hint: Check Theme interface provided by the library)
 
 ## Themes provided via the library
 
 This library provides _dark_ and _light_ themes e.g. on iOS 13+ and Android 10+, you can get user's preferred color scheme ('dark' or 'light') with the ([Appearance API](https://reactnative.dev/docs/appearance)).
 
-**You need to wrap whole app in ```ThemeContainer```**
+**You need to wrap whole app in ```MaterialComponentsProvider```**
 
 ```
 import {useColorScheme} from 'react-native';
-import {ThemeContainer, DarkTheme, LightTheme} from '@computools/react-native-material-components';
+import {MaterialComponentsProvider, DarkTheme, LightTheme} from '@computools/react-native-material-components';
 
 export default function App() {
   const scheme = useColorScheme();
 
   return (
-    <ThemeContainer theme={scheme === 'dark' ? DarkTheme : LightTheme}>
+    <MaterialComponentsProvider theme={scheme === 'dark' ? DarkTheme : LightTheme}>
       {/* Rest of your app code */}
-    </ThemeContainer>
+    </MaterialComponentsProvider>
   );
 };
 ```
 
-## Using the current theme in your own components
+## Using the current Theme in your own components
 
 To gain access to the theme in any component you can use the useTheme hook. It returns the theme object:
 
 ```
 import React from 'react';
-import {TouchableOpacity, Text} from 'react-native';
+import {TouchableOpacity, Text, TouchableOpacityProps} from 'react-native';
 import {useTheme} from '@computools/react-native-material-components';
 
-export const MySubmitButton() => {
+export const MySubmitButton: React.FC<TouchableOpacityProps> = ({style, ...props}) => {
   const {primary} = useTheme();
 
   return (
-    <TouchableOpacity style={{backgroundColor: primary.container}}>
+    <TouchableOpacity style={[{backgroundColor: primary.container}, style]} {...props}>
       <Text>Submit</Text>
     </TouchableOpacity>
   );
 }
 ```
 </details>
+<details><summary>Typography</summary>
+
+## Basic usage
+
+You don't need extra steps to use the default typography via whole app. The default font is Roboto for Android and san Francisco for IOS.
+
+## Custom Typography
+
+**You need to wrap whole app in ```MaterialComponentsProvider```**
+
+You can create a custom typography styles and pass it as a typography property to the MaterialComponentsProvider component.
+
+_See the example:_
+```
+import {MaterialComponentsProvider, materialTypography, MaterialTypography} from '@computools/react-native-material-components';
+
+const typographyStyles: MaterialTypography = {...materialTypography, bodyMedium: {...materialTypography.bodyMedium, fontFamily: 'Montserrat-Medium'}}
+
+export default function App() {
+  return (
+    <MaterialComponentsProvider typography={typographyStyles}>
+     {/* Rest of your app code */}
+    </MaterialComponentsProvider>
+  );
+}
+```
+
+## Using the current Typography in your own components
+
+To gain access to the typography in any component you can use the useTypography hook. It returns the material typography styles object:
+
+```
+import React, {PropsWithChildren} from 'react';
+import {TouchableOpacity, Text} from 'react-native';
+import {useTypography} from '@computools/react-native-material-components';
+
+export const AppBodyLargeText: React.FC<PropsWithChildren> = ({children}) => {
+  const {bodyLarge} = useTypography();
+
+  return <Text style={bodyLarge}>{children}</Text>;
+}
+```
+</deatils>
 <details><summary>Activity Indicators</summary>
 <br />
 <details><summary>Circular Activity Indicator</summary>

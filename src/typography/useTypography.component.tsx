@@ -2,8 +2,8 @@ import {useContext} from 'react';
 
 import {MaterialComponentsContext} from '../provider/MaterialComponents.context';
 
-export const useTheme = () => {
-  const {theme} = useContext(MaterialComponentsContext);
+export const useTypography = () => {
+  const {typography} = useContext(MaterialComponentsContext);
 
-  return theme;
+  return typography;
 };

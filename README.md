@@ -6,13 +6,34 @@ Computools react native material components package
 
 1. ```yarn add @computools/react-native-material-components```
 
-2. ```yarn add react-native-reanimated```
+2. Add required dependency packages
+```
+yarn add react-native-reanimated
+yarn add react-native-gesture-handler
+yarn add react-native-safe-area-context
+```
 
 3. Add ```react-native-reanimated/plugin``` plugin to your babel.config.js.
 
 _react-native-reanimated/plugin has to be listed last._
 
 See the [documentation](https://docs.swmansion.com/react-native-reanimated/) to learn more info about react-native-reanimated
+
+4. Wrap whole App in ```SafeAreaProvider``` and ```GestureHandlerRootView``` containers.
+
+See the example:
+
+```
+export default function App() {
+  return (
+    <SafeAreaProvider>
+      <GestureHandlerRootView style={{flex: 1}}>
+        {/* Rest of your app code */}
+      </GestureHandlerRootView>
+    </SafeAreaProvider>
+  );
+}
+```
 
 # Platform specific setup
 
@@ -323,7 +344,102 @@ Outlined card is touchable.
 
 ![divider](https://ik.imagekit.io/Computools/rn-material-components/divider.png?updatedAt=1705067870577)
 </details>
+<details><summary>Sheets</summary>
+<br />
+<details><summary>Bottom Sheet</summary>
 
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| header | | ReactNode | - |
+| children | - | ReactNode | - |
+| modalHeightCoeff | - | number | 0.4 |
+| animationDuration | - | number | 300 |
+| headerStyle | - | ViewStyle | - |
+| overlayStyle | - | ViewStyle | - |
+| dragHandleStyle | - | ViewStyle | - |
+
+### Usage
+
+1. Create a ref for a bottom sheet of the BottomSheetRef interface.
+2. Pass the bottom sheet ref as ref prop to ```BottomSheet```.
+3. Call ```toggle()``` method from ```ref.current``` to open/close the Bottom Sheet or ```expand()``` to expand the Bottom Sheet completely.
+
+See the example:
+
+```
+import {BottomSheet, type BottomSheetRef} from '@computools/react-native-material-components';
+
+export const MyScreen = () => {
+  const bottomSheetRef = React.useRef<BottomSheetRef>(null);
+
+  const toggleBottomSheet = () => ref.current?.toggle();
+
+  return (
+    <>
+      <View style={styles.container}>
+        <Text onPress={toggleBottomSheet}>TOGGLE BOTTOM SHEET</Text>
+      </View>
+      <BottomSheet ref={ref}>
+        {/* Bottom sheet content here */}
+      </BottomSheet>
+    </>
+  );
+}
+```
+
+**Note:** If you want to use scrollable components as children of Bottom Sheet you need to import them from react-native-gesture-handler. Otherwise they won't scroll on Android.
+
+![left side sheet](https://ik.imagekit.io/Computools/rn-material-components/left-side-sheet.gif?updatedAt=1706170982231)
+</details>
+<details><summary>Side Sheet</summary>
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| children | - | ReactNode | - |
+| stickySide | - | 'right' or 'left | 'right' |
+| modalWidthCoeff | up to 1 | number | 0.85 |
+| animationDuration | - | number | 300 |
+| overlayStyle | - | ViewStyle | - |
+
+### Usage
+
+1. Create a ref for a side sheet of the SideSheetRef interface.
+2. Pass the side sheet ref as ref prop to ```SideSheet```.
+3. Call ```toggle()``` method from ```ref.current``` to open/close the Side Sheet.
+
+See the example:
+
+```
+import {SideSheet, type SideSheetRef} from '@computools/react-native-material-components';
+
+export const MyScreen = () => {
+  const sideSheetRef = React.useRef<SideSheetRef>(null);
+
+  const toggleSideSheet = () => ref.current?.toggle();
+
+  return (
+    <>
+      <View style={styles.container}>
+        <Text onPress={toggleSideSheet}>TOGGLE SIDE SHEET</Text>
+      </View>
+      <SideSheet ref={ref}>
+        {/* Side sheet content here */}
+      </SideSheet>
+    </>
+  );
+}
+```
+
+**Note:** If you want to use scrollable components as children of Side Sheet you need to import them from react-native-gesture-handler. Otherwise they won't scroll on Android.
+
+![left side sheet](https://ik.imagekit.io/Computools/rn-material-components/left-side-sheet.gif?updatedAt=1706170982231)
+![right side sheet](https://ik.imagekit.io/Computools/rn-material-components/right-side-sheet.gif?updatedAt=1706171192408)
+</details>
+</details>
 <details><summary>Snackbar</summary>
 <br />
 

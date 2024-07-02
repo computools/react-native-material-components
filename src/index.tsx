@@ -1,5 +1,8 @@
 export {Divider, type DividerProps} from './divider/Divider.component';
 
+export {BottomSheet, type BottomSheetProps, type BottomSheetRef} from './sheets/bottom-sheet/BottomSheet.component';
+export {SideSheet, type SideSheetProps, type SideSheetRef, type StickySide} from './sheets/side-sheet/SideSheet.component';
+
 export {Checkbox} from './controls/checkbox/checkbox.component';
 export {Switch, type SwitchProps} from './controls/switch/switch.component';
 export {RadioButton, type RadioButtonProps} from './controls/radio-button/RadioButton.component';

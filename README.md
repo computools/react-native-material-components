@@ -333,6 +333,65 @@ Outlined card is touchable.
 </details>
 </details>
 
+<details><summary>Dialogs</summary>
+<details><summary>Dialog</summary>
+<br />
+
+Wrapper component used in ```BasicDialog```. This library proides the opportunity to use ```Dialog``` to implement custom components.
+
+**Methods**
+
+| name | parameters | returns |
+| ------ | ------ | ------ |
+| show | none | void |
+| close | none | void |
+| isShowed | none | boolean |
+
+_See the example how to use:_
+```
+import {Dialog, type DialogRef} from '@computools/react-native-material-components';
+
+export const YourComponent = () => {
+  const dialogRef = useRef<DialogRef>(null);
+
+  return (
+    {/* Rest of your app code */}
+    <Button onPress={() => dialogRef.current.show()} />
+    <Dialog ref={dialogRef}>
+      <YourDialogContent />
+    </Dialog>
+     {/* Rest of your app code */}
+  );
+}
+```
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ----|
+| animationDuration | appearance/disappearance animation duration | number | 220 |
+
+</details>
+<details><summary>Basic Dialog</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ----|
+| title | - | string | - |
+| subtitle | - | string | - |
+| firstActionTitle | - | string | - |
+| secondActionTitle | - | string | - |
+| onFirstActionPress | - | () | () => void |
+| onSecondActionPress | - | () => void | - |
+| titleStyle | - | TextStyle | - |
+| subtitleStyle | - | TextStyle | - |
+| prepend | - | ReactNde | - |
+| append | - | ReactNde | - |
+
+![circular activity indicator gif](https://ik.imagekit.io/Computools/rn-material-components/circular-indicator-gif.gif?updatedAt=1705066319093)
+</details></details>
 <details><summary>Divider</summary>
 <br />
 
@@ -357,7 +416,7 @@ Outlined card is touchable.
 | modalHeightCoeff | - | number | 0.4 |
 | animationDuration | - | number | 300 |
 | headerStyle | - | ViewStyle | - |
-| overlayStyle | - | ViewStyle | - |
+| backdropStyle | - | ViewStyle | - |
 | dragHandleStyle | - | ViewStyle | - |
 
 ### Usage
@@ -403,7 +462,7 @@ export const MyScreen = () => {
 | stickySide | - | 'right' or 'left | 'right' |
 | modalWidthCoeff | up to 1 | number | 0.85 |
 | animationDuration | - | number | 300 |
-| overlayStyle | - | ViewStyle | - |
+| backdropStyle | - | ViewStyle | - |
 
 ### Usage
 

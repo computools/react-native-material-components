@@ -11,7 +11,8 @@ export {FilledCard} from './cards/filled-card/FilledCard.component';
 export {OutlinedCard} from './cards/outlined-card/OutlinedCard.component';
 export {ElevatedCard} from './cards/elevated-card/ElevatedCard.cpmponent';
 
-export {BasicDialog} from './dialogs/basic-dialog/BasicDialog.component';
+export {Dialog, type DialogRef, type DialogProps} from './dialogs/dialog/Dialog.component';
+export {BasicDialog, type BasicDialogProps} from './dialogs/basic-dialog/BasicDialog.compoent';
 
 export {Snackbar, type SnackbarProps, type SnackbarRef} from './snackbar/Snackbar.component';
 

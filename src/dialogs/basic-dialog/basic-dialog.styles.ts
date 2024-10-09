@@ -1,17 +1,14 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
-  overlay: {
-    ...StyleSheet.absoluteFillObject,
+  title: {
+    marginBottom: 16,
   },
-  dialog: {
-    position: 'absolute',
+  actions: {
+    gap: 8,
+    flexDirection: 'row',
 
-    alignSelf: 'center',
-
-    width: '85%',
-    padding: 24,
-
-    borderRadius: 28,
+    paddingTop: 24,
+    marginStart: 'auto',
   },
 });

@@ -17,10 +17,11 @@ import {styles} from './modal-backdrop-wrapper.styles';
 export interface Props extends ModalProps {
   visibility: SharedValue<number>;
 
+  backdropStyle?: StyleProp<ViewStyle>;
   contentWrapperStyle?: StyleProp<ViewStyle>;
 }
 
-export const ModalBackdropWrapper: React.FC<Props> = ({visibility, contentWrapperStyle, children, onRequestClose, ...props}) => {
+export const ModalBackdropWrapper: React.FC<Props> = ({visibility, backdropStyle, contentWrapperStyle, children, onRequestClose, ...props}) => {
   const {scrim} = useTheme();
 
   const handlePressModalContent = useCallback((e: GestureResponderEvent) => {
@@ -36,7 +37,7 @@ export const ModalBackdropWrapper: React.FC<Props> = ({visibility, contentWrappe
 
   return (
     <Modal transparent supportedOrientations={['landscape', 'portrait']} {...props}>
-      <Animated.View style={[StyleSheet.absoluteFillObject, {backgroundColor: scrim}, backdropAnimatedStyle]} />
+      <Animated.View style={[StyleSheet.absoluteFillObject, {backgroundColor: scrim}, backdropAnimatedStyle, backdropStyle]} />
       <Pressable style={[styles.contentWrapperStyle, contentWrapperStyle]} onPress={onRequestClose}>
         <TouchableWithoutFeedback onPress={handlePressModalContent}>{children}</TouchableWithoutFeedback>
       </Pressable>

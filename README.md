@@ -11,6 +11,7 @@ Computools react native material components package
 yarn add react-native-reanimated
 yarn add react-native-gesture-handler
 yarn add react-native-safe-area-context
+yarn add react-native-svg
 ```
 
 3. Add ```react-native-reanimated/plugin``` plugin to your babel.config.js.

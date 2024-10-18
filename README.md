@@ -172,6 +172,9 @@ export const AppBodyLargeText: React.FC<PropsWithChildren> = ({children}) => {
 }
 ```
 </deatils>
+</details>
+<details><summary>Components</summary>
+<br />
 <details><summary>Activity Indicators</summary>
 <br />
 <details><summary>Circular Activity Indicator</summary>
@@ -335,6 +338,7 @@ Outlined card is touchable.
 </details>
 
 <details><summary>Dialogs</summary>
+<br />
 <details><summary>Dialog</summary>
 <br />
 
@@ -407,11 +411,11 @@ export const YourComponent = () => {
 
 ![full screen dialog gif](https://ik.imagekit.io/Computools/rn-material-components/full-screen-dialog.gif?updatedAt=1729261989519)
 </details>
-</details>
+
 <details><summary>Troubleshooting</summary>
 <br />
 
-**Modal unexpectedly reappear**
+## Modal unexpectedly reappear
 
 In some cases, a modal may unexpectedly reappear after being closed, especially when certain actions like navigation functions are triggered during or immediately after the modal's closure. This happens because the UI thread can be busy handling other interactions (e.g., button presses, transitions), leading to a race condition where the modal is shown again.
 
@@ -568,6 +572,7 @@ export const MyScreen = () => {
 ![snackbar with icon](https://ik.imagekit.io/Computools/rn-material-components/snackbar-with-icon.png?updatedAt=1704887400512)
 ![snackbar gif](https://ik.imagekit.io/Computools/rn-material-components/snackbar-gif.gif?updatedAt=1704887530020)
 </details>
+</deatils>
 
 ## Contributing
 

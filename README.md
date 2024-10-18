@@ -391,8 +391,53 @@ export const YourComponent = () => {
 | prepend | - | ReactNde | - |
 | append | - | ReactNde | - |
 
-![circular activity indicator gif](https://ik.imagekit.io/Computools/rn-material-components/circular-indicator-gif.gif?updatedAt=1705066319093)
-</details></details>
+![basic dialog gif](https://ik.imagekit.io/Computools/rn-material-components/basic-dialog.gif?updatedAt=1729261989459)
+</details>
+<details><summary>Full screen Dialog</summary>
+<br />
+
+**Properties**
+  animationDuration?: number;
+  animationType?: AnimationType;
+
+| name | description | type | default |
+| ------ | ------ | ------ | ----|
+| animationType | - | 'slide', 'fade', 'zoom' | 'slide' |
+| animationDuration | - | number | 330 |
+
+![full screen dialog gif](https://ik.imagekit.io/Computools/rn-material-components/full-screen-dialog.gif?updatedAt=1729261989519)
+</details>
+</details>
+<details><summary>Troubleshooting</summary>
+<br />
+
+**Modal unexpectedly reappear**
+
+In some cases, a modal may unexpectedly reappear after being closed, especially when certain actions like navigation functions are triggered during or immediately after the modal's closure. This happens because the UI thread can be busy handling other interactions (e.g., button presses, transitions), leading to a race condition where the modal is shown again.
+
+To prevent this, you can use ```InteractionManager.runAfterInteractions```. This ensures that your actions (like navigation) are executed only after all ongoing interactions are finished, providing a smoother and more predictable user experience.
+
+
+_See the example how to use:_
+```
+const onSubmitPress = async () => {
+  const isSuccessfullySignedOut = await signOut();
+
+  if (isSuccessfullySignedOut) {
+    InteractionManager.runAfterInteractions(() => {
+      navigation.dispatch(
+        CommonActions.reset({
+          index: 0,
+          routes: [{name: MainStackRoutes.Welcome}],
+        }),
+      );
+  });
+}
+
+}
+```
+</details>
+</details>
 <details><summary>Divider</summary>
 <br />
 

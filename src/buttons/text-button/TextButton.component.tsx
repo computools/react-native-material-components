@@ -1,5 +1,5 @@
-import React, {type ReactNode} from 'react';
-import {TouchableOpacity, Text, type TouchableOpacityProps, type StyleProp, type TextStyle} from 'react-native';
+import React, {useMemo, type ReactNode} from 'react';
+import {TouchableOpacity, StyleSheet, Text, type TouchableOpacityProps, type StyleProp, type TextStyle} from 'react-native';
 
 import {styles} from './text-button.styles';
 import {useTheme} from '../../theme/useTheme.hook';
@@ -17,10 +17,18 @@ export const TextButton: React.FC<TextButtonProps> = ({title, append, prepend, t
   const {primary, surface} = useTheme();
   const {labelLarge} = useTypography();
 
+  const colorStyles = useMemo(
+    () =>
+      StyleSheet.create({
+        title: props.disabled ? {color: surface.text, opacity: 0.38} : {color: primary.background},
+      }),
+    [props.disabled]
+  );
+
   return (
     <TouchableOpacity style={[styles.container, style]} hitSlop={16} {...props}>
       {prepend}
-      <Text style={[labelLarge, {color: props.disabled ? surface.text : primary.background}, titleStyle]}>{title}</Text>
+      <Text style={[labelLarge, colorStyles.title, titleStyle]}>{title}</Text>
       {append}
     </TouchableOpacity>
   );

@@ -13,6 +13,8 @@ export {ElevatedCard} from './cards/elevated-card/ElevatedCard.cpmponent';
 
 export {Snackbar, type SnackbarProps, type SnackbarRef} from './snackbar/Snackbar.component';
 
+export {TextButton, type TextButtonProps} from './buttons/text-button/TextButton.component';
+
 export {
   CircularActivityIndicator,
   type CircularActivityIndicatorProps,

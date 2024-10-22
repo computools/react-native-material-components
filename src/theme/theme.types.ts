@@ -1,8 +1,8 @@
 import type {ColorValue as RNColorValue} from 'react-native';
 
-type ColorHex = `#${string}`;
-type ColorRgn = `rgb(${number}, ${number}, ${number})`;
-type ColorRgba = `rgba(${number}, ${number}, ${number}, ${number})`;
+export type ColorHex = `#${string}`;
+export type ColorRgn = `rgb(${number}, ${number}, ${number})`;
+export type ColorRgba = `rgba(${number}, ${number}, ${number}, ${number})`;
 
 export type ColorValue = ColorHex | ColorRgn | ColorRgba;
 

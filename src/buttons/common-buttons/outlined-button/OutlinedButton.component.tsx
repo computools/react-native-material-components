@@ -12,7 +12,7 @@ export const OutlinedButton: React.FC<CommonButtonProps> = ({titleStyle, style, 
     () =>
       StyleSheet.create(
         props.disabled
-          ? {title: {opacity: 0.38, color: surface.text}, container: {opacity: 0.12, borderColor: surface.text}}
+          ? {title: {opacity: 0.38, color: surface.text}, container: {borderColor: surface.text}}
           : {title: {color: primary.background}, container: {borderColor: outline}}
       ),
     [props.disabled]

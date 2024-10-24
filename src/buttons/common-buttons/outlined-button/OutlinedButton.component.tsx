@@ -3,6 +3,7 @@ import {StyleSheet} from 'react-native';
 
 import {styles} from './outlined-button.styles';
 import {useTheme} from '../../../theme/useTheme.hook';
+import {convertToRGBA} from '../../../utils/convert-to-rgba';
 import {CommonButton, type CommonButtonProps} from '../common-button/CommonButton.component';
 
 export const OutlinedButton: React.FC<CommonButtonProps> = ({titleStyle, style, ...props}) => {
@@ -12,11 +13,18 @@ export const OutlinedButton: React.FC<CommonButtonProps> = ({titleStyle, style, 
     () =>
       StyleSheet.create(
         props.disabled
-          ? {title: {opacity: 0.38, color: surface.text}, container: {borderColor: surface.text}}
+          ? {title: {color: convertToRGBA(surface.text as string, 0.38)}, container: {borderColor: convertToRGBA(surface.text as string, 0.12)}}
           : {title: {color: primary.background}, container: {borderColor: outline}}
       ),
     [props.disabled]
   );
 
-  return <CommonButton style={[styles.container, colorStyles.container, style]} titleStyle={[colorStyles.title, titleStyle]} {...props} />;
+  return (
+    <CommonButton
+      iconProps={{color: colorStyles.title.color}}
+      titleStyle={[colorStyles.title, titleStyle]}
+      style={[styles.container, colorStyles.container, style]}
+      {...props}
+    />
+  );
 };

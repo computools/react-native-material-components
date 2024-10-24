@@ -17,6 +17,6 @@ export const ElevatedButton: React.FC<CommonButtonProps> = ({titleStyle, style, 
       ),
     [props.disabled]
   );
-  console.log(colorStyles.container);
+
   return <CommonButton style={[colorStyles.container, styles.container, style]} titleStyle={[colorStyles.title, titleStyle]} {...props} />;
 };

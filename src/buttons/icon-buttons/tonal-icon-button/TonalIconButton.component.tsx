@@ -2,7 +2,6 @@ import React, {useMemo} from 'react';
 
 import {useTheme} from '../../../theme/useTheme.hook';
 import {type IconButtonProps} from '../icon-button.types';
-import {type ColorValue} from '../../../theme/theme.types';
 import {convertToRGBA} from '../../../utils/convert-to-rgba';
 import {BaseIconButton} from '../base-icon-button/BaseIconButton.component';
 
@@ -10,7 +9,7 @@ export const TonalIconButton: React.FC<IconButtonProps> = ({selected, Icon, sele
   const {surfaceContainer, surface, secondaryContainer} = useTheme();
 
   const [disabledIconColor, disabledContainerColor] = useMemo(
-    () => [convertToRGBA(surface.text as ColorValue, 0.38), convertToRGBA(surface.text as ColorValue, 0.12)],
+    () => [convertToRGBA(surface.text as string, 0.38), convertToRGBA(surface.text as string, 0.12)],
     [surface.text]
   );
 

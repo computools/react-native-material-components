@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useMemo} from 'react';
 import {Pressable, type PressableProps, type StyleProp, type ViewStyle, type TextStyle, type ColorValue} from 'react-native';
 import Animated, {
   FadeIn,
@@ -14,12 +14,14 @@ import Animated, {
 import {styles} from './button-segment.styles';
 import {useTheme} from '../../../theme/useTheme.hook';
 import {type IconProps} from '../../../icons/icon-props';
+import {convertToRGBA} from '../../../utils/convert-to-rgba';
 import {useTypography} from '../../../typography/useTypography.component';
 import {AnimatedSelectedIcon} from './animated-selected-icon/AnimatedSelectedIcon.component';
 
 interface ButtonSegmentProps<T> extends Omit<PressableProps, 'onPress'> {
   value: T;
   selected: boolean;
+  disabled: boolean;
   multiSelectionEnabled: boolean;
 
   label?: string;
@@ -40,6 +42,7 @@ export const ButtonSegment = React.memo(
   <T extends any>({
     value,
     selected,
+    disabled,
     Icon,
     label,
     multiSelectionEnabled,
@@ -56,6 +59,10 @@ export const ButtonSegment = React.memo(
     const {surface, secondaryContainer} = useTheme();
 
     const fill = useSharedValue(Number(selected));
+    const labelDisabledColor = useMemo(() => convertToRGBA(surface.text as string, 0.38), []);
+
+    const defaultIconColor = selected ? secondaryContainer.text : iconColor ?? surface.text;
+    const appliedIconColor = disabled ? labelDisabledColor : defaultIconColor;
 
     useEffect(() => {
       fill.value = withTiming(Number(selected));
@@ -63,9 +70,9 @@ export const ButtonSegment = React.memo(
 
     const animatedLabelStyle = useAnimatedStyle(
       () => ({
-        color: interpolateColor(fill.value, [0, 1], [surface.text as string, secondaryContainer.text as string]),
+        color: disabled ? labelDisabledColor : interpolateColor(fill.value, [0, 1], [surface.text as string, secondaryContainer.text as string]),
       }),
-      []
+      [disabled]
     );
 
     const circleAnimatedStyle = useAnimatedStyle(() => {
@@ -91,25 +98,22 @@ export const ButtonSegment = React.memo(
       });
     };
 
-    const renderIconConditionally = () => {
-      const defaultIconColor = selected ? secondaryContainer.text : surface.text;
-
-      return Icon ? (
+    const renderIconConditionally = () =>
+      Icon ? (
         <Animated.View layout={LinearTransition} entering={FadeIn} exiting={FadeOut}>
-          <Icon size={iconSize} color={iconColor ?? defaultIconColor} />
+          <Icon size={iconSize} color={appliedIconColor} />
         </Animated.View>
       ) : null;
-    };
 
     return (
-      <Pressable style={[styles.container, style]} {...props} onPress={handleSegmentPress}>
+      <Pressable style={[styles.container, style]} disabled={disabled} {...props} onPress={handleSegmentPress}>
         <Animated.View style={[styles.ripple, {backgroundColor: rippleColor ?? secondaryContainer.background}, circleAnimatedStyle]} />
         {withCheckmark && selected ? (
           <Animated.View layout={LinearTransition} entering={FadeIn}>
-            <AnimatedSelectedIcon width={iconSize} height={iconSize} strokeWidth={2} stroke={secondaryContainer.text} />
+            <AnimatedSelectedIcon width={iconSize} height={iconSize} strokeWidth={2} stroke={appliedIconColor} />
           </Animated.View>
         ) : null}
-        {Icon && withCheckmark && selected ? null : renderIconConditionally()}
+        {Icon && withCheckmark && label && selected ? null : renderIconConditionally()}
         {label ? (
           <Animated.Text layout={LinearTransition} style={[labelLarge, animatedLabelStyle, labelStyle]}>
             {label}

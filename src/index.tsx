@@ -11,6 +11,10 @@ export {FilledCard} from './cards/filled-card/FilledCard.component';
 export {OutlinedCard} from './cards/outlined-card/OutlinedCard.component';
 export {ElevatedCard} from './cards/elevated-card/ElevatedCard.cpmponent';
 
+export {Dialog, type DialogRef, type DialogProps} from './dialogs/dialog/Dialog.component';
+export {BasicDialog, type BasicDialogProps} from './dialogs/basic-dialog/BasicDialog.component';
+export {FullScreenDialog, AnimationType, type FullScreenDialogRef} from './dialogs/full-screen-dialog/FullScreenDialog.component';
+
 export {Snackbar, type SnackbarProps, type SnackbarRef} from './snackbar/Snackbar.component';
 
 export {SegmentedButton} from './buttons/segmented-button/SegmentedButton.component';

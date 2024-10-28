@@ -19,7 +19,7 @@ export interface SideSheetProps extends ViewProps {
   stickySide?: StickySide;
   modalWidthCoeff?: number;
   animationDuration?: number;
-  overlayStyle?: StyleProp<ViewStyle>;
+  backdropStyle?: StyleProp<ViewStyle>;
 }
 
 const DEFAULT_ANIMATION_DURATION = 300;
@@ -32,7 +32,7 @@ export const SideSheet = React.forwardRef<SideSheetRef, SideSheetProps>(
       children,
 
       style,
-      overlayStyle,
+      backdropStyle,
       stickySide = 'right',
       modalWidthCoeff = DEFAULT_WIDTH_COEFF,
       animationDuration = DEFAULT_ANIMATION_DURATION,
@@ -76,7 +76,7 @@ export const SideSheet = React.forwardRef<SideSheetRef, SideSheetProps>(
       [onOpenDistanceToEdge, windowWidth]
     );
 
-    const backDropProps = useAnimatedProps<Partial<AnimatedProps<ViewProps>>>(
+    const backdropAnimatedProps = useAnimatedProps<Partial<AnimatedProps<ViewProps>>>(
       () => ({
         pointerEvents: edge.value !== windowWidth ? 'auto' : 'none',
       }),
@@ -114,8 +114,8 @@ export const SideSheet = React.forwardRef<SideSheetRef, SideSheetProps>(
       <>
         <Animated.View
           onTouchStart={closeModal}
-          animatedProps={backDropProps}
-          style={[styles.overlay, {backgroundColor: scrim}, backgroundAnimatedStyle, overlayStyle]}
+          animatedProps={backdropAnimatedProps}
+          style={[styles.backdrop, {backgroundColor: scrim}, backgroundAnimatedStyle, backdropStyle]}
         />
         <GestureDetector gesture={gesture}>
           <Animated.View

@@ -20,7 +20,7 @@ export interface BottomSheetProps extends ViewProps {
   modalHeightCoeff?: number;
   animationDuration?: number;
   headerStyle?: StyleProp<ViewStyle>;
-  overlayStyle?: StyleProp<ViewStyle>;
+  backdropStyle?: StyleProp<ViewStyle>;
   dragHandleStyle?: StyleProp<ViewStyle>;
 }
 
@@ -37,7 +37,7 @@ export const BottomSheet = React.forwardRef<BottomSheetRef, BottomSheetProps>(
 
       style,
       headerStyle,
-      overlayStyle,
+      backdropStyle,
       dragHandleStyle,
       modalHeightCoeff = DEFAULT_HEIGHT_COEFF,
       animationDuration = DEFAULT_ANIMATION_DURATION,
@@ -97,7 +97,7 @@ export const BottomSheet = React.forwardRef<BottomSheetRef, BottomSheetProps>(
       [distanceToTop, windowHeight]
     );
 
-    const backDropProps = useAnimatedProps<Partial<AnimatedProps<ViewProps>>>(
+    const backdropAnimatedProps = useAnimatedProps<Partial<AnimatedProps<ViewProps>>>(
       () => ({
         pointerEvents: top.value !== windowHeight ? 'auto' : 'none',
       }),
@@ -131,8 +131,8 @@ export const BottomSheet = React.forwardRef<BottomSheetRef, BottomSheetProps>(
       <>
         <Animated.View
           onTouchStart={closeModal}
-          animatedProps={backDropProps}
-          style={[styles.overlay, {backgroundColor: scrim}, backgroundAnimatedStyle, overlayStyle]}
+          animatedProps={backdropAnimatedProps}
+          style={[styles.backdrop, {backgroundColor: scrim}, backgroundAnimatedStyle, backdropStyle]}
         />
         <GestureDetector gesture={gesture}>
           <Animated.View style={[styles.bottomSheet, {backgroundColor: surfaceContainer.backgroundLow}, animatedStyle, style]} {...props}>

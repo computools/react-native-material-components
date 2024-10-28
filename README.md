@@ -11,6 +11,7 @@ Computools react native material components package
 yarn add react-native-reanimated
 yarn add react-native-gesture-handler
 yarn add react-native-safe-area-context
+yarn add react-native-svg
 ```
 
 3. Add ```react-native-reanimated/plugin``` plugin to your babel.config.js.
@@ -171,6 +172,9 @@ export const AppBodyLargeText: React.FC<PropsWithChildren> = ({children}) => {
 }
 ```
 </deatils>
+</details>
+<details><summary>Components</summary>
+<br />
 <details><summary>Activity Indicators</summary>
 <br />
 <details><summary>Circular Activity Indicator</summary>
@@ -333,6 +337,111 @@ Outlined card is touchable.
 </details>
 </details>
 
+<details><summary>Dialogs</summary>
+<br />
+<details><summary>Dialog</summary>
+<br />
+
+Wrapper component used in ```BasicDialog```. This library proides the opportunity to use ```Dialog``` to implement custom components.
+
+**Methods**
+
+| name | parameters | returns |
+| ------ | ------ | ------ |
+| show | none | void |
+| close | none | void |
+| isShowed | none | boolean |
+
+_See the example how to use:_
+```
+import {Dialog, type DialogRef} from '@computools/react-native-material-components';
+
+export const YourComponent = () => {
+  const dialogRef = useRef<DialogRef>(null);
+
+  return (
+    {/* Rest of your app code */}
+    <Button onPress={() => dialogRef.current.show()} />
+    <Dialog ref={dialogRef}>
+      <YourDialogContent />
+    </Dialog>
+     {/* Rest of your app code */}
+  );
+}
+```
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ----|
+| animationDuration | appearance/disappearance animation duration | number | 220 |
+
+</details>
+<details><summary>Basic Dialog</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ----|
+| title | - | string | - |
+| subtitle | - | string | - |
+| firstActionTitle | - | string | - |
+| secondActionTitle | - | string | - |
+| onFirstActionPress | - | () | () => void |
+| onSecondActionPress | - | () => void | - |
+| titleStyle | - | TextStyle | - |
+| subtitleStyle | - | TextStyle | - |
+| prepend | - | ReactNde | - |
+| append | - | ReactNde | - |
+
+![basic dialog gif](https://ik.imagekit.io/Computools/rn-material-components/basic-dialog.gif?updatedAt=1729261989459)
+</details>
+<details><summary>Full screen Dialog</summary>
+<br />
+
+**Properties**
+  animationDuration?: number;
+  animationType?: AnimationType;
+
+| name | description | type | default |
+| ------ | ------ | ------ | ----|
+| animationType | - | AnimationType | AnimationType.SLIDE |
+| animationDuration | - | number | 330 |
+
+![full screen dialog gif](https://ik.imagekit.io/Computools/rn-material-components/full-screen-dialog.gif?updatedAt=1729261989519)
+</details>
+
+<details><summary>Troubleshooting</summary>
+<br />
+
+## Modal unexpectedly reappear
+
+In some cases, a modal may unexpectedly reappear after being closed, especially when certain actions like navigation functions are triggered during or immediately after the modal's closure. This happens because the UI thread can be busy handling other interactions (e.g., button presses, transitions), leading to a race condition where the modal is shown again.
+
+To prevent this, you can use ```InteractionManager.runAfterInteractions```. This ensures that your actions (like navigation) are executed only after all ongoing interactions are finished, providing a smoother and more predictable user experience.
+
+
+_See the example how to use:_
+```
+const onSubmitPress = async () => {
+  const isSuccessfullySignedOut = await signOut();
+
+  if (isSuccessfullySignedOut) {
+    InteractionManager.runAfterInteractions(() => {
+      navigation.dispatch(
+        CommonActions.reset({
+          index: 0,
+          routes: [{name: MainStackRoutes.Welcome}],
+        }),
+      );
+  });
+}
+
+}
+```
+</details>
+</details>
 <details><summary>Divider</summary>
 <br />
 
@@ -357,7 +466,7 @@ Outlined card is touchable.
 | modalHeightCoeff | - | number | 0.4 |
 | animationDuration | - | number | 300 |
 | headerStyle | - | ViewStyle | - |
-| overlayStyle | - | ViewStyle | - |
+| backdropStyle | - | ViewStyle | - |
 | dragHandleStyle | - | ViewStyle | - |
 
 ### Usage
@@ -403,7 +512,7 @@ export const MyScreen = () => {
 | stickySide | - | 'right' or 'left | 'right' |
 | modalWidthCoeff | up to 1 | number | 0.85 |
 | animationDuration | - | number | 300 |
-| overlayStyle | - | ViewStyle | - |
+| backdropStyle | - | ViewStyle | - |
 
 ### Usage
 
@@ -463,6 +572,7 @@ export const MyScreen = () => {
 ![snackbar with icon](https://ik.imagekit.io/Computools/rn-material-components/snackbar-with-icon.png?updatedAt=1704887400512)
 ![snackbar gif](https://ik.imagekit.io/Computools/rn-material-components/snackbar-gif.gif?updatedAt=1704887530020)
 </details>
+</deatils>
 
 ## Contributing
 

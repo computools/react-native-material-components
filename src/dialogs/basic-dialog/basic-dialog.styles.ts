@@ -11,4 +11,8 @@ export const styles = StyleSheet.create({
     paddingTop: 24,
     marginStart: 'auto',
   },
+  actionButton: {
+    paddingStart: 12,
+    paddingEnd: 12,
+  },
 });

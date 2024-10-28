@@ -402,7 +402,7 @@ export const YourComponent = () => {
 
 | name | description | type | default |
 | ------ | ------ | ------ | ----|
-| animationType | - | 'slide', 'fade', 'zoom' | 'slide' |
+| animationType | - | AnimationType | AnimationType.SLIDE |
 | animationDuration | - | number | 330 |
 
 ![full screen dialog gif](https://ik.imagekit.io/Computools/rn-material-components/full-screen-dialog.gif?updatedAt=1729261989519)

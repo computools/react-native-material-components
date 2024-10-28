@@ -49,8 +49,8 @@ export const BasicDialog = forwardRef<DialogRef, BasicDialogProps>(
     return (
       <Dialog ref={ref} style={[style]} {...props}>
         {prepend}
-        {title && <Text style={[headlineSmall, styles.title, {color: surfaceContainer.text}, titleStyle]}>{title}</Text>}
-        {subtitle && <Text style={[bodyMedium, {color: surfaceContainer.textVariant}, subtitleStyle]}>{subtitle}</Text>}
+        {title ? <Text style={[headlineSmall, styles.title, {color: surfaceContainer.text}, titleStyle]}>{title}</Text> : null}
+        {subtitle ? <Text style={[bodyMedium, {color: surfaceContainer.textVariant}, subtitleStyle]}>{subtitle}</Text> : null}
         {append}
         {firstActionTitle && (
           <View style={styles.actions}>

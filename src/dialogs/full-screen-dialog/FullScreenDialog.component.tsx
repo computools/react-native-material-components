@@ -8,7 +8,11 @@ import {useTheme} from '../../theme/useTheme.hook';
 import {styles} from './full-screen-dialog.styles';
 import {ModalBackdropWrapper} from '../../modal-backdrop-wrapper/ModalBackdropWrapper.component';
 
-type AnimationType = 'slide' | 'fade' | 'zoom';
+export enum AnimationType {
+  SLIDE = 'SLIDE',
+  FADE = 'FADE',
+  ZOOM = 'ZOOM',
+}
 
 interface Props extends ViewProps {
   animationDuration?: number;
@@ -24,7 +28,7 @@ export interface FullScreenDialogRef {
 const ANIMATION_DURATION = 330;
 
 export const FullScreenDialog = forwardRef<FullScreenDialogRef, PropsWithChildren<Props>>(
-  ({children, animationType = 'slide', animationDuration = ANIMATION_DURATION, style, ...props}, ref) => {
+  ({children, animationType = AnimationType.SLIDE, animationDuration = ANIMATION_DURATION, style, ...props}, ref) => {
     const [isVisible, setIsVisible] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
 
@@ -46,7 +50,7 @@ export const FullScreenDialog = forwardRef<FullScreenDialogRef, PropsWithChildre
           visibility.value = withTiming(1, {duration: animationDuration});
         },
         close() {
-          if (animationType === 'zoom') {
+          if (animationType === AnimationType.ZOOM) {
             setIsClosing(true);
           }
 
@@ -66,14 +70,14 @@ export const FullScreenDialog = forwardRef<FullScreenDialogRef, PropsWithChildre
       };
 
       switch (animationType) {
-        case 'slide':
+        case AnimationType.SLIDE:
           return slideAnimStyle;
-        case 'fade': {
+        case AnimationType.FADE: {
           return {
             opacity: visibility.value,
           };
         }
-        case 'zoom': {
+        case AnimationType.ZOOM: {
           return isClosing
             ? slideAnimStyle
             : {

@@ -32,7 +32,12 @@ export {FilledIconButton} from './buttons/icon-buttons/filled-icon-button/Filled
 export {StandartIconButton} from './buttons/icon-buttons/standart-icon-button/StandardIconButton.component';
 export {OutlinedIconButton} from './buttons/icon-buttons/outlined-icon-button/OutlinedIconButton.component';
 
-export {FloatingButton, FloatingButtonType, FloatingButtonSize, type FloatingButtonProps} from './buttons/floating-button/FloatingButton.component';
+export {
+  FloatingActionButton,
+  FloatingActionButtonType,
+  FloatingActionButtonSize,
+  type FloatingActionButtonProps,
+} from './buttons/floating-action-button/FloatingActionButton.component';
 
 export {
   CircularActivityIndicator,

@@ -6,38 +6,38 @@ import {useTheme} from '../../theme/useTheme.hook';
 import {type IconProps} from '../../icons/icon-props';
 import {EditIcon} from '../../icons/edit-icon/EditIcon.component';
 import {useTypography} from '../../typography/useTypography.component';
-import {getBaseFloatingButtonShape, styles} from './floating-button.styles';
+import {getBaseFloatingButtonShape, styles} from './floating-action-button.styles';
 
-export enum FloatingButtonSize {
+export enum FloatingActionButtonSize {
   SMALL = 'SMALL',
   BIG = 'BIG',
 }
 
-export enum FloatingButtonType {
+export enum FloatingActionButtonType {
   SURFACE = 'SURFACE',
   PRIMARY = 'PRIMARY',
   SECONDARY = 'SECONDARY',
   TERTIARY = 'TERTIARY',
 }
 
-export interface FloatingButtonProps extends TouchableOpacityProps {
-  type?: FloatingButtonType;
+export interface FloatingActionButtonProps extends TouchableOpacityProps {
+  type?: FloatingActionButtonType;
   label?: string;
   extended?: boolean;
   Icon?: React.FC<IconProps>;
   iconProps?: IconProps;
-  size?: FloatingButtonSize;
+  size?: FloatingActionButtonSize;
   labelStyle?: StyleProp<TextStyle>;
 }
 
-export const FloatingButton: React.FC<FloatingButtonProps> = ({
+export const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
   label,
   iconProps,
   labelStyle,
   Icon = EditIcon,
   extended = true,
-  size = FloatingButtonSize.SMALL,
-  type = FloatingButtonType.PRIMARY,
+  size = FloatingActionButtonSize.SMALL,
+  type = FloatingActionButtonType.PRIMARY,
   style,
   ...props
 }) => {
@@ -46,10 +46,10 @@ export const FloatingButton: React.FC<FloatingButtonProps> = ({
 
   const colors = useMemo(
     () => ({
-      [FloatingButtonType.SURFACE]: {backgroundColor: surfaceContainer.backgroundHigh, iconColor: primary.background},
-      [FloatingButtonType.PRIMARY]: {backgroundColor: primaryContainer.background, iconColor: primaryContainer.text},
-      [FloatingButtonType.SECONDARY]: {backgroundColor: secondaryContainer.background, iconColor: secondaryContainer.text},
-      [FloatingButtonType.TERTIARY]: {backgroundColor: tertiaryContainer.background, iconColor: tertiaryContainer.text},
+      [FloatingActionButtonType.SURFACE]: {backgroundColor: surfaceContainer.backgroundHigh, iconColor: primary.background},
+      [FloatingActionButtonType.PRIMARY]: {backgroundColor: primaryContainer.background, iconColor: primaryContainer.text},
+      [FloatingActionButtonType.SECONDARY]: {backgroundColor: secondaryContainer.background, iconColor: secondaryContainer.text},
+      [FloatingActionButtonType.TERTIARY]: {backgroundColor: tertiaryContainer.background, iconColor: tertiaryContainer.text},
     }),
     []
   );

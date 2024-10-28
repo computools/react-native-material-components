@@ -1,6 +1,6 @@
 import {StyleSheet, type ViewStyle} from 'react-native';
 
-import {FloatingButtonSize} from './FloatingButton.component';
+import {FloatingActionButtonSize} from './FloatingActionButton.component';
 
 export const styles = StyleSheet.create({
   container: {
@@ -26,13 +26,13 @@ export const styles = StyleSheet.create({
   },
 });
 
-export const getBaseFloatingButtonShape = (size: FloatingButtonSize) => {
-  const buttonSizes: Record<FloatingButtonSize, ViewStyle> = {
-    [FloatingButtonSize.SMALL]: {minWidth: 40, height: 40, borderRadius: 12},
-    [FloatingButtonSize.BIG]: {minWidth: 56, height: 56, borderRadius: 16},
+export const getBaseFloatingButtonShape = (size: FloatingActionButtonSize) => {
+  const buttonSizes: Record<FloatingActionButtonSize, ViewStyle> = {
+    [FloatingActionButtonSize.SMALL]: {minWidth: 40, height: 40, borderRadius: 12},
+    [FloatingActionButtonSize.BIG]: {minWidth: 56, height: 56, borderRadius: 16},
   };
 
   return StyleSheet.create({
-    container: buttonSizes[size] || buttonSizes[FloatingButtonSize.SMALL],
+    container: buttonSizes[size] || buttonSizes[FloatingActionButtonSize.SMALL],
   });
 };

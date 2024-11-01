@@ -4,8 +4,9 @@ import {StyleSheet} from 'react-native';
 import {useTheme} from '../../../theme/useTheme.hook';
 import {convertToRGBA} from '../../../utils/convert-to-rgba';
 import {CommonButton, type CommonButtonProps} from '../common-button/CommonButton.component';
+import {type IconProps} from '../../../icons/icon-props';
 
-export const TonalButton: React.FC<CommonButtonProps> = ({titleStyle, style, ...props}) => {
+export const TonalButton = <T extends IconProps>({titleStyle, style, iconProps = {} as T, ...props}: CommonButtonProps<T>) => {
   const {secondaryContainer, surface} = useTheme();
 
   const colorStyles = useMemo(
@@ -25,7 +26,7 @@ export const TonalButton: React.FC<CommonButtonProps> = ({titleStyle, style, ...
     <CommonButton
       style={[colorStyles.container, style]}
       titleStyle={[colorStyles.title, titleStyle]}
-      iconProps={{color: colorStyles.title.color}}
+      iconProps={{color: colorStyles.title.color, ...iconProps}}
       {...props}
     />
   );

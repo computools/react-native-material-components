@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useMemo, type ReactElement} from 'react';
 import Animated, {FadeInRight, LinearTransition, FadeOutRight} from 'react-native-reanimated';
 import {TouchableOpacity, type StyleProp, type TextStyle, type TouchableOpacityProps} from 'react-native';
 
@@ -20,19 +20,19 @@ export enum FloatingActionButtonType {
   TERTIARY = 'TERTIARY',
 }
 
-export interface FloatingActionButtonProps extends TouchableOpacityProps {
+export interface FloatingActionButtonProps<T extends IconProps> extends TouchableOpacityProps {
   type?: FloatingActionButtonType;
   label?: string;
   extended?: boolean;
-  Icon?: React.FC<IconProps>;
-  iconProps?: IconProps;
+  Icon?: React.FC<T>;
+  iconProps?: T;
   size?: FloatingActionButtonSize;
   labelStyle?: StyleProp<TextStyle>;
 }
 
-export const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
+export const FloatingActionButton = <T extends IconProps>({
   label,
-  iconProps,
+  iconProps = {} as T,
   labelStyle,
   Icon = EditIcon,
   extended = true,
@@ -40,7 +40,7 @@ export const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
   type = FloatingActionButtonType.PRIMARY,
   style,
   ...props
-}) => {
+}: FloatingActionButtonProps<T>): ReactElement => {
   const {labelLarge} = useTypography();
   const {shadow, primaryContainer, surfaceContainer, secondaryContainer, tertiaryContainer, primary} = useTheme();
 

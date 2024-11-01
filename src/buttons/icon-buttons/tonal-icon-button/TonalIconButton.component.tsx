@@ -1,11 +1,12 @@
 import React, {useMemo} from 'react';
 
 import {useTheme} from '../../../theme/useTheme.hook';
+import {type IconProps} from '../../../icons/icon-props';
 import {type IconButtonProps} from '../icon-button.types';
 import {convertToRGBA} from '../../../utils/convert-to-rgba';
 import {BaseIconButton} from '../base-icon-button/BaseIconButton.component';
 
-export const TonalIconButton: React.FC<IconButtonProps> = ({selected, Icon, selectedIcon, style, ...props}) => {
+export const TonalIconButton = <T extends IconProps>({selected, Icon, selectedIcon, iconProps = {} as T, style, ...props}: IconButtonProps<T>) => {
   const {surfaceContainer, surface, secondaryContainer} = useTheme();
 
   const [disabledIconColor, disabledContainerColor] = useMemo(
@@ -21,6 +22,11 @@ export const TonalIconButton: React.FC<IconButtonProps> = ({selected, Icon, sele
     : [activeContainerColor, activeIconColor];
 
   return (
-    <BaseIconButton style={[{backgroundColor: appliedContainerColor}, style]} Icon={IconComponent} iconProps={{color: appliedIconColor}} {...props} />
+    <BaseIconButton
+      Icon={IconComponent}
+      iconProps={{color: appliedIconColor, ...iconProps}}
+      style={[{backgroundColor: appliedContainerColor}, style]}
+      {...props}
+    />
   );
 };

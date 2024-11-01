@@ -1,11 +1,12 @@
 import React, {useMemo} from 'react';
 
 import {useTheme} from '../../../theme/useTheme.hook';
+import {type IconProps} from '../../../icons/icon-props';
 import {type IconButtonProps} from '../icon-button.types';
 import {convertToRGBA} from '../../../utils/convert-to-rgba';
 import {BaseIconButton} from '../base-icon-button/BaseIconButton.component';
 
-export const OutlinedIconButton: React.FC<IconButtonProps> = ({selected, Icon, selectedIcon, style, ...props}) => {
+export const OutlinedIconButton = <T extends IconProps>({selected, Icon, selectedIcon, iconProps = {} as T, style, ...props}: IconButtonProps<T>) => {
   const {surface, outline} = useTheme();
 
   const [disabledIconColor, disabledContainerColor] = useMemo(
@@ -23,9 +24,9 @@ export const OutlinedIconButton: React.FC<IconButtonProps> = ({selected, Icon, s
 
   return (
     <BaseIconButton
-      style={[{backgroundColor: appliedContainerColor, borderColor: appliedBorderColor, borderWidth: Number(!selected)}, style]}
       Icon={IconComponent}
-      iconProps={{color: appliedIconColor}}
+      iconProps={{color: appliedIconColor, ...iconProps}}
+      style={[{backgroundColor: appliedContainerColor, borderColor: appliedBorderColor, borderWidth: Number(!selected)}, style]}
       {...props}
     />
   );

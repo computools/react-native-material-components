@@ -18,7 +18,7 @@ import {convertToRGBA} from '../../../utils/convert-to-rgba';
 import {useTypography} from '../../../typography/useTypography.component';
 import {AnimatedSelectedIcon} from './animated-selected-icon/AnimatedSelectedIcon.component';
 
-interface ButtonSegmentProps<T> extends Omit<PressableProps, 'onPress'> {
+interface ButtonSegmentProps<T, U extends IconProps> extends Omit<PressableProps, 'onPress'> {
   value: T;
   selected: boolean;
   disabled: boolean;
@@ -26,7 +26,7 @@ interface ButtonSegmentProps<T> extends Omit<PressableProps, 'onPress'> {
 
   label?: string;
   withCheckmark?: boolean;
-  Icon?: React.FC<IconProps>;
+  Icon?: React.FC<U>;
   style?: StyleProp<ViewStyle>;
   labelStyle?: StyleProp<TextStyle>;
   iconSize?: number;
@@ -39,7 +39,7 @@ interface ButtonSegmentProps<T> extends Omit<PressableProps, 'onPress'> {
 const DEFAULT_ICON_SIZE = 18;
 
 export const ButtonSegment = React.memo(
-  <T extends any>({
+  <T extends any, U extends IconProps>({
     value,
     selected,
     disabled,
@@ -54,7 +54,7 @@ export const ButtonSegment = React.memo(
     rippleColor,
     style,
     ...props
-  }: ButtonSegmentProps<T>) => {
+  }: ButtonSegmentProps<T, U>) => {
     const {labelLarge} = useTypography();
     const {surface, secondaryContainer} = useTheme();
 
@@ -63,6 +63,7 @@ export const ButtonSegment = React.memo(
 
     const defaultIconColor = selected ? secondaryContainer.text : iconColor ?? surface.text;
     const appliedIconColor = disabled ? labelDisabledColor : defaultIconColor;
+    const iconProps = {size: iconSize, color: appliedIconColor} as U;
 
     useEffect(() => {
       fill.value = withTiming(Number(selected));
@@ -101,7 +102,7 @@ export const ButtonSegment = React.memo(
     const renderIconConditionally = () =>
       Icon ? (
         <Animated.View layout={LinearTransition} entering={FadeIn} exiting={FadeOut}>
-          <Icon size={iconSize} color={appliedIconColor} />
+          <Icon {...iconProps} />
         </Animated.View>
       ) : null;
 

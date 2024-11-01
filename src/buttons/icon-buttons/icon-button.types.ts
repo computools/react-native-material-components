@@ -1,7 +1,7 @@
-import type {IconProps} from '../../icons/icon-props';
-import type {BaseIconButtonProps} from './base-icon-button/BaseIconButton.component';
+import {type IconProps} from '../../icons/icon-props';
+import {type BaseIconButtonProps} from './base-icon-button/BaseIconButton.component';
 
-export interface IconButtonProps extends BaseIconButtonProps {
+export interface IconButtonProps<T extends IconProps> extends BaseIconButtonProps<T> {
   selected?: boolean;
-  selectedIcon?: React.FC<IconProps>;
+  selectedIcon?: React.FC<T>;
 }

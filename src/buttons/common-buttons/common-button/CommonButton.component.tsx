@@ -5,18 +5,26 @@ import {styles} from './common-button.styles';
 import {type IconProps} from '../../../icons/icon-props';
 import {useTypography} from '../../../typography/useTypography.component';
 
-export interface CommonButtonProps extends TouchableOpacityProps {
+export interface CommonButtonProps<T extends IconProps> extends TouchableOpacityProps {
   title: string;
 
   titleStyle?: StyleProp<TextStyle>;
-  StartIcon?: React.FC<IconProps>;
-  EndIcon?: React.FC<IconProps>;
-  iconProps?: IconProps;
+  StartIcon?: React.FC<T>;
+  EndIcon?: React.FC<T>;
+  iconProps?: T;
 }
 
 const DEFAULT_ICON_SIZE = 18;
 
-export const CommonButton: React.FC<CommonButtonProps> = ({title, StartIcon, EndIcon, titleStyle, iconProps, style, ...props}) => {
+export const CommonButton = <T extends IconProps>({
+  title,
+  StartIcon,
+  EndIcon,
+  titleStyle,
+  iconProps = {} as T,
+  style,
+  ...props
+}: CommonButtonProps<T>) => {
   const {labelLarge} = useTypography();
 
   const containerPaddingStart = StartIcon || EndIcon ? 16 : 24;

@@ -7,15 +7,15 @@ import {type IconProps} from '../../icons/icon-props';
 import {convertToRGBA} from '../../utils/convert-to-rgba';
 import {ButtonSegment as ButtonSegmentComponent} from './button-segment/ButtonSegment.component';
 
-export interface ButtonSegment<T> {
+export interface ButtonSegment<T, U> {
   value: T;
 
   label?: string;
-  Icon?: React.FC<IconProps>;
+  Icon?: React.FC<U>;
 }
 
-export interface SegmentedButtonProps<T> extends ViewProps {
-  segments: ButtonSegment<T>[];
+export interface SegmentedButtonProps<T, U> extends ViewProps {
+  segments: ButtonSegment<T, U>[];
   selected: T[];
 
   disabled?: boolean;
@@ -29,7 +29,7 @@ export interface SegmentedButtonProps<T> extends ViewProps {
   onSegmentPress: (value: T[] | ((currValues: T[]) => T[])) => void;
 }
 
-export const SegmentedButton: <T extends any>(props: SegmentedButtonProps<T>) => ReactElement = ({
+export const SegmentedButton: <T extends any, U extends IconProps>(props: SegmentedButtonProps<T, U>) => ReactElement = ({
   segments,
   selected,
   disabled = false,

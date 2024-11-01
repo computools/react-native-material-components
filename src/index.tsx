@@ -64,3 +64,5 @@ export {useTypography} from './typography/useTypography.component';
 export {type MaterialTypography} from './typography/typography.types';
 
 export {type MaterialComponentsProviderProps, MaterialComponentsProvider} from './provider/MaterialComponents.context';
+
+export {type IconProps} from './types/icon-props.type';

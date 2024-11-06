@@ -17,6 +17,28 @@ export {FullScreenDialog, AnimationType, type FullScreenDialogRef} from './dialo
 
 export {Snackbar, type SnackbarProps, type SnackbarRef} from './snackbar/Snackbar.component';
 
+export {SegmentedButton} from './buttons/segmented-button/SegmentedButton.component';
+
+export {TextButton} from './buttons/common-buttons/text-button/TextButton.component';
+export {TonalButton} from './buttons/common-buttons/tonal-button/TonalButton.component';
+export {FilledButton} from './buttons/common-buttons/filled-button/FilledButton.component';
+export {ElevatedButton} from './buttons/common-buttons/elevated-button/ElevatedButton.component';
+export {OutlinedButton} from './buttons/common-buttons/outlined-button/OutlinedButton.component';
+export {type CommonButtonProps} from './buttons/common-buttons/common-button/CommonButton.component';
+
+export {type IconButtonProps} from './buttons/icon-buttons/icon-button.types';
+export {TonalIconButton} from './buttons/icon-buttons/tonal-icon-button/TonalIconButton.component';
+export {FilledIconButton} from './buttons/icon-buttons/filled-icon-button/FilledIconButton.component';
+export {StandartIconButton} from './buttons/icon-buttons/standart-icon-button/StandardIconButton.component';
+export {OutlinedIconButton} from './buttons/icon-buttons/outlined-icon-button/OutlinedIconButton.component';
+
+export {
+  FloatingActionButton,
+  FloatingActionButtonType,
+  FloatingActionButtonSize,
+  type FloatingActionButtonProps,
+} from './buttons/floating-action-button/FloatingActionButton.component';
+
 export {
   CircularActivityIndicator,
   type CircularActivityIndicatorProps,
@@ -42,3 +64,5 @@ export {useTypography} from './typography/useTypography.component';
 export {type MaterialTypography} from './typography/typography.types';
 
 export {type MaterialComponentsProviderProps, MaterialComponentsProvider} from './provider/MaterialComponents.context';
+
+export {type IconProps} from './types/icon-props.type';

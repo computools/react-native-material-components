@@ -212,6 +212,92 @@ export const AppBodyLargeText: React.FC<PropsWithChildren> = ({children}) => {
 ![linear activity indicator gif](https://ik.imagekit.io/Computools/rn-material-components/linear-indicator-gif.gif?updatedAt=1705066319092)
 </details>
 </details>
+<details><summary>Buttons</summary>
+<br />
+<details><summary>Common buttons</summary>
+<br />
+
+**Components**
+
+- ```TextButton```
+- ```FilledButton```
+- ```OutlinedButton```
+- ```ElevatedButton```
+- ```TonalButton```
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ----|
+| title | required | string | - |
+| StartIcon | - | React.FC<T> | - |
+| EndIcon | - | React.FC<T> | - |
+| iconProps | - | T | - |
+| titleStyle | - | StyleProp<TextStyle | - |
+
+![common buttons](https://ik.imagekit.io/Computools/rn-material-components/common_buttons.png?updatedAt=1730123562488)
+</details>
+<details><summary>Icon buttons</summary>
+<br />
+
+**Components**
+
+- ```StandartIconButton```
+- ```FilledIconButton```
+- ```OutlinedIconButton```
+- ```TonalIconButton```
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ----|
+| Icon | required | React.FC<T> | - |
+| size | - | number | - |
+| selectedIcon | - | React.FC<T> | - |
+| selected | - | boolean | false |
+| iconProps | - | T | - |
+
+![icon buttons](https://ik.imagekit.io/Computools/rn-material-components/icon_buttons.png?updatedAt=1730123727799)
+</details>
+<details><summary>Floatin action button</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ----|
+| type | PRIMARY, SECONDARY, TERTIARY, SURRFACE | FloatingActionButtonType | PRIMARY |
+| label | - | string | - |
+| extended | Enables control over label visibility with animation. If set to true, the label remains constantly visible; otherwise, it appears or hides with an animation based on specific conditions | true | - |
+| size | SMALL, BIG | FloatingActionButtonSize | SMALL |
+| iconProps | - | T | - |
+| Icon | - | React.FC<T> | - |
+| labelStyle | - | StyleProp<TextStyle> | - |
+
+![fab](https://ik.imagekit.io/Computools/rn-material-components/fab.gif?updatedAt=1730123868550)
+</details>
+<details><summary>Segmented button</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ----|
+| segments | required |  ButtonSegment<T, U>[] | - |
+| selected | required | T[] | - |
+| onSegmentPress | required |(value: T[] | ((currValues: T[]) => T[])) => void | - |
+| disabled | - | boolean | false |
+| multiSelectionEnabled | - | boolean | false |
+| withCheckmark |  Enables control over checkmark visibility with selected segment. | boolean | true |
+| iconSize | - | number | 18 |
+| iconColor | - | ColorValue | - |
+| iconColor | - | ColorValue | - |
+| rippleColor | - | ColorValue | - |
+| labelStyle | - | StyleProp<TextStyle> | - |
+
+![segmented buttons](https://ik.imagekit.io/Computools/rn-material-components/segmented_button_single.gif?updatedAt=1730123815131)
+</details>
+</details>
 <details><summary>Cards</summary>
 <br />
 <details><summary>Filled Card</summary>

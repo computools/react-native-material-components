@@ -3,7 +3,7 @@ import Animated, {interpolateColor, useAnimatedStyle, useSharedValue, withTiming
 import {TouchableOpacity, type TouchableOpacityProps, type StyleProp, type ViewStyle, type ColorValue} from 'react-native';
 
 import {useTheme} from '../../theme/useTheme.hook';
-import {CheckmarkIcon} from '../../icons/checkmark-icon/CheckmarkIcon.component';
+import {CheckSmallIcon} from '../../icons/check-small-icon/CheckSmallIcon.component';
 import {DISABLED_OPACITY, ENABLED_OPACITY, getCheckboxFrameStyles, styles} from './checkbox.styles';
 
 export interface CheckboxProps<T> extends Omit<TouchableOpacityProps, 'onPress'> {
@@ -61,7 +61,7 @@ export const Checkbox: <T extends any>(props: CheckboxProps<T>) => ReactElement 
   const {checkboxFrame} = useMemo(() => getCheckboxFrameStyles(size), [size]);
 
   const checkmarkSize = size * CHECKMARK_SIZE_COEFF;
-  const icon = checkedIcon ?? <CheckmarkIcon size={checkmarkSize} />;
+  const icon = checkedIcon ?? <CheckSmallIcon size={checkmarkSize} />;
 
   const disabledColorStyles: ViewStyle = checked
     ? {backgroundColor: surface.text, borderColor: surface.text}

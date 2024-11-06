@@ -1,10 +1,11 @@
 import React, {forwardRef, type ReactNode} from 'react';
-import {Text, View, TouchableOpacity, type StyleProp, type TextStyle, type ViewProps} from 'react-native';
+import {Text, View, type StyleProp, type TextStyle, type ViewProps} from 'react-native';
 
 import {styles} from './basic-dialog.styles';
 import {useTheme} from '../../theme/useTheme.hook';
 import {Dialog, type DialogRef} from '../dialog/Dialog.component';
 import {useTypography} from '../../typography/useTypography.component';
+import {TextButton} from '../../buttons/common-buttons/text-button/TextButton.component';
 
 export interface BasicDialogProps extends ViewProps {
   append?: ReactNode;
@@ -43,8 +44,15 @@ export const BasicDialog = forwardRef<DialogRef, BasicDialogProps>(
     },
     ref
   ) => {
-    const {bodyMedium, headlineSmall, labelLarge} = useTypography();
-    const {surfaceContainer, primaryContainer} = useTheme();
+    const {surfaceContainer} = useTheme();
+    const {bodyMedium, headlineSmall} = useTypography();
+
+    const renderActionButtons = () => (
+      <View style={styles.actions}>
+        {secondActionTitle ? <TextButton style={styles.actionButton} onPress={onSecondActionPress} title={secondActionTitle} /> : null}
+        {firstActionTitle ? <TextButton style={styles.actionButton} onPress={onFirstActionPress} title={firstActionTitle} /> : null}
+      </View>
+    );
 
     return (
       <Dialog ref={ref} style={[style]} {...props}>
@@ -52,17 +60,7 @@ export const BasicDialog = forwardRef<DialogRef, BasicDialogProps>(
         {title ? <Text style={[headlineSmall, styles.title, {color: surfaceContainer.text}, titleStyle]}>{title}</Text> : null}
         {subtitle ? <Text style={[bodyMedium, {color: surfaceContainer.textVariant}, subtitleStyle]}>{subtitle}</Text> : null}
         {append}
-        {firstActionTitle && (
-          <View style={styles.actions}>
-            {/* Todo: replace with libriry's text buttons */}
-            <TouchableOpacity onPress={onSecondActionPress}>
-              <Text style={[labelLarge, {color: primaryContainer.text}]}>{secondActionTitle}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={onFirstActionPress}>
-              <Text style={[labelLarge, {color: primaryContainer.text}]}>{firstActionTitle}</Text>
-            </TouchableOpacity>
-          </View>
-        )}
+        {firstActionTitle ? renderActionButtons() : null}
       </Dialog>
     );
   }

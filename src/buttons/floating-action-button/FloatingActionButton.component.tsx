@@ -1,6 +1,6 @@
 import React, {useMemo, type ReactElement} from 'react';
 import Animated, {FadeInRight, LinearTransition, FadeOutRight} from 'react-native-reanimated';
-import {TouchableOpacity, type StyleProp, type TextStyle, type TouchableOpacityProps} from 'react-native';
+import {TouchableOpacity, type StyleProp, type TextStyle, type TouchableOpacityProps, type ViewStyle} from 'react-native';
 
 import {useTheme} from '../../theme/useTheme.hook';
 import {type IconProps} from '../../icons/icon-props';
@@ -28,6 +28,7 @@ export interface FloatingActionButtonProps<T extends IconProps> extends Touchabl
   iconProps?: T;
   size?: FloatingActionButtonSize;
   labelStyle?: StyleProp<TextStyle>;
+  innerContainerStyle?: StyleProp<ViewStyle>;
 }
 
 export const FloatingActionButton = <T extends IconProps>({
@@ -36,6 +37,7 @@ export const FloatingActionButton = <T extends IconProps>({
   labelStyle,
   Icon = EditIcon,
   extended = true,
+  innerContainerStyle,
   size = FloatingActionButtonSize.SMALL,
   type = FloatingActionButtonType.PRIMARY,
   style,
@@ -57,14 +59,14 @@ export const FloatingActionButton = <T extends IconProps>({
   const [paddingStart, paddingEnd] = label && extended ? [16, 20] : [0, 0];
 
   return (
-    <TouchableOpacity hitSlop={8} {...props}>
+    <TouchableOpacity hitSlop={8} style={[styles.container, getBaseFloatingButtonShape(size).container, style]} {...props}>
       <Animated.View
         layout={LinearTransition}
         style={[
-          styles.container,
+          styles.innerContainer,
           {backgroundColor: colors[type].backgroundColor, shadowColor: shadow, paddingStart, paddingEnd},
           getBaseFloatingButtonShape(size).container,
-          style,
+          innerContainerStyle,
         ]}>
         {Icon ? <Icon size={24} color={colors[type].iconColor} {...iconProps} /> : null}
         {label && extended ? (

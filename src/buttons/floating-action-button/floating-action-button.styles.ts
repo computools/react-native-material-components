@@ -4,18 +4,6 @@ import {FloatingActionButtonSize} from './FloatingActionButton.component';
 
 export const styles = StyleSheet.create({
   container: {
-    position: 'absolute',
-    zIndex: 1,
-    bottom: 0,
-    right: 0,
-
-    gap: 12,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-
-    overflow: 'hidden',
-
     shadowOffset: {
       width: 0,
       height: 2,
@@ -23,6 +11,14 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.15,
     shadowRadius: 5,
     elevation: 3,
+  },
+  innerContainer: {
+    gap: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+
+    overflow: 'hidden',
   },
 });
 

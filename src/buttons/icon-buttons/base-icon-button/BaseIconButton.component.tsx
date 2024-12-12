@@ -6,7 +6,7 @@ import {getIconButtonFrameStyles, styles} from './base-icon-button.styles';
 
 export interface BaseIconButtonProps<T extends IconProps> extends TouchableOpacityProps {
   Icon: React.FC<T>;
-  iconProps: T;
+  iconProps?: T;
 
   size?: number;
 }
@@ -14,8 +14,12 @@ export interface BaseIconButtonProps<T extends IconProps> extends TouchableOpaci
 const DEFAULT_SIZE = 40;
 const ICON_SIZE_COEFF = 0.6;
 
-export const BaseIconButton = <T extends IconProps>({Icon, size = DEFAULT_SIZE, iconProps, style, ...props}: BaseIconButtonProps<T>) => (
-  <TouchableOpacity style={[styles.container, getIconButtonFrameStyles(size), style]} hitSlop={8} {...props}>
-    <Icon size={size * ICON_SIZE_COEFF} {...iconProps} />
-  </TouchableOpacity>
-);
+export const BaseIconButton = <T extends IconProps>({Icon, size = DEFAULT_SIZE, iconProps, style, ...props}: BaseIconButtonProps<T>) => {
+  const otherIconProps = iconProps ? {...iconProps} : ({} as T);
+
+  return (
+    <TouchableOpacity style={[styles.container, getIconButtonFrameStyles(size), style]} hitSlop={8} {...props}>
+      <Icon size={size * ICON_SIZE_COEFF} {...otherIconProps} />
+    </TouchableOpacity>
+  );
+};

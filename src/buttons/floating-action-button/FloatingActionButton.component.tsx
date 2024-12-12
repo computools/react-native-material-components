@@ -57,7 +57,7 @@ export const FloatingActionButton = <T extends IconProps>({
   const [paddingStart, paddingEnd] = label && extended ? [16, 20] : [0, 0];
 
   return (
-    <TouchableOpacity {...props}>
+    <TouchableOpacity hitSlop={8} {...props}>
       <Animated.View
         layout={LinearTransition}
         style={[

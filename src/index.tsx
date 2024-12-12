@@ -1,4 +1,12 @@
+export {AccountCircleFilledIcon, ArrowBackIcon, CheckSmallIcon, CloseIcon, EditIcon, PlusIcon} from './icons';
+
 export {Divider, type DividerProps} from './divider/Divider.component';
+
+// export {BottomAppBar, type BottomAppBarProps} from './app-bars/bottom-app-bar/BottomAppBar.component';
+export {
+  CenterAlignedTopAppBar,
+  type CenterAlignedTopAppBarProps,
+} from './app-bars/top-app-bars/center-aligned-top-app-bar/CenterAlignedTopAppBar.component';
 
 export {BottomSheet, type BottomSheetProps, type BottomSheetRef} from './sheets/bottom-sheet/BottomSheet.component';
 export {SideSheet, type SideSheetProps, type SideSheetRef, type StickySide} from './sheets/side-sheet/SideSheet.component';

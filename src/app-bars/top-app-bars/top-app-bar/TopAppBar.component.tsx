@@ -46,8 +46,13 @@ export const TopAppBar = <T extends IconProps>({
     [TopAppBarSize.LARGE]: headlineMedium,
   };
 
-  const renderActionButton = ({Icon, iconProps, ...restProps}: IconButtonProps<T>) => (
-    <StandartIconButton Icon={Icon} iconProps={{color: surface.text, size: 24, ...iconProps} as T} {...restProps} />
+  const renderActionButton = ({Icon, iconProps, ...restProps}: IconButtonProps<T>, index: number) => (
+    <StandartIconButton
+      key={`${index}-${Icon.toString()}`}
+      Icon={Icon}
+      iconProps={{color: surface.text, size: 24, ...iconProps} as T}
+      {...restProps}
+    />
   );
 
   return (

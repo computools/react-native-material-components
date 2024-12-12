@@ -3,10 +3,14 @@ export {
   PlusIcon,
   CloseIcon,
   TodayIcon,
+  SearchIcon,
+  DeleteIcon,
   MoreVertIcon,
   ArrowBackIcon,
   CheckSmallIcon,
   AttachFileIcon,
+  FileDownloadIcon,
+  BookmarkBorderIcon,
   AccountCircleFilledIcon,
 } from './icons';
 
@@ -17,6 +21,7 @@ export {
   type CenterAlignedTopAppBarProps,
 } from './app-bars/top-app-bars/center-aligned-top-app-bar/CenterAlignedTopAppBar.component';
 export {TopAppBar, type TopAppBarProps, TopAppBarSize} from './app-bars/top-app-bars/top-app-bar/TopAppBar.component';
+export {BottomAppBar, type BottomAppBarProps, type BottomAppBarRef} from './app-bars/bottom-app-bar/BottomAppBar.component';
 
 export {BottomSheet, type BottomSheetProps, type BottomSheetRef} from './sheets/bottom-sheet/BottomSheet.component';
 export {SideSheet, type SideSheetProps, type SideSheetRef, type StickySide} from './sheets/side-sheet/SideSheet.component';

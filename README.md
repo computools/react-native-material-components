@@ -215,6 +215,7 @@ export const AppBodyLargeText: React.FC<PropsWithChildren> = ({children}) => {
 <details><summary>App Bars</summary>
 <br />
 <details><summary>Bottom App Bar</summary>
+<br />
 
 **Properties**
 
@@ -258,10 +259,9 @@ export const MyComponent: React.FC = () => {
 
 ```
 
-[bottom app bar](https://ik.imagekit.io/Computools/rn-material-components/bottom-app-bar.gif?updatedAt=1734086950022)
+![bottom app bar](https://ik.imagekit.io/Computools/rn-material-components/bottom-app-bar.gif?updatedAt=1734086950022)
 
 </details>
-<br />
 <details><summary>Top App Bars</summary>
 <br />
 
@@ -291,9 +291,10 @@ export const MyComponent: React.FC = () => {
 }
 ```
 
-(animated top app bar)[https://ik.imagekit.io/Computools/rn-material-components/animated-top-app-bar.gif?updatedAt=1734088599114]
+![animated top app bar](https://ik.imagekit.io/Computools/rn-material-components/animated-top-app-bar.gif?updatedAt=1734088599114)
 
 <details><summary>Center Aligned Top App Bar</summary>
+<br />
 
 **Properties**
 
@@ -309,10 +310,10 @@ export const MyComponent: React.FC = () => {
 | scrolledColor | - | ColorValue | - |
 | animationDuration | - | number | - |
 
-[center aligned top app bar](https://ik.imagekit.io/Computools/rn-material-components/center_aligned_top_app_bar.png?updatedAt=1734088249862)
+![center aligned top app bar](https://ik.imagekit.io/Computools/rn-material-components/center_aligned_top_app_bar.png?updatedAt=1734088249862)
 </details>
-<br />
 <details><summary>Top App Bar</summary>
+<br />
 
 **Properties**
 
@@ -329,9 +330,9 @@ export const MyComponent: React.FC = () => {
 | scrolledColor | - | ColorValue | - |
 | animationDuration | - | number | - |
 
-[small top app bar](https://ik.imagekit.io/Computools/rn-material-components/small_top_app_bar.png?updatedAt=1734088346321)
-[medium top app bar](https://ik.imagekit.io/Computools/rn-material-components/medium_top_app_bar.png?updatedAt=1734088346249)
-[large top app bar](https://ik.imagekit.io/Computools/rn-material-components/large_top_app_bar.png?updatedAt=1734088346230)
+![small top app bar](https://ik.imagekit.io/Computools/rn-material-components/small_top_app_bar.png?updatedAt=1734088346321)
+![medium top app bar](https://ik.imagekit.io/Computools/rn-material-components/medium_top_app_bar.png?updatedAt=1734088346249)
+![large top app bar](https://ik.imagekit.io/Computools/rn-material-components/large_top_app_bar.png?updatedAt=1734088346230)
 
 </details>
 </details>

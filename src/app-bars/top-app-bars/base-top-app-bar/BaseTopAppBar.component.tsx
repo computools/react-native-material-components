@@ -13,7 +13,7 @@ export interface BaseTopAppBarProps extends ViewProps {
   animationDuration?: number;
 }
 
-const DEFAULT_ANIMATION_DURATION = 220;
+const DEFAULT_ANIMATION_DURATION = 300;
 
 export const BaseTopAppBar: React.FC<PropsWithChildren<BaseTopAppBarProps>> = ({
   children,

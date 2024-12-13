@@ -1,5 +1,5 @@
 import React from 'react';
-import Animated, {withDelay, useAnimatedStyle, withSpring, type SharedValue} from 'react-native-reanimated';
+import Animated, {FadeInDown, FadeOut, withDelay, useAnimatedStyle, withSpring, type SharedValue} from 'react-native-reanimated';
 
 import {useTheme} from '../../../theme/useTheme.hook';
 import {type IconProps} from '../../../icons/icon-props';
@@ -27,7 +27,11 @@ export const AnimatedBottomAppBarActionButton = <T extends IconProps>({
   }));
 
   return (
-    <Animated.View key={`${index}-${buttonProps.Icon.toString()}`} style={iconButtonAnimatedStyle}>
+    <Animated.View
+      exiting={FadeOut}
+      entering={FadeInDown.damping(20).delay((index + 1) * 80)}
+      key={`${index}-${buttonProps.Icon.toString()}`}
+      style={iconButtonAnimatedStyle}>
       <StandartIconButton iconProps={{color: surface.textVariant} as T} {...buttonProps} />
     </Animated.View>
   );

@@ -4,17 +4,25 @@ import {View, type ViewProps, type LayoutChangeEvent} from 'react-native';
 import Animated, {useAnimatedStyle, withSpring, type SharedValue} from 'react-native-reanimated';
 
 import {useTheme} from '../../theme/useTheme.hook';
-import type {IconProps} from '../../icons/icon-props';
-import {PlusIcon} from '../../icons/plus-icon/PlusIcon.component';
+import {type IconProps} from '../../icons/icon-props';
 import {BOTTOM_APP_BAR_PADDING_VARTICAL, styles} from './bottom-app-bar.styles';
 import {type IconButtonProps} from '../../buttons/icon-buttons/icon-button.types';
 import {FloatingActionButton, FloatingActionButtonSize} from '../../buttons/floating-action-button/FloatingActionButton.component';
 import {AnimatedBottomAppBarActionButton} from './animated-bottom-app-bar-action-button/AnimatedBottomAppBarActionButton.component';
 
+export enum ScrollDirection {
+  UP = 'UP',
+  DOWN = 'DOWN',
+}
+
 export interface BottomAppBarProps<T extends IconProps> extends ViewProps {
   iconButtons: IconButtonProps<T>[];
 
-  scrollY?: SharedValue<number>;
+  FabIcon?: React.FC;
+  fabLabel?: string;
+  scrollDirection?: SharedValue<ScrollDirection>;
+
+  onFabPress?: () => void;
 }
 
 export interface BottomAppBarRef {
@@ -24,7 +32,10 @@ export interface BottomAppBarRef {
 const FAB_BOTTOM_GAP = 12;
 
 export const BottomAppBar = forwardRef(
-  <T extends IconProps>({iconButtons, scrollY, style, onLayout, ...props}: BottomAppBarProps<T>, ref: React.Ref<BottomAppBarRef>) => {
+  <T extends IconProps>(
+    {iconButtons, scrollDirection, FabIcon, fabLabel, style, onFabPress, onLayout, ...props}: BottomAppBarProps<T>,
+    ref: React.Ref<BottomAppBarRef>
+  ) => {
     const [bottomBarHeight, setBottombarHeight] = useState(0);
 
     const insets = useSafeAreaInsets();
@@ -35,7 +46,7 @@ export const BottomAppBar = forwardRef(
     }));
 
     const conteinerAnimatedStyle = useAnimatedStyle(() => ({
-      transform: [{translateY: withSpring(scrollY?.value ? bottomBarHeight : 0, {damping: 20})}],
+      transform: [{translateY: withSpring(scrollDirection?.value === ScrollDirection.DOWN ? bottomBarHeight : 0, {damping: 20})}],
     }));
 
     const getBottomBarHeight = (e: LayoutChangeEvent) => {
@@ -51,7 +62,7 @@ export const BottomAppBar = forwardRef(
         key={`${iconButton.Icon.toString()}-${index}`}
         buttonProps={iconButton}
         index={index}
-        scrollY={scrollY}
+        scrollDirection={scrollDirection}
         bottomBarHeight={bottomBarHeight}
       />
     );
@@ -69,12 +80,16 @@ export const BottomAppBar = forwardRef(
           {...props}>
           <View style={styles.iconButtons}>{iconButtons.map(renderIconButton)}</View>
         </Animated.View>
-        <FloatingActionButton
-          Icon={PlusIcon}
-          size={FloatingActionButtonSize.BIG}
-          iconProps={{color: secondaryContainer.text}}
-          style={[styles.fab, {bottom: insets.bottom + FAB_BOTTOM_GAP}]}
-        />
+        {FabIcon && (
+          <FloatingActionButton
+            Icon={FabIcon}
+            label={fabLabel}
+            onPress={onFabPress}
+            size={FloatingActionButtonSize.BIG}
+            iconProps={{color: secondaryContainer.text}}
+            style={[styles.fab, {bottom: insets.bottom + FAB_BOTTOM_GAP}]}
+          />
+        )}
       </>
     );
   }

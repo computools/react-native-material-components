@@ -21,6 +21,8 @@ export interface BottomAppBarProps<T extends IconProps> extends ViewProps {
   FabIcon?: React.FC;
   fabLabel?: string;
   scrollDirection?: SharedValue<ScrollDirection>;
+  animationDelay?: number;
+  animationDumping?: number;
 
   onFabPress?: () => void;
 }
@@ -33,7 +35,7 @@ const FAB_BOTTOM_GAP = 12;
 
 export const BottomAppBar = forwardRef(
   <T extends IconProps>(
-    {iconButtons, scrollDirection, FabIcon, fabLabel, style, onFabPress, onLayout, ...props}: BottomAppBarProps<T>,
+    {iconButtons, scrollDirection, FabIcon, fabLabel, style, onFabPress, onLayout, animationDelay, animationDumping, ...props}: BottomAppBarProps<T>,
     ref: React.Ref<BottomAppBarRef>
   ) => {
     const [bottomBarHeight, setBottombarHeight] = useState(0);
@@ -64,6 +66,8 @@ export const BottomAppBar = forwardRef(
         index={index}
         scrollDirection={scrollDirection}
         bottomBarHeight={bottomBarHeight}
+        animationDelay={animationDelay}
+        animationDumping={animationDumping}
       />
     );
 

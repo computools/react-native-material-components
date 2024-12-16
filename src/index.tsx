@@ -1,18 +1,4 @@
-export {
-  EditIcon,
-  PlusIcon,
-  CloseIcon,
-  TodayIcon,
-  SearchIcon,
-  DeleteIcon,
-  MoreVertIcon,
-  ArrowBackIcon,
-  CheckSmallIcon,
-  AttachFileIcon,
-  FileDownloadIcon,
-  BookmarkBorderIcon,
-  AccountCircleFilledIcon,
-} from './icons';
+export * from './icons';
 
 export {Divider, type DividerProps} from './divider/Divider.component';
 

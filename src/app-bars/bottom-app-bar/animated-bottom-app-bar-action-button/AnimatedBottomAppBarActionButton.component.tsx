@@ -12,6 +12,8 @@ interface AnimatedBottomAppBarActionButtonProps<T extends IconProps> {
   bottomBarHeight: number;
   buttonProps: IconButtonProps<T>;
 
+  animationDelay?: number;
+  animationDumping?: number;
   scrollDirection?: SharedValue<ScrollDirection>;
 }
 
@@ -20,6 +22,8 @@ export const AnimatedBottomAppBarActionButton = <T extends IconProps>({
   buttonProps,
   bottomBarHeight,
   scrollDirection,
+  animationDumping = 20,
+  animationDelay = 80,
 }: AnimatedBottomAppBarActionButtonProps<T>) => {
   const {surface} = useTheme();
 
@@ -28,8 +32,8 @@ export const AnimatedBottomAppBarActionButton = <T extends IconProps>({
       {
         translateY:
           scrollDirection?.value === ScrollDirection.DOWN
-            ? withSpring(bottomBarHeight, {damping: 20})
-            : withDelay(index * 80, withSpring(0, {damping: 20})),
+            ? withSpring(bottomBarHeight, {damping: animationDumping})
+            : withDelay(index * animationDelay, withSpring(0, {damping: animationDumping})),
       },
     ],
   }));
@@ -37,7 +41,7 @@ export const AnimatedBottomAppBarActionButton = <T extends IconProps>({
   return (
     <Animated.View
       exiting={FadeOut}
-      entering={FadeInDown.damping(20).delay((index + 1) * 80)}
+      entering={FadeInDown.damping(animationDumping).delay((index + 1) * animationDelay)}
       key={`${index}-${buttonProps.Icon.toString()}`}
       style={iconButtonAnimatedStyle}>
       <StandartIconButton iconProps={{color: surface.textVariant} as T} {...buttonProps} />

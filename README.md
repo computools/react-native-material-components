@@ -222,9 +222,11 @@ export const AppBodyLargeText: React.FC<PropsWithChildren> = ({children}) => {
 | name | description | type | default |
 | ------ | ------ | ------ | ----|
 | iconButtons | required | IconButtonProps[] | - |
-| scrollDirection | UP or DOWN | sharedValue<ScrollDirection> | - |
+| scrollDirection | UP or DOWN | sharedValue<ScrollDirection> | UP |
 | FabIcon | Pass an icon to show FAB | React.FC | - |
 | fabLabel | - | string | - |
+| animationDelay | - | number | 80 |
+| animationDumping | - | number | 20 |
 | onFabPress | - | () => void | - |
 
 To enable animation on scroll use ScrollView from Animated, create a shared value with a ScrollDirection value, scrollContext with a number value and manage them onScroll.

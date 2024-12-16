@@ -16,6 +16,7 @@ export interface AssistChipProps<T extends IconProps> extends BaseChipProps {
   LeadingIcon?: React.FC<T>;
   leadingIconType?: LeadingIconType;
   leadingIconProps?: T;
+  iconSize?: number;
 }
 
 export const AssistChip = <T extends IconProps>({
@@ -23,6 +24,7 @@ export const AssistChip = <T extends IconProps>({
   LeadingIcon,
   leadingIconType = LeadingIconType.COMMON,
   leadingIconProps = {} as T,
+  iconSize = 18,
   style,
   labelStyle,
   disabled = false,
@@ -32,9 +34,9 @@ export const AssistChip = <T extends IconProps>({
   const colorStyles = useMemo(() => getColorStyles(elevated, disabled, theme), [disabled, elevated, theme]);
 
   const leadingIconPropsMap: Record<LeadingIconType, IconProps> = {
-    [LeadingIconType.COMMON]: {size: 18, color: colorStyles.icon.color},
-    [LeadingIconType.FAVICON]: {size: 18},
-    [LeadingIconType.BRANDED]: {size: 18, style: {opacity: 0.38}},
+    [LeadingIconType.COMMON]: {size: iconSize, color: colorStyles.icon.color},
+    [LeadingIconType.FAVICON]: {size: iconSize},
+    [LeadingIconType.BRANDED]: {size: iconSize, style: {opacity: 0.38}},
   };
 
   return (
@@ -42,6 +44,7 @@ export const AssistChip = <T extends IconProps>({
       style={[elevated && !disabled ? styles.elevatedContainer : styles.outlinedContainer, colorStyles.container, style]}
       labelStyle={[colorStyles.label, labelStyle]}
       leadingIcon={LeadingIcon ? <LeadingIcon {...leadingIconPropsMap[leadingIconType]} {...leadingIconProps} /> : null}
+      disabled={disabled}
       {...props}
     />
   );

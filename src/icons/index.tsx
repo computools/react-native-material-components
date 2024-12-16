@@ -1,3 +1,4 @@
+export {DoneIcon} from './done-icon/DoneIcon.component';
 export {EditIcon} from './edit-icon/EditIcon.component';
 export {PlusIcon} from './plus-icon/PlusIcon.component';
 export {TodayIcon} from './today-icon/TodayIcon.component';

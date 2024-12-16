@@ -30,6 +30,7 @@ export const SuggestionChip = <T extends IconProps>({
       style={[elevated && !disabled ? styles.elevatedContainer : styles.outlinedContainer, dynamicStyles.container, style]}
       labelStyle={[dynamicStyles.label, labelStyle]}
       leadingIcon={LeadingIcon ? <LeadingIcon size={18} color={dynamicStyles.icon.color} {...leadingIconProps} /> : null}
+      disabled={disabled}
       {...props}
     />
   );

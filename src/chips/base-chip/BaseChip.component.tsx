@@ -12,13 +12,13 @@ export interface BaseChipProps extends TouchableOpacityProps {
   labelStyle?: StyleProp<TextStyle>;
 }
 
-export const BaseChip: React.FC<BaseChipProps> = ({label, leadingIcon, trailingIcon, style, ...props}) => {
+export const BaseChip: React.FC<BaseChipProps> = ({label, leadingIcon, trailingIcon, labelStyle, style, ...props}) => {
   const {labelLarge} = useTypography();
 
   return (
-    <TouchableOpacity style={[styles.container, style]} hitSlop={8} {...props} disabled>
+    <TouchableOpacity style={[styles.container, style]} hitSlop={8} {...props}>
       {leadingIcon}
-      <Text style={[[styles.label, labelLarge]]}>{label}</Text>
+      <Text style={[[styles.label, labelLarge, labelStyle]]}>{label}</Text>
       {trailingIcon}
     </TouchableOpacity>
   );

@@ -1,3 +1,5 @@
+export {Badge, type BadgeProps} from './badge/Badge.component';
+
 export {Divider, type DividerProps} from './divider/Divider.component';
 
 export {BottomSheet, type BottomSheetProps, type BottomSheetRef} from './sheets/bottom-sheet/BottomSheet.component';

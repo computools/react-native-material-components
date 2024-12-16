@@ -338,6 +338,7 @@ export const MyComponent: React.FC = () => {
 
 </details>
 </details>
+</details>
 <details><summary>Badge</summary>
 </br>
 

@@ -338,6 +338,17 @@ export const MyComponent: React.FC = () => {
 
 </details>
 </details>
+<details><summary>Badge</summary>
+</br>
+
+**Properties**
+| name | description | type | default |
+| ------ | ------ | ------ | ----|
+| value | required | string | - |
+| valueStyle | - | TextStyle | - |
+
+![badge light theme](https://ik.imagekit.io/Computools/rn-material-components/badge_light.png?updatedAt=1733926687727)
+![badge dark theme](https://ik.imagekit.io/Computools/rn-material-components/badge_dark.png?updatedAt=1733926687741)
 </details>
 <details><summary>Buttons</summary>
 <br />

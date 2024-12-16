@@ -1,5 +1,7 @@
 export * from './icons';
 
+export {Badge, type BadgeProps} from './badge/Badge.component';
+
 export {Divider, type DividerProps} from './divider/Divider.component';
 
 export {

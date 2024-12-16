@@ -5,17 +5,17 @@ import {type IconProps} from '../../icons/icon-props';
 import {getColorStyles, styles} from './assist-chip.styles';
 import {BaseChip, type BaseChipProps} from '../base-chip/BaseChip.component';
 
+export enum LeadingIconType {
+  COMMON = 'COMMON',
+  FAVICON = 'FAVICON',
+  BRANDED = 'BRANDED',
+}
+
 export interface AssistChipProps<T extends IconProps> extends BaseChipProps {
   elevated?: boolean;
   LeadingIcon?: React.FC<T>;
   leadingIconType?: LeadingIconType;
   leadingIconProps?: T;
-}
-
-export enum LeadingIconType {
-  COMMON = 'COMMON',
-  FAVICON = 'FAVICON',
-  BRANDED = 'BRANDED',
 }
 
 export const AssistChip = <T extends IconProps>({

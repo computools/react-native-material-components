@@ -212,11 +212,137 @@ export const AppBodyLargeText: React.FC<PropsWithChildren> = ({children}) => {
 ![linear activity indicator gif](https://ik.imagekit.io/Computools/rn-material-components/linear-indicator-gif.gif?updatedAt=1705066319092)
 </details>
 </details>
-<details><summary>Badge</summary>
+<details><summary>App Bars</summary>
+<br />
+<details><summary>Bottom App Bar</summary>
 <br />
 
 **Properties**
 
+| name | description | type | default |
+| ------ | ------ | ------ | ----|
+| iconButtons | required | IconButtonProps[] | - |
+| scrollDirection | UP or DOWN | sharedValue<ScrollDirection> | UP |
+| FabIcon | Pass an icon to show FAB | React.FC | - |
+| fabLabel | - | string | - |
+| animationDelay | - | number | 80 |
+| animationDumping | - | number | 20 |
+| onFabPress | - | () => void | - |
+
+To enable animation on scroll use ScrollView from Animated, create a shared value with a ScrollDirection value, scrollContext with a number value and manage them onScroll.
+
+See the example:
+```
+export const MyComponent: React.FC = () => {
+  const scrollDirection = useSharedValue(ScrollDirection.UP);
+  const scrollContext = useSharedValue(0);
+
+  const onScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const currentOffsetY = e.nativeEvent.contentOffset.y;
+
+    if (currentOffsetY <= 0 || currentOffsetY < scrollContext.value) {
+      scrollDirection.value = ScrollDirection.UP;
+    } else if (currentOffsetY >= scrollContext.value) {
+      scrollDirection.value = ScrollDirection.DOWN;
+    }
+
+    scrollContext.value = currentOffsetY;
+  };
+
+  return (
+    <>
+      <Animated.ScrollView onScroll={onScroll}>
+        <!-- scrollview content -->
+      </Animated.ScrollView>
+      <BottomAppBar scrollDirection={scrollDirection} />
+    </>
+  )
+}
+
+```
+
+![bottom app bar](https://ik.imagekit.io/Computools/rn-material-components/bottom-app-bar.gif?updatedAt=1734086950022)
+
+</details>
+<details><summary>Top App Bars</summary>
+<br />
+
+To enable animation on scroll use ScrollView from Animated, create a shared value with ScrollStatus (0 if top is reached, 1 if target offset reached) value and manage it onScroll.
+
+See the example:
+```
+export const MyComponent: React.FC = () => {
+  const scrollStatus = useSharedValue(0);
+
+  const onScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
+    if (e.nativeEvent.contentOffset.y > 10) { // 10 is offset treashold when top app bar changes background color
+      scrollStatus.value = 1;
+    } else if (e.nativeEvent.contentOffset.y <= 10) {
+      scrollStatus.value = 0;
+    }
+  };
+
+  return (
+    <>
+      <Animated.ScrollView onScroll={onScroll}>
+        <!-- scrollview content -->
+      </Animated.ScrollView>
+      <TopAppBar scrollStatus={scrollStatus} />
+    </>
+  )
+}
+```
+
+![animated top app bar](https://ik.imagekit.io/Computools/rn-material-components/animated-top-app-bar.gif?updatedAt=1734088599114)
+
+<details><summary>Center Aligned Top App Bar</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ----|
+| title | required | string | - |
+| StartIcon | - | React.FC | - |
+| EndIcon | - | React.FC | - |
+| scrollStatus | 1 - scrolled down (backgoround color will changed); 0 - non-scrolled, top is reached | SharedValue<number> | - |
+| iconProps | - | T | - |
+| titleStyle | - | TextStyle | - |
+| defaultColor | - | ColorValue | - |
+| scrolledColor | - | ColorValue | - |
+| animationDuration | - | number | - |
+
+![center aligned top app bar](https://ik.imagekit.io/Computools/rn-material-components/center_aligned_top_app_bar.png?updatedAt=1734088249862)
+</details>
+<details><summary>Top App Bar</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ----|
+| title | required | string | - |
+| size | SMALL, MEDIUM, LARGE | TopAppBarSize | - |
+| StartIcon | - | React.FC | - |
+| actions | - | IconButtonProps<T>[] | - |
+| scrollStatus | 1 - scrolled down (backgoround color will changed); 0 - non-scrolled, top is reached | SharedValue<number> | - |
+| iconProps | - | T | - |
+| titleStyle | - | TextStyle | - |
+| defaultColor | - | ColorValue | - |
+| scrolledColor | - | ColorValue | - |
+| animationDuration | - | number | - |
+
+![small top app bar](https://ik.imagekit.io/Computools/rn-material-components/small_top_app_bar.png?updatedAt=1734088346321)
+![medium top app bar](https://ik.imagekit.io/Computools/rn-material-components/medium_top_app_bar.png?updatedAt=1734088346249)
+![large top app bar](https://ik.imagekit.io/Computools/rn-material-components/large_top_app_bar.png?updatedAt=1734088346230)
+
+</details>
+</details>
+</details>
+<details><summary>Badge</summary>
+</br>
+
+**Properties**
 | name | description | type | default |
 | ------ | ------ | ------ | ----|
 | value | required | string | - |

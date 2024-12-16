@@ -7,7 +7,7 @@ import {useTheme} from '../../theme/useTheme.hook';
 import {type IconProps} from '../../icons/icon-props';
 import {BaseChip, type BaseChipProps} from '../base-chip/BaseChip.component';
 
-interface InputChipProps<T extends IconProps> extends BaseChipProps {
+export interface InputChipProps<T extends IconProps> extends BaseChipProps {
   selected?: boolean;
   imageUrl?: string;
   LeadingIcon?: React.FC<T>;
@@ -22,6 +22,7 @@ export const InputChip = <T extends IconProps>({
   hasTrailingIcon = true,
   leadingIconProps = {} as T,
   style,
+  labelStyle,
   ...props
 }: InputChipProps<T>) => {
   const {surface, secondaryContainer, outline, primary} = useTheme();
@@ -48,7 +49,7 @@ export const InputChip = <T extends IconProps>({
   return (
     <BaseChip
       style={[dynamicStyles.container, imageUrl ? styles.chipWithAvatarContainer : [], style]}
-      labelStyle={dynamicStyles.label}
+      labelStyle={[dynamicStyles.label, labelStyle]}
       leadingIcon={LeadingIcon ? <LeadingIcon size={18} color={primary.background} {...leadingIconProps} /> : renderLeadingAvatar()}
       trailingIcon={hasTrailingIcon ? <CloseIcon size={18} color={onContainerColor} /> : null}
       {...props}

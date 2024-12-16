@@ -16,7 +16,7 @@ export const BaseChip: React.FC<BaseChipProps> = ({label, leadingIcon, trailingI
   const {labelLarge} = useTypography();
 
   return (
-    <TouchableOpacity style={[styles.container, style]} hitSlop={8} {...props}>
+    <TouchableOpacity style={[styles.container, style]} hitSlop={8} {...props} disabled>
       {leadingIcon}
       <Text style={[[styles.label, labelLarge]]}>{label}</Text>
       {trailingIcon}

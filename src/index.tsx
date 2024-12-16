@@ -4,7 +4,8 @@ export {Badge, type BadgeProps} from './badge/Badge.component';
 
 export {Divider, type DividerProps} from './divider/Divider.component';
 
-export {InputChip} from './chips/input-chip/InputChip.component';
+export {InputChip, type InputChipProps} from './chips/input-chip/InputChip.component';
+export {AssistChip, type AssistChipProps} from './chips/assist-chip/AssistChip.component';
 
 export {
   CenterAlignedTopAppBar,

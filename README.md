@@ -2,6 +2,9 @@
 
 Computools react native material components package
 
+![Material desgin Figma](https://www.figma.com/design/MY4zoWhMQUMOMIfBGcgSpy/Material-3-Design-Kit-(Community)?node-id=47909-2&p=f&t=Fo0xFwhmWhLMqS8Z-0)
+![Material icons design Figma](https://www.figma.com/design/siKJo238QbcA9I2EqYMZ9y/Material-Design-Icons-(Community)?node-id=2402-2207&node-type=canvas&t=xqHD7AwdyHpKWsur-0)
+
 ## Installation
 
 1. ```yarn add @computools/react-native-material-components```

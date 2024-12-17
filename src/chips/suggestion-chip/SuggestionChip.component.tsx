@@ -5,18 +5,22 @@ import {type IconProps} from '../../icons/icon-props';
 import {getDynamicStyles, styles} from './suggestion-chip.styles';
 import {BaseChip, type BaseChipProps} from '../base-chip/BaseChip.component';
 
-export interface SuggestionChipProps<T extends IconProps> extends BaseChipProps {
+export interface SuggestionChipProps<T extends IconProps> extends Omit<BaseChipProps, 'leadingIcon' | 'trailingIcon'> {
   elevated?: boolean;
   selected?: boolean;
   LeadingIcon?: React.FC<T>;
+  TrailingIcon?: React.FC<T>;
   leadingIconProps?: T;
+  trailingIconProps?: T;
 }
 
 export const SuggestionChip = <T extends IconProps>({
   elevated = false,
   selected = false,
   LeadingIcon,
+  TrailingIcon,
   leadingIconProps = {} as T,
+  trailingIconProps = {} as T,
   style,
   labelStyle,
   disabled = false,
@@ -30,6 +34,7 @@ export const SuggestionChip = <T extends IconProps>({
       style={[elevated && !disabled ? styles.elevatedContainer : styles.outlinedContainer, dynamicStyles.container, style]}
       labelStyle={[dynamicStyles.label, labelStyle]}
       leadingIcon={LeadingIcon ? <LeadingIcon size={18} color={dynamicStyles.icon.color} {...leadingIconProps} /> : null}
+      trailingIcon={TrailingIcon ? <TrailingIcon size={18} color={dynamicStyles.icon.color} {...trailingIconProps} /> : null}
       disabled={disabled}
       {...props}
     />

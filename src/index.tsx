@@ -7,7 +7,7 @@ export {Divider, type DividerProps} from './divider/Divider.component';
 export {InputChip, type InputChipProps} from './chips/input-chip/InputChip.component';
 export {FilterChip, type FilterChipProps} from './chips/filter-chip/FilterChip.component';
 export {SuggestionChip, type SuggestionChipProps} from './chips/suggestion-chip/SuggestionChip.component';
-export {AssistChip, type AssistChipProps, LeadingIconType} from './chips/assist-chip/AssistChip.component';
+export {AssistChip, type AssistChipProps, IconType} from './chips/assist-chip/AssistChip.component';
 
 export {
   CenterAlignedTopAppBar,

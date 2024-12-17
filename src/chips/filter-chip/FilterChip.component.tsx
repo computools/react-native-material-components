@@ -1,19 +1,21 @@
 import React, {useMemo} from 'react';
+import Animated, {FadeIn, FadeOut, LinearTransition} from 'react-native-reanimated';
 
+import {DoneIcon} from '../../icons';
 import {useTheme} from '../../theme/useTheme.hook';
 import {type IconProps} from '../../icons/icon-props';
 import {getDynamicStyles, styles} from './filter-chip.styles';
 import {BaseChip, type BaseChipProps} from '../base-chip/BaseChip.component';
-import {DoneIcon} from '../../icons';
 import {CircularActivityIndicator} from '../../activity-indicators/circular-activity-indicator/CircularActivityIndicator.component';
-import Animated, {FadeIn, FadeOut, LinearTransition} from 'react-native-reanimated';
 
-export interface FilterChipProps<T extends IconProps> extends BaseChipProps {
+export interface FilterChipProps<T extends IconProps> extends Omit<BaseChipProps, 'leadingIcon' | 'trailingIcon'> {
   elevated?: boolean;
   selected?: boolean;
   loading?: boolean;
   LeadingIcon?: React.FC<T>;
+  TrailingIcon?: React.FC<T>;
   leadingIconProps?: T;
+  trailingIconProps?: T;
   iconSize?: number;
   activityIndicatorSize?: number;
 }
@@ -23,7 +25,9 @@ export const FilterChip = <T extends IconProps>({
   selected = false,
   loading = false,
   LeadingIcon,
+  TrailingIcon,
   leadingIconProps = {} as T,
+  trailingIconProps = {} as T,
   iconSize = 18,
   activityIndicatorSize = 38,
   style,
@@ -37,11 +41,18 @@ export const FilterChip = <T extends IconProps>({
   const renerCustomLeadingIcon = () =>
     LeadingIcon ? (
       <Animated.View entering={FadeIn} exiting={FadeOut}>
-        <LeadingIcon size={iconSize} color={dynamicStyles.leadingIcon.color} {...leadingIconProps} />
+        <LeadingIcon size={iconSize} color={dynamicStyles.icon.color} {...leadingIconProps} />
       </Animated.View>
     ) : null;
 
-  const renderLeadingIcon = () => (selected ? <DoneIcon size={iconSize} color={dynamicStyles.selectedIcon.color} /> : renerCustomLeadingIcon());
+  const renderLeadingIcon = () =>
+    selected ? (
+      <Animated.View entering={FadeIn} exiting={FadeOut}>
+        <DoneIcon size={iconSize} color={dynamicStyles.selectedIcon.color} />
+      </Animated.View>
+    ) : (
+      renerCustomLeadingIcon()
+    );
 
   return (
     <Animated.View layout={LinearTransition}>
@@ -51,6 +62,7 @@ export const FilterChip = <T extends IconProps>({
         leadingIcon={
           loading ? <CircularActivityIndicator size={activityIndicatorSize} style={{height: iconSize, width: iconSize}} /> : renderLeadingIcon()
         }
+        trailingIcon={TrailingIcon ? <TrailingIcon size={18} color={dynamicStyles.icon.color} {...trailingIconProps} /> : null}
         disabled={disabled}
         {...props}
       />

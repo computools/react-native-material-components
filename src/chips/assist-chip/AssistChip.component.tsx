@@ -5,25 +5,31 @@ import {type IconProps} from '../../icons/icon-props';
 import {getColorStyles, styles} from './assist-chip.styles';
 import {BaseChip, type BaseChipProps} from '../base-chip/BaseChip.component';
 
-export enum LeadingIconType {
+export enum IconType {
   COMMON = 'COMMON',
   FAVICON = 'FAVICON',
   BRANDED = 'BRANDED',
 }
 
-export interface AssistChipProps<T extends IconProps> extends BaseChipProps {
+export interface AssistChipProps<T extends IconProps> extends Omit<BaseChipProps, 'leadingIcon' | 'trailingIcon'> {
   elevated?: boolean;
   LeadingIcon?: React.FC<T>;
-  leadingIconType?: LeadingIconType;
+  TrailingIcon?: React.FC<T>;
+  leadingIconType?: IconType;
+  trailingIconType?: IconType;
   leadingIconProps?: T;
+  trailingIconProps?: T;
   iconSize?: number;
 }
 
 export const AssistChip = <T extends IconProps>({
   elevated = false,
   LeadingIcon,
-  leadingIconType = LeadingIconType.COMMON,
+  TrailingIcon,
+  leadingIconType = IconType.COMMON,
+  trailingIconType = IconType.COMMON,
   leadingIconProps = {} as T,
+  trailingIconProps = {} as T,
   iconSize = 18,
   style,
   labelStyle,
@@ -33,17 +39,18 @@ export const AssistChip = <T extends IconProps>({
   const theme = useTheme();
   const colorStyles = useMemo(() => getColorStyles(elevated, disabled, theme), [disabled, elevated, theme]);
 
-  const leadingIconPropsMap: Record<LeadingIconType, IconProps> = {
-    [LeadingIconType.COMMON]: {size: iconSize, color: colorStyles.icon.color},
-    [LeadingIconType.FAVICON]: {size: iconSize},
-    [LeadingIconType.BRANDED]: {size: iconSize, style: {opacity: 0.38}},
+  const iconPropsMap: Record<IconType, IconProps> = {
+    [IconType.COMMON]: {size: iconSize, color: colorStyles.icon.color},
+    [IconType.FAVICON]: {size: iconSize},
+    [IconType.BRANDED]: {size: iconSize, style: {opacity: 0.38}},
   };
 
   return (
     <BaseChip
       style={[elevated && !disabled ? styles.elevatedContainer : styles.outlinedContainer, colorStyles.container, style]}
       labelStyle={[colorStyles.label, labelStyle]}
-      leadingIcon={LeadingIcon ? <LeadingIcon {...leadingIconPropsMap[leadingIconType]} {...leadingIconProps} /> : null}
+      leadingIcon={LeadingIcon ? <LeadingIcon {...iconPropsMap[leadingIconType]} {...leadingIconProps} /> : null}
+      trailingIcon={TrailingIcon ? <TrailingIcon {...iconPropsMap[trailingIconType]} {...trailingIconProps} /> : null}
       disabled={disabled}
       {...props}
     />

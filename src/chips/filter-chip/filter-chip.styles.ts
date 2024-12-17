@@ -25,7 +25,13 @@ export const getDynamicStyles = (selected: boolean, elevated: boolean, disabled:
   const [disabledUnselectedBackgroundColorByType, disabledUnselectedBorderColorByType] = elevated
     ? [containerDisabledColor, 'transparent']
     : ['transparent', containerDisabledColor];
+  const [disabledBackgroundColor, disabledBorderColor] = selected
+    ? [containerDisabledColor, 'transparent']
+    : [disabledUnselectedBackgroundColorByType, disabledUnselectedBorderColorByType];
   const enabledBackgroundColorByType = elevated ? theme.surfaceContainer.backgroundLow : 'transparent';
+  const [enabledBackgroundColor, enabledBorderColor] = selected
+    ? [theme.secondaryContainer.background, theme.secondaryContainer.background]
+    : [enabledBackgroundColorByType, theme.outline];
 
   return StyleSheet.create(
     disabled
@@ -34,10 +40,10 @@ export const getDynamicStyles = (selected: boolean, elevated: boolean, disabled:
             color: labelDisabledColor,
           },
           container: {
-            borderColor: selected ? 'transparent' : disabledUnselectedBorderColorByType,
-            backgroundColor: selected ? containerDisabledColor : disabledUnselectedBackgroundColorByType,
+            borderColor: disabledBorderColor,
+            backgroundColor: disabledBackgroundColor,
           },
-          leadingIcon: {
+          icon: {
             color: labelDisabledColor,
           },
           selectedIcon: {
@@ -49,11 +55,11 @@ export const getDynamicStyles = (selected: boolean, elevated: boolean, disabled:
             color: theme.surface.text,
           },
           container: {
-            borderColor: theme.outline,
-            borderWidth: Number(!selected && !elevated),
-            backgroundColor: selected ? theme.secondaryContainer.background : enabledBackgroundColorByType,
+            borderColor: enabledBorderColor,
+            borderWidth: 1,
+            backgroundColor: enabledBackgroundColor,
           },
-          leadingIcon: {
+          icon: {
             color: theme.primary.background,
           },
           selectedIcon: {

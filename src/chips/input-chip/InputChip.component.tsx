@@ -7,21 +7,25 @@ import {useTheme} from '../../theme/useTheme.hook';
 import {type IconProps} from '../../icons/icon-props';
 import {BaseChip, type BaseChipProps} from '../base-chip/BaseChip.component';
 
-export interface InputChipProps<T extends IconProps> extends BaseChipProps {
+export interface InputChipProps<T extends IconProps> extends Omit<BaseChipProps, 'leadingIcon' | 'trailingIcon'> {
   selected?: boolean;
   imageUrl?: string;
   LeadingIcon?: React.FC<T>;
+  TrailingIcon?: React.FC<T>;
   leadingIconProps?: T;
-  hasTrailingIcon?: boolean;
+  trailingIconProps?: T;
+  hasDefaultTrailingIcon?: boolean;
   iconSize?: number;
 }
 
 export const InputChip = <T extends IconProps>({
   selected = false,
   LeadingIcon,
+  TrailingIcon,
   imageUrl,
-  hasTrailingIcon = true,
   leadingIconProps = {} as T,
+  trailingIconProps = {} as T,
+  hasDefaultTrailingIcon = true,
   style,
   labelStyle,
   iconSize = 18,
@@ -47,13 +51,14 @@ export const InputChip = <T extends IconProps>({
   );
 
   const renderLeadingAvatar = () => (imageUrl ? <Image style={styles.leadingImage} source={{uri: imageUrl}} /> : null);
+  const renderDefaultTrailingIcon = () => (hasDefaultTrailingIcon ? <CloseIcon size={iconSize} color={onContainerColor} /> : null);
 
   return (
     <BaseChip
       style={[dynamicStyles.container, imageUrl ? styles.chipWithAvatarContainer : [], style]}
       labelStyle={[dynamicStyles.label, labelStyle]}
       leadingIcon={LeadingIcon ? <LeadingIcon size={iconSize} color={primary.background} {...leadingIconProps} /> : renderLeadingAvatar()}
-      trailingIcon={hasTrailingIcon ? <CloseIcon size={iconSize} color={onContainerColor} /> : null}
+      trailingIcon={TrailingIcon ? <TrailingIcon size={iconSize} color={onContainerColor} {...trailingIconProps} /> : renderDefaultTrailingIcon()}
       {...props}
     />
   );

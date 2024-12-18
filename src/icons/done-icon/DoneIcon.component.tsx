@@ -7,8 +7,8 @@ import type {IconProps} from '../icon-props';
 const DEFAULT_SIZE = 24;
 const DEFAULT_COLOR = '#000';
 
-export const CheckSmallIcon: React.FC<IconProps> = ({color = DEFAULT_COLOR, size = DEFAULT_SIZE, ...props}) => (
-  <Svg viewBox="0 0 24 24" width={size} height={size} fill={'none'} {...props}>
+export const DoneIcon = ({color = DEFAULT_COLOR, size = DEFAULT_SIZE, ...props}: IconProps) => (
+  <Svg viewBox="0 0 24 24" width={size} height={size} {...props}>
     <Path fill={color} d={path} />
   </Svg>
 );

@@ -2,6 +2,9 @@
 
 Computools react native material components package
 
+![Material desgin Figma](https://www.figma.com/design/MY4zoWhMQUMOMIfBGcgSpy/Material-3-Design-Kit-(Community)?node-id=47909-2&p=f&t=Fo0xFwhmWhLMqS8Z-0)
+![Material icons design Figma](https://www.figma.com/design/siKJo238QbcA9I2EqYMZ9y/Material-Design-Icons-(Community)?node-id=2402-2207&node-type=canvas&t=xqHD7AwdyHpKWsur-0)
+
 ## Installation
 
 1. ```yarn add @computools/react-native-material-components```
@@ -482,6 +485,88 @@ Outlined card is touchable.
 | children | - | ReactNode | - |
 
 ![card](https://ik.imagekit.io/Computools/rn-material-components/elevated-card.png?updatedAt=1705074211931)
+</details>
+</details>
+<details><summary>Chips</summary>
+<br />
+<details><summary>Assist Chip</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| label | required | string | - |
+| elevated | - | boolean | false |
+| LeadingIcon | - | React.FC | - |
+| TrailingIcon | - | React.FC | - |
+| leadingIconType | COMMON, FAVICON or BRANDED | IconType | COMMON |
+| trailingIconType | COMMON, FAVICON or BRANDED | IconType | COMMON |
+| leadingIconProps | - | T | - |
+| trailingIconProps | - | T | - |
+| iconSize | - | number | 18 |
+| labelStyle | - | TextStyle | - |
+
+![assist chips](https://ik.imagekit.io/Computools/rn-material-components/assist_chip.png?updatedAt=1734450064327)
+
+</details>
+<details><summary>Filter Chip</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| label | required | string | - |
+| selected | - | boolean | false |
+| elevated | - | boolean | false |
+| loading | Provide loading to show circle activity indicator instead of leading icon on loading | boolean |false |
+| LeadingIcon | - | React.FC | - |
+| TrailingIcon | - | React.FC | - |
+| leadingIconProps | - | T | - |
+| trailingIconProps | - | T | - |
+| iconSize | - | number | 18 |
+| activityIndicatorSize | - | number | 38 |
+
+![filter chips](https://ik.imagekit.io/Computools/rn-material-components/filter_chip.png?updatedAt=1734450064378)
+![filter chip loading state](https://ik.imagekit.io/Computools/rn-material-components/filter_chip_loading_state.gif?updatedAt=1734450161294)
+</details>
+<details><summary>Input Chip</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| label | required | string | - |
+| selected | - | boolean | false |
+| imageUrl | Provide a url to show leading image. | string | - |
+| LeadingIcon | - | React.FC | - |
+| TrailingIcon | - | React.FC | - |
+| leadingIconProps | - | T | - |
+| trailingIconProps | - | T | - |
+| iconSize | - | number | 18 |
+| hasDefaultTrailingIcon | - | boolean | true |
+
+![input chips](https://ik.imagekit.io/Computools/rn-material-components/input_chip.png?updatedAt=1734450064308)
+
+</details>
+<details><summary>Suggestion Chip</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| label | required | string | - |
+| selected | - | boolean | false |
+| elevated | - | boolean | false |
+| LeadingIcon | - | React.FC | - |
+| TrailingIcon | - | React.FC | - |
+| leadingIconProps | - | T | - |
+| trailingIconProps | - | T | - |
+
+![suggestion chips](https://ik.imagekit.io/Computools/rn-material-components/suggestion_chip.png?updatedAt=1734450064429)
 </details>
 </details>
 <details><summary>Controls</summary>

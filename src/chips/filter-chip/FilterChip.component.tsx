@@ -1,12 +1,12 @@
 import React, {useMemo} from 'react';
-import Animated, {FadeIn, FadeOut, LinearTransition} from 'react-native-reanimated';
+import Animated, {LinearTransition} from 'react-native-reanimated';
 
-import {DoneIcon} from '../../icons';
 import {useTheme} from '../../theme/useTheme.hook';
 import {type IconProps} from '../../icons/icon-props';
 import {getDynamicStyles, styles} from './filter-chip.styles';
 import {BaseChip, type BaseChipProps} from '../base-chip/BaseChip.component';
 import {CircularActivityIndicator} from '../../activity-indicators/circular-activity-indicator/CircularActivityIndicator.component';
+import {FilterChipLeadingIcon} from './leading-icon/FilterChipLeadingIcon.component';
 
 export interface FilterChipProps<T extends IconProps> extends Omit<BaseChipProps, 'leadingIcon' | 'trailingIcon'> {
   elevated?: boolean;
@@ -38,30 +38,25 @@ export const FilterChip = <T extends IconProps>({
   const theme = useTheme();
   const dynamicStyles = useMemo(() => getDynamicStyles(selected, elevated, disabled, theme), [disabled, elevated, selected, theme]);
 
-  const renerCustomLeadingIcon = () =>
-    LeadingIcon ? (
-      <Animated.View entering={FadeIn} exiting={FadeOut}>
-        <LeadingIcon size={iconSize} color={dynamicStyles.icon.color} {...leadingIconProps} />
-      </Animated.View>
-    ) : null;
-
-  const renderLeadingIcon = () =>
-    selected ? (
-      <Animated.View entering={FadeIn} exiting={FadeOut}>
-        <DoneIcon size={iconSize} color={dynamicStyles.selectedIcon.color} />
-      </Animated.View>
-    ) : (
-      renerCustomLeadingIcon()
-    );
+  const leadingIcon = loading ? (
+    <CircularActivityIndicator size={activityIndicatorSize} style={{height: iconSize, width: iconSize}} />
+  ) : (
+    <FilterChipLeadingIcon
+      size={iconSize}
+      selected={selected}
+      customLeadingIcon={LeadingIcon}
+      color={dynamicStyles.icon.color}
+      selectedColor={dynamicStyles.selectedIcon.color}
+      leadingIconProps={leadingIconProps}
+    />
+  );
 
   return (
     <Animated.View layout={LinearTransition}>
       <BaseChip
         style={[elevated && !disabled ? styles.elevatedContainer : styles.outlinedContainer, dynamicStyles.container, style]}
         labelStyle={[dynamicStyles.label, labelStyle]}
-        leadingIcon={
-          loading ? <CircularActivityIndicator size={activityIndicatorSize} style={{height: iconSize, width: iconSize}} /> : renderLeadingIcon()
-        }
+        leadingIcon={leadingIcon}
         trailingIcon={TrailingIcon ? <TrailingIcon size={18} color={dynamicStyles.icon.color} {...trailingIconProps} /> : null}
         disabled={disabled}
         {...props}

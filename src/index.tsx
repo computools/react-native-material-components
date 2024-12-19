@@ -6,8 +6,11 @@ export {Divider, type DividerProps} from './divider/Divider.component';
 
 export {InputChip, type InputChipProps} from './chips/input-chip/InputChip.component';
 export {FilterChip, type FilterChipProps} from './chips/filter-chip/FilterChip.component';
-export {SuggestionChip, type SuggestionChipProps} from './chips/suggestion-chip/SuggestionChip.component';
 export {AssistChip, type AssistChipProps, IconType} from './chips/assist-chip/AssistChip.component';
+export {SuggestionChip, type SuggestionChipProps} from './chips/suggestion-chip/SuggestionChip.component';
+
+export {DiscreteSlider, type DiscreteSliderProps} from './sliders/discrete-slider/DiscreteSlider.component';
+export {ContinuousSlider, type ContinuousSliderProps} from './sliders/continuous-slider/ContinuousSlider.component';
 
 export {
   CenterAlignedTopAppBar,

@@ -4,18 +4,19 @@ import {Gesture, GestureDetector} from 'react-native-gesture-handler';
 import {type LayoutChangeEvent, type ViewProps, type StyleProp, type ViewStyle, type TextStyle} from 'react-native';
 import {interpolate, runOnJS, useAnimatedReaction, useAnimatedStyle, useSharedValue, withSpring, withTiming} from 'react-native-reanimated';
 
-import {styles} from './base-slider.styles';
+import {styles} from './slider.styles';
 import {useTheme} from '../../theme/useTheme.hook';
 import {SliderTrack} from './slider-track/SliderTrack.component';
 import {SliderIndicator} from './slider-indicator/SliderIndicator.component';
 import {SliderTrackPoint} from './slider-track-point/SliderTrackPoint.component';
 
-export interface BaseSliderProps extends ViewProps {
-  min: number;
+export interface SliderProps extends ViewProps {
   max: number;
+  min: number;
 
   value?: number;
-  trackPoints: number[];
+  step?: number;
+  centered?: boolean;
 
   thumbStyle?: StyleProp<ViewStyle>;
   valueStyle?: StyleProp<TextStyle>;
@@ -29,12 +30,13 @@ export interface BaseSliderProps extends ViewProps {
   onChangeValue?: (value: number) => void;
 }
 
-export const BaseSlider: React.FC<BaseSliderProps> = ({
-  min,
+export const Slider: React.FC<SliderProps> = ({
   max,
+  min,
 
+  step,
   value = 0,
-  trackPoints = [],
+  centered = false,
 
   thumbStyle,
   valueStyle,
@@ -61,6 +63,14 @@ export const BaseSlider: React.FC<BaseSliderProps> = ({
 
   const filledTrackAnimatedStyle = useAnimatedStyle(() => ({flex: interpolate(thumbTranslationX.value, [0, sliderWidth], [0, 1])}), [sliderWidth]);
   const remainingTrackAnimatedStyle = useAnimatedStyle(() => ({flex: interpolate(thumbTranslationX.value, [0, sliderWidth], [1, 0])}), [sliderWidth]);
+
+  const getDiscreteTrackPoints = (discreteStep: number) => {
+    const totalPoints = Math.ceil((max - min) / discreteStep) + 1;
+
+    return Array.from({length: totalPoints}, (_, index) => Math.min(min + index * discreteStep, max));
+  };
+
+  const trackPoints = step ? getDiscreteTrackPoints(step) : centered ? [min, (min + max) / 2, max] : [max];
 
   const calcAndUpdateValueBasedOnThumbTranslationX = (translationX: number, onChange: (value: number) => void) => {
     const currrentValue = Math.round(interpolate(translationX, [0, sliderWidth], [min, max]));
@@ -105,7 +115,8 @@ export const BaseSlider: React.FC<BaseSliderProps> = ({
   };
 
   const initializeThumbPosition = (width: number) => {
-    const initialTthumbTranslationX = (value * width) / max;
+    const initialTthumbTranslationX = ((value - min) / (max - min)) * width;
+
     thumbTranslationX.value = initialTthumbTranslationX;
     thumbTranslationXContext.value = initialTthumbTranslationX;
   };
@@ -148,7 +159,9 @@ export const BaseSlider: React.FC<BaseSliderProps> = ({
         <SliderTrack
           style={[{backgroundColor: secondaryContainer.background}, styles.remainingTrack, remainingTrackAnimatedStyle, remainingTrackStyle]}
         />
-        <View style={[styles.trackPoints, trackPointsStyle]}>{trackPoints.map(renderTrackPoint)}</View>
+        <View style={[styles.trackPoints, {justifyContent: trackPoints.length > 1 ? 'space-between' : 'flex-end'}, trackPointsStyle]}>
+          {trackPoints.map(renderTrackPoint)}
+        </View>
       </View>
     </GestureDetector>
   );

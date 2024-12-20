@@ -1,21 +1,23 @@
 import React from 'react';
-import {View, Text, type ViewProps, type StyleProp, type ViewStyle, type TextStyle} from 'react-native';
-import Animated, {interpolate, useAnimatedStyle, type SharedValue} from 'react-native-reanimated';
+import Animated, {interpolate, useAnimatedStyle, type AnimatedProps, type SharedValue} from 'react-native-reanimated';
+import {View, TextInput, type ViewProps, type TextInputProps, type StyleProp, type ViewStyle, type TextStyle} from 'react-native';
 
 import {styles} from './slider-indicator.styles';
 import {useTheme} from '../../../theme/useTheme.hook';
 import {useTypography} from '../../../typography/useTypography.component';
 
 interface SliderIndicatorProps extends ViewProps {
-  value: number;
   sliding: SharedValue<number>;
+  animValueProps: AnimatedProps<Pick<TextInputProps, 'value' | 'defaultValue'>>;
 
   thumbStyle?: StyleProp<ViewStyle>;
   valueStyle?: StyleProp<TextStyle>;
-  valueContainerStyle?: StyleProp<ViewStyle>;
 }
 
-export const SliderIndicator: React.FC<SliderIndicatorProps> = ({value, sliding, thumbStyle, valueStyle, valueContainerStyle, ...props}) => {
+Animated.addWhitelistedNativeProps({text: true});
+const AnimatedTextInput = Animated.createAnimatedComponent(TextInput);
+
+export const SliderIndicator: React.FC<SliderIndicatorProps> = ({animValueProps, sliding, thumbStyle, valueStyle, ...props}) => {
   const {labelLarge} = useTypography();
   const {surface, primary} = useTheme();
 
@@ -37,9 +39,11 @@ export const SliderIndicator: React.FC<SliderIndicatorProps> = ({value, sliding,
 
   return (
     <View {...props}>
-      <Animated.View style={[styles.valueContainer, {backgroundColor: surface.backgroundInverse}, valueAnimatedStyle, valueContainerStyle]}>
-        <Text style={[labelLarge, {color: surface.textInverse}, valueStyle]}>{value}</Text>
-      </Animated.View>
+      <AnimatedTextInput
+        editable={false}
+        animatedProps={animValueProps}
+        style={[labelLarge, styles.value, {backgroundColor: surface.backgroundInverse}, valueAnimatedStyle, {color: surface.textInverse}, valueStyle]}
+      />
       <Animated.View style={[styles.thumb, {backgroundColor: primary.background}, thumbAnimatedStyle, thumbStyle]} />
     </View>
   );

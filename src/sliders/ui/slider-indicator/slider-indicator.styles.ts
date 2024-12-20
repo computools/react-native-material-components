@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     marginHorizontal: 4,
     borderRadius: 2,
   },
-  valueContainer: {
+  value: {
     position: 'absolute',
     top: -48,
 
@@ -18,5 +18,7 @@ export const styles = StyleSheet.create({
     width: 48,
     height: 44,
     borderRadius: 100,
+
+    textAlign: 'center',
   },
 });

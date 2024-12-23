@@ -18,12 +18,13 @@ interface SliderTrackProps extends Omit<PressableProps, 'onPress'> {
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
 export const SliderTrackPoint: React.FC<SliderTrackProps> = ({value, selectedValue, disableColorChange = false, onPress, style, ...props}) => {
-  const {secondaryContainer, primary} = useTheme();
+  const {secondaryContainer} = useTheme();
 
   const handleTrackPointPress = () => onPress(value);
 
   const trackPointAnimatedStyle = useAnimatedStyle(() => ({
-    backgroundColor: !disableColorChange && isTrackPointSelected(value, selectedValue.value) ? secondaryContainer.background : primary.background,
+    backgroundColor:
+      !disableColorChange && isTrackPointSelected(value, selectedValue.value) ? secondaryContainer.background : secondaryContainer.text,
   }));
 
   return (

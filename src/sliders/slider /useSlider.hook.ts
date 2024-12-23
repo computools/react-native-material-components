@@ -18,7 +18,7 @@ export const useSlider = ({max, min, step, damping}: SliderConfig, value: number
   const remainingTrackAnimatedStyle = useAnimatedStyle(() => ({flex: interpolate(thumbTranslationX.value, [0, sliderWidth], [1, 0])}), [sliderWidth]);
 
   useEffect(() => {
-    adjustThumbsPosition(sliderWidth, true);
+    adjustThumbPosition(sliderWidth);
   }, [value, sliderWidth]);
 
   const calcValueBasedOnThumbTranslationX = (translationX: number) => {
@@ -59,14 +59,14 @@ export const useSlider = ({max, min, step, damping}: SliderConfig, value: number
     });
 
   const setUpSliderLayout = (width: number) => {
-    adjustThumbsPosition(width);
+    adjustThumbPosition(width);
     setSliderWith(width);
   };
 
-  const adjustThumbsPosition = (width: number, isUpdaing: boolean = false) => {
+  const adjustThumbPosition = (width: number) => {
     const initialTthumbTranslationX = calcTranslationXBasedOnValue({min, max}, normalize(value, step), width);
 
-    thumbTranslationX.value = isUpdaing ? withSpring(initialTthumbTranslationX, {damping}) : initialTthumbTranslationX;
+    thumbTranslationX.value = withSpring(initialTthumbTranslationX, {damping});
     thumbTranslationXContext.value = initialTthumbTranslationX;
   };
 

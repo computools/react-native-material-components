@@ -36,7 +36,7 @@ export const useRangeSlider = ({max, min, step, damping}: SliderConfig, range: n
 
   useEffect(() => {
     validateSliderRange(range);
-    adjustThumbsPosition(sliderLayout.width, true);
+    adjustThumbsPosition(sliderLayout.width);
   }, [range, sliderLayout]);
 
   const filledTrackAnimatedStyle = useAnimatedStyle(() => {
@@ -122,13 +122,13 @@ export const useRangeSlider = ({max, min, step, damping}: SliderConfig, range: n
     setSliderLayout(layout);
   };
 
-  const adjustThumbsPosition = (width: number, isUpdating: boolean = false) => {
-    const initialStartTthumbTranslationX = calcTranslationXBasedOnValue({min, max}, normalize(minValue, step), width);
-    const initiaEndTthumbTranslationX = calcTranslationXBasedOnValue({min, max}, normalize(maxValue, step), width);
+  const adjustThumbsPosition = (width: number) => {
+    const initialMinTthumbTranslationX = calcTranslationXBasedOnValue({min, max}, normalize(minValue, step), width);
+    const initiaMaxTthumbTranslationX = calcTranslationXBasedOnValue({min, max}, normalize(maxValue, step), width);
 
-    thumbMinTranslationX.value = isUpdating ? withSpring(initialStartTthumbTranslationX, {damping}) : initialStartTthumbTranslationX;
-    thumbMaxTranslationX.value = isUpdating ? withSpring(initiaEndTthumbTranslationX, {damping}) : initiaEndTthumbTranslationX;
-    thumbsTranslationXContext.value = {min: initialStartTthumbTranslationX, max: initiaEndTthumbTranslationX};
+    thumbMinTranslationX.value = withSpring(initialMinTthumbTranslationX, {damping});
+    thumbMaxTranslationX.value = withSpring(initiaMaxTthumbTranslationX, {damping});
+    thumbsTranslationXContext.value = {min: initialMinTthumbTranslationX, max: initiaMaxTthumbTranslationX};
   };
 
   const slideToTrackPoint = (pointValue: number) => {
@@ -138,8 +138,16 @@ export const useRangeSlider = ({max, min, step, damping}: SliderConfig, range: n
 
     const diffFromMinThumb = Math.abs(pointValue - selectedRange.value[0]);
     const diffFromMaxThumb = Math.abs(pointValue - selectedRange.value[1]);
-    const [activeThumbSliding, activeThumbTranslationX] =
-      diffFromMinThumb < diffFromMaxThumb ? [thumbMinSliding, thumbMinTranslationX] : [thumbMaxSliding, thumbMaxTranslationX];
+
+    let [activeThumbSliding, activeThumbTranslationX] = [thumbMaxSliding, thumbMaxTranslationX];
+
+    if (diffFromMinThumb === diffFromMaxThumb) {
+      [activeThumbSliding, activeThumbTranslationX] =
+        pointValue < selectedRange.value[0] ? [thumbMinSliding, thumbMinTranslationX] : [thumbMaxSliding, thumbMaxTranslationX];
+    } else if (diffFromMinThumb < diffFromMaxThumb) {
+      [activeThumbSliding, activeThumbTranslationX] = [thumbMinSliding, thumbMinTranslationX];
+    }
+
     const thumbPointValueTranslationX = calcTranslationXBasedOnValue({min, max}, pointValue, sliderLayout.width);
 
     activeThumbSliding.value = withTiming(1);

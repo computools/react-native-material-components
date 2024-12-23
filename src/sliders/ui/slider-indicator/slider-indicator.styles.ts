@@ -9,7 +9,6 @@ export const styles = StyleSheet.create({
   },
   value: {
     position: 'absolute',
-    top: -48,
 
     justifyContent: 'center',
     alignItems: 'center',

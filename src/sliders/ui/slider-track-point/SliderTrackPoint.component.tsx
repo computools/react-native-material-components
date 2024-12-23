@@ -7,7 +7,7 @@ import {useTheme} from '../../../theme/useTheme.hook';
 
 interface SliderTrackProps extends Omit<PressableProps, 'onPress'> {
   value: number;
-  selectedValue: SharedValue<number>;
+  selectedValue: SharedValue<number> | SharedValue<number[]>;
 
   style?: StyleProp<ViewStyle>;
   disableColorChange?: boolean;
@@ -22,11 +22,9 @@ export const SliderTrackPoint: React.FC<SliderTrackProps> = ({value, selectedVal
 
   const handleTrackPointPress = () => onPress(value);
 
-  const trackPointAnimatedStyle = useAnimatedStyle(() => {
-    return {
-      backgroundColor: !disableColorChange && selectedValue.value >= value ? secondaryContainer.background : primary.background,
-    };
-  });
+  const trackPointAnimatedStyle = useAnimatedStyle(() => ({
+    backgroundColor: !disableColorChange && isTrackPointSelected(value, selectedValue.value) ? secondaryContainer.background : primary.background,
+  }));
 
   return (
     <AnimatedPressable
@@ -36,4 +34,16 @@ export const SliderTrackPoint: React.FC<SliderTrackProps> = ({value, selectedVal
       {...props}
     />
   );
+};
+
+const isTrackPointSelected = (pointValue: number, sliderValue: number | number[]) => {
+  'worklet';
+
+  if (typeof sliderValue === 'number') {
+    return sliderValue >= pointValue;
+  } else if (typeof sliderValue[0] !== 'undefined' && typeof sliderValue[1] !== 'undefined') {
+    return pointValue >= sliderValue[0] && pointValue <= sliderValue[1];
+  }
+
+  return false;
 };

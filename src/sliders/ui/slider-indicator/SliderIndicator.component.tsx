@@ -10,6 +10,9 @@ interface SliderIndicatorProps extends ViewProps {
   sliding: SharedValue<number>;
   animValueProps: AnimatedProps<Pick<TextInputProps, 'value' | 'defaultValue'>>;
 
+  valueHeight?: number;
+  thumbWidthActive?: number;
+  thumbWidthInactive?: number;
   thumbStyle?: StyleProp<ViewStyle>;
   valueStyle?: StyleProp<TextStyle>;
 }
@@ -17,24 +20,36 @@ interface SliderIndicatorProps extends ViewProps {
 Animated.addWhitelistedNativeProps({text: true});
 const AnimatedTextInput = Animated.createAnimatedComponent(TextInput);
 
-export const SliderIndicator: React.FC<SliderIndicatorProps> = ({animValueProps, sliding, thumbStyle, valueStyle, ...props}) => {
+const THUMB_VALUE_GAP = 4;
+
+export const SliderIndicator: React.FC<SliderIndicatorProps> = ({
+  animValueProps,
+  sliding,
+  thumbStyle,
+  valueStyle,
+  valueHeight = 44,
+  thumbWidthActive = 2,
+  thumbWidthInactive = 4,
+  ...props
+}) => {
   const {labelLarge} = useTypography();
   const {surface, primary} = useTheme();
 
-  const valueAnimatedStyle = useAnimatedStyle(
-    () => ({
+  const valueAnimatedStyle = useAnimatedStyle(() => {
+    const topActive = -valueHeight - THUMB_VALUE_GAP;
+
+    return {
       opacity: sliding.value,
       transform: [{scale: sliding.value}],
-      top: interpolate(sliding.value, [0, 1], [-24, -48]),
-    }),
-    []
-  );
+      top: interpolate(sliding.value, [0, 1], [topActive / 2, -valueHeight - THUMB_VALUE_GAP]),
+    };
+  }, [valueHeight]);
 
   const thumbAnimatedStyle = useAnimatedStyle(
     () => ({
-      width: interpolate(sliding.value, [0, 1], [4, 2]),
+      width: interpolate(sliding.value, [0, 1], [thumbWidthInactive, thumbWidthActive]),
     }),
-    []
+    [thumbWidthActive, thumbWidthInactive]
   );
 
   return (
@@ -42,7 +57,14 @@ export const SliderIndicator: React.FC<SliderIndicatorProps> = ({animValueProps,
       <AnimatedTextInput
         editable={false}
         animatedProps={animValueProps}
-        style={[labelLarge, styles.value, {backgroundColor: surface.backgroundInverse}, valueAnimatedStyle, {color: surface.textInverse}, valueStyle]}
+        style={[
+          labelLarge,
+          styles.value,
+          {backgroundColor: surface.backgroundInverse, height: valueHeight},
+          valueAnimatedStyle,
+          {color: surface.textInverse},
+          valueStyle,
+        ]}
       />
       <Animated.View style={[styles.thumb, {backgroundColor: primary.background}, thumbAnimatedStyle, thumbStyle]} />
     </View>

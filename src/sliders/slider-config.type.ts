@@ -3,5 +3,6 @@ export interface SliderConfig {
   min: number;
 
   step?: number;
+  damping?: number;
   centered?: boolean;
 }

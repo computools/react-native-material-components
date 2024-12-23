@@ -1,4 +1,4 @@
-import {type SliderConfig} from './slider-config.type';
+import {type SliderConfig} from '../slider-config.type';
 
 export const useSliderTrackPoints = ({max, min, step, centered}: SliderConfig) => {
   const getDiscreteSliderTrackPoints = (discreteStep: number) => {

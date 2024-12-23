@@ -18,6 +18,11 @@ export interface SliderProps extends ViewProps {
   value?: number;
   step?: number;
   centered?: boolean;
+  damping?: number;
+
+  valueHeight?: number;
+  thumbWidthActive?: number;
+  thumbWidthInactive?: number;
 
   thumbStyle?: StyleProp<ViewStyle>;
   valueStyle?: StyleProp<TextStyle>;
@@ -38,6 +43,7 @@ export const Slider: React.FC<SliderProps> = ({
 
   step,
   value = 0,
+  damping = 20,
   centered = false,
 
   thumbStyle,
@@ -47,6 +53,10 @@ export const Slider: React.FC<SliderProps> = ({
   trackPointsStyle,
   filledTrackStyle,
   remainingTrackStyle,
+
+  valueHeight,
+  thumbWidthActive,
+  thumbWidthInactive,
 
   onChangeValue,
   onLayout,
@@ -65,7 +75,7 @@ export const Slider: React.FC<SliderProps> = ({
     remainingTrackAnimatedStyle,
     slideToTrackPoint,
     setUpSliderLayout,
-  } = useSlider({max, min, step}, value, onChangeValue);
+  } = useSlider({max, min, step, damping}, value, onChangeValue);
 
   const trackPointsJustifyContent = trackPoints.length > 1 ? 'space-between' : 'flex-end';
 
@@ -105,6 +115,9 @@ export const Slider: React.FC<SliderProps> = ({
           style={[styles.thumb, indicatorStyle]}
           thumbStyle={thumbStyle}
           valueStyle={valueStyle}
+          valueHeight={valueHeight}
+          thumbWidthActive={thumbWidthActive}
+          thumbWidthInactive={thumbWidthInactive}
         />
         <SliderTrack
           style={[{backgroundColor: secondaryContainer.background}, styles.remainingTrack, remainingTrackAnimatedStyle, remainingTrackStyle]}

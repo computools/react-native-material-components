@@ -32,8 +32,6 @@ export interface SliderProps extends ViewProps {
   filledTrackStyle?: StyleProp<ViewStyle>;
   remainingTrackStyle?: StyleProp<ViewStyle>;
 
-  throttleDelay?: number;
-
   onChangeValue?: (value: number) => void;
 }
 

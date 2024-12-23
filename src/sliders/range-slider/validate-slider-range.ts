@@ -4,6 +4,6 @@ export const validateSliderRange = (range: number[]) => {
   }
 
   if (range[0]! > range[1]!) {
-    throw new Error('Min value must be less or equal to max');
+    throw new Error('Min value must be less than or equal to max');
   }
 };

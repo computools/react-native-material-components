@@ -5,11 +5,11 @@ import {type LayoutChangeEvent, type ViewProps, type StyleProp, type ViewStyle, 
 
 import {styles} from './slider.styles';
 import {useSlider} from './useSlider.hook';
-import {useTheme} from '../../theme/useTheme.hook';
 import {useSliderTrackPoints} from './useSliderTrackPoints.hook';
 import {SliderTrack} from '../ui/slider-track/SliderTrack.component';
 import {SliderIndicator} from '../ui/slider-indicator/SliderIndicator.component';
 import {SliderTrackPoint} from '../ui/slider-track-point/SliderTrackPoint.component';
+import {useSliderColors} from '../use-slider-colors.hook';
 
 export interface SliderProps extends ViewProps {
   max: number;
@@ -18,6 +18,7 @@ export interface SliderProps extends ViewProps {
   value?: number;
   step?: number;
   centered?: boolean;
+  disabled?: boolean;
   damping?: number;
 
   valueHeight?: number;
@@ -42,6 +43,7 @@ export const Slider: React.FC<SliderProps> = ({
   step,
   value = 0,
   damping = 20,
+  disabled = false,
   centered = false,
 
   thumbStyle,
@@ -61,7 +63,7 @@ export const Slider: React.FC<SliderProps> = ({
   style,
   ...props
 }) => {
-  const {primary, secondaryContainer} = useTheme();
+  const {filledTrackColor, remainingTrackColor} = useSliderColors(disabled, centered);
 
   const trackPoints = useSliderTrackPoints({max, min, step, centered});
   const {
@@ -88,8 +90,9 @@ export const Slider: React.FC<SliderProps> = ({
   const renderTrackPoint = (pointValue: number) => (
     <SliderTrackPoint
       key={pointValue}
-      selectedValue={selectedValue}
       value={pointValue}
+      selectedValue={selectedValue}
+      disabled={disabled}
       onPress={slideToTrackPoint}
       disableColorChange={centered}
       style={trackPointStyle}
@@ -97,18 +100,12 @@ export const Slider: React.FC<SliderProps> = ({
   );
 
   return (
-    <GestureDetector gesture={gesture}>
+    <GestureDetector gesture={gesture.enabled(!disabled)}>
       <View style={[styles.container, style]} onLayout={handleLayoutChange} {...props}>
-        <SliderTrack
-          style={[
-            {backgroundColor: centered ? secondaryContainer.background : primary.background},
-            styles.filledTrack,
-            filledTrackAnimatedStyle,
-            filledTrackStyle,
-          ]}
-        />
+        <SliderTrack style={[{backgroundColor: filledTrackColor}, styles.filledTrack, filledTrackAnimatedStyle, filledTrackStyle]} />
         <SliderIndicator
           sliding={sliding}
+          disabled={disabled}
           animValueProps={animValueProps}
           style={[styles.thumb, indicatorStyle]}
           thumbStyle={thumbStyle}
@@ -117,9 +114,7 @@ export const Slider: React.FC<SliderProps> = ({
           thumbWidthActive={thumbWidthActive}
           thumbWidthInactive={thumbWidthInactive}
         />
-        <SliderTrack
-          style={[{backgroundColor: secondaryContainer.background}, styles.remainingTrack, remainingTrackAnimatedStyle, remainingTrackStyle]}
-        />
+        <SliderTrack style={[{backgroundColor: remainingTrackColor}, styles.remainingTrack, remainingTrackAnimatedStyle, remainingTrackStyle]} />
         <View style={[styles.trackPoints, {justifyContent: trackPointsJustifyContent}, trackPointsStyle]}>{trackPoints.map(renderTrackPoint)}</View>
       </View>
     </GestureDetector>

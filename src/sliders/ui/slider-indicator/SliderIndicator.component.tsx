@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import Animated, {interpolate, useAnimatedStyle, type AnimatedProps, type SharedValue} from 'react-native-reanimated';
 import {View, TextInput, type ViewProps, type TextInputProps, type StyleProp, type ViewStyle, type TextStyle} from 'react-native';
 
 import {styles} from './slider-indicator.styles';
 import {useTheme} from '../../../theme/useTheme.hook';
+import {convertToRGBA} from '../../../utils/convert-to-rgba';
 import {useTypography} from '../../../typography/useTypography.component';
 
 interface SliderIndicatorProps extends ViewProps {
+  disabled: boolean;
   sliding: SharedValue<number>;
   animValueProps: AnimatedProps<Pick<TextInputProps, 'value' | 'defaultValue'>>;
 
@@ -23,8 +25,10 @@ const AnimatedTextInput = Animated.createAnimatedComponent(TextInput);
 const THUMB_VALUE_GAP = 4;
 
 export const SliderIndicator: React.FC<SliderIndicatorProps> = ({
-  animValueProps,
   sliding,
+  disabled,
+  animValueProps,
+
   thumbStyle,
   valueStyle,
   valueHeight = 44,
@@ -34,6 +38,8 @@ export const SliderIndicator: React.FC<SliderIndicatorProps> = ({
 }) => {
   const {labelLarge} = useTypography();
   const {surface, primary} = useTheme();
+
+  const disabledColor = useMemo(() => convertToRGBA(surface.text as string, 0.38), [surface.text]);
 
   const valueAnimatedStyle = useAnimatedStyle(() => {
     const topActive = -valueHeight - THUMB_VALUE_GAP;
@@ -66,7 +72,7 @@ export const SliderIndicator: React.FC<SliderIndicatorProps> = ({
           valueStyle,
         ]}
       />
-      <Animated.View style={[styles.thumb, {backgroundColor: primary.background}, thumbAnimatedStyle, thumbStyle]} />
+      <Animated.View style={[styles.thumb, {backgroundColor: disabled ? disabledColor : primary.background}, thumbAnimatedStyle, thumbStyle]} />
     </View>
   );
 };

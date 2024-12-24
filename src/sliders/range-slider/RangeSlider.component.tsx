@@ -4,8 +4,8 @@ import {GestureDetector} from 'react-native-gesture-handler';
 import {type LayoutChangeEvent, type ViewProps, type StyleProp, type ViewStyle, type TextStyle} from 'react-native';
 
 import {styles} from './range-slider.styles';
-import {useTheme} from '../../theme/useTheme.hook';
 import {useRangeSlider} from './useRangeSlider.hook';
+import {useSliderColors} from '../use-slider-colors.hook';
 import {SliderTrack} from '../ui/slider-track/SliderTrack.component';
 import {useRangeSliderTrackPoints} from './useRangeSliderTrackPoints.hook';
 import {SliderIndicator} from '../ui/slider-indicator/SliderIndicator.component';
@@ -19,6 +19,7 @@ export interface RangeSliderProps extends ViewProps {
   step?: number;
   damping?: number;
   centered?: boolean;
+  disabled?: boolean;
 
   valueHeight?: number;
   thumbWidthActive?: number;
@@ -43,6 +44,7 @@ export const RangeSlider: React.FC<RangeSliderProps> = ({
   range = [0, 0],
   damping = 20,
   centered = false,
+  disabled = false,
 
   thumbStyle,
   valueStyle,
@@ -61,7 +63,7 @@ export const RangeSlider: React.FC<RangeSliderProps> = ({
   style,
   ...props
 }) => {
-  const {primary, secondaryContainer} = useTheme();
+  const {filledTrackColor, remainingTrackColor} = useSliderColors(disabled, centered);
 
   const trackPoints = useRangeSliderTrackPoints({max, min, step, centered});
   const {
@@ -90,21 +92,23 @@ export const RangeSlider: React.FC<RangeSliderProps> = ({
     <SliderTrackPoint
       key={pointValue}
       value={pointValue}
+      disabled={disabled}
       selectedValue={selectedRange}
       onPress={slideToTrackPoint}
-      style={[{backgroundColor: secondaryContainer.text}, trackPointStyle]}
+      style={trackPointStyle}
     />
   );
 
   return (
-    <GestureDetector gesture={gesture}>
+    <GestureDetector gesture={gesture.enabled(!disabled)}>
       <View style={[styles.container, style]} onLayout={handleLayoutChange} {...props}>
         <SliderTrack
-          style={[{backgroundColor: secondaryContainer.background}, styles.remainingBeforeTrack, remainingTrackBeforeAnimatedStyle, filledTrackStyle]}
+          style={[{backgroundColor: remainingTrackColor}, styles.remainingBeforeTrack, remainingTrackBeforeAnimatedStyle, filledTrackStyle]}
         />
         <SliderIndicator
           animValueProps={animMinValueProps}
           sliding={thumbMinSliding}
+          disabled={disabled}
           style={[styles.thumb, indicatorStyle]}
           thumbStyle={thumbStyle}
           valueStyle={valueStyle}
@@ -112,10 +116,11 @@ export const RangeSlider: React.FC<RangeSliderProps> = ({
           thumbWidthActive={thumbWidthActive}
           thumbWidthInactive={thumbWidthInactive}
         />
-        <SliderTrack style={[{backgroundColor: primary.background}, styles.filledTrack, filledTrackAnimatedStyle, filledTrackStyle]} />
+        <SliderTrack style={[{backgroundColor: filledTrackColor}, styles.filledTrack, filledTrackAnimatedStyle, filledTrackStyle]} />
         <SliderIndicator
           animValueProps={animMaxValueProps}
           sliding={thumbMaxSliding}
+          disabled={disabled}
           style={[styles.thumb, indicatorStyle]}
           thumbStyle={thumbStyle}
           valueStyle={valueStyle}
@@ -124,12 +129,7 @@ export const RangeSlider: React.FC<RangeSliderProps> = ({
           thumbWidthInactive={thumbWidthInactive}
         />
         <SliderTrack
-          style={[
-            {backgroundColor: secondaryContainer.background},
-            styles.remainingAfterTrack,
-            remainingTrackAfterAnimatedStyle,
-            remainingTrackStyle,
-          ]}
+          style={[{backgroundColor: remainingTrackColor}, styles.remainingAfterTrack, remainingTrackAfterAnimatedStyle, remainingTrackStyle]}
         />
         <View style={[styles.trackPoints, trackPointsStyle]}>{trackPoints.map(renderTrackPoint)}</View>
       </View>

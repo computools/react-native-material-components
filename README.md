@@ -860,9 +860,9 @@ export const MyScreen = () => {
 </details>
 </details>
 <details><summary>Sliders</summary>
-</br>
+<br />
 <details><summary>Slider</summary>
-</br>
+<br />
 
 **Properties**
 
@@ -893,8 +893,7 @@ export const MyScreen = () => {
 
 </details>
 <details><summary>Range Slider</summary>
-</br>
-
+<br />
 
 **Properties**
 

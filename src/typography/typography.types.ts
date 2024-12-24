@@ -11,7 +11,9 @@ export interface MaterialTypography {
   titleMedium: TextStyle;
   titleSmall: TextStyle;
   labelLarge: TextStyle;
+  labelLargeProminent: TextStyle;
   labelMedium: TextStyle;
+  labelMediumProminent: TextStyle;
   labelSmall: TextStyle;
   bodyLarge: TextStyle;
   bodyMedium: TextStyle;

@@ -5,9 +5,17 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
 
-    paddingHorizontal: 4,
+    borderRadius: 100,
+  },
+  big: {
+    alignSelf: 'center',
+
     minWidth: 16,
     height: 16,
-    borderRadius: 100,
+    paddingHorizontal: 4,
+  },
+  small: {
+    width: 6,
+    height: 6,
   },
 });

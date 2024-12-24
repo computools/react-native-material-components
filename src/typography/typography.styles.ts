@@ -33,13 +33,22 @@ export const materialTypography = StyleSheet.create<MaterialTypography>({
     fontSize: 14,
     letterSpacing: 0.1,
   },
+  labelMedium: {
+    fontSize: 12,
+    letterSpacing: 0.5,
+  },
+  labelMediumProminent: {
+    fontSize: 12,
+    letterSpacing: 0.5,
+    fontWeight: '700',
+  },
   labelLarge: {
     fontSize: 14,
     letterSpacing: 0.1,
   },
-  labelMedium: {
-    fontSize: 12,
-    letterSpacing: 0.5,
+  labelLargeProminent: {
+    fontSize: 14,
+    letterSpacing: 0.1,
   },
   labelSmall: {
     fontSize: 11,

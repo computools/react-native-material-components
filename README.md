@@ -873,6 +873,7 @@ export const MyScreen = () => {
 | value | - | number | 0 |
 | step | The slider operates in discrete mode when a step value is provided. | number | - |
 | onChangeValue | - | (value: number) => void | - |
+| disabled | - | boolean | false |
 | centered | The slider operates in centered mode when a centered props is true | number | boolean | false |
 | damping | Controls thumb animation when a track point is pressed. | number | 20 |
 | valueHeight | - | number | 44 |
@@ -904,6 +905,7 @@ export const MyScreen = () => {
 | range | The first element represents the minimum value, and the second represents the maximum value. The range must have exactly two elements, with the minimum value less than or equal to the maximum value. | number | - |
 | step | The slider operates in discrete mode when a step value is provided. | number | - |
 | onChangeValue | - | (value: number) => void | - |
+| disabled | - | boolean | false |
 | centered | The slider operates in centered mode when a centered props is true | number | boolean | false |
 | damping | Controls thumb animation when a track point is pressed. | number | 20 |
 | valueHeight | - | number | 44 |

@@ -11,6 +11,8 @@ export {FilterChip, type FilterChipProps} from './chips/filter-chip/FilterChip.c
 export {SuggestionChip, type SuggestionChipProps} from './chips/suggestion-chip/SuggestionChip.component';
 export {AssistChip, type AssistChipProps, IconType} from './chips/assist-chip/AssistChip.component';
 
+export {SecondaryTabs, type SecondaryTabsProps} from './tabs/secondary-tabs/SecondaryTabs.component';
+
 export {
   CenterAlignedTopAppBar,
   type CenterAlignedTopAppBarProps,

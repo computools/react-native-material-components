@@ -7,21 +7,22 @@ import {type NavBarRoute} from '../NavBar.component';
 import {Badge} from '../../../badge/Badge.component';
 import {useTheme} from '../../../theme/useTheme.hook';
 import {type IconProps} from '../../../icons/icon-props';
+import {DEFAULT_ICON_SIZE} from '../../../constants/icon';
 import {useTypography} from '../../../typography/useTypography.component';
 
-interface NavBarItemProps<T> extends Omit<TouchableOpacityProps, 'onPress'> {
-  route: NavBarRoute<T>;
+interface NavBarItemProps<T, Y> extends Omit<TouchableOpacityProps, 'onPress'> {
+  route: NavBarRoute<T, Y>;
   focused: boolean;
   fixedLabelVisibility: boolean;
 
   focusAnimDuration?: number;
 
-  onPress: (routeName: string) => void;
+  onPress: (routeName: T) => void;
 }
 
 const DEFAULT_LABEL_SIZE = 12;
 
-export const NavBarItem = <T extends IconProps>({
+export const NavBarItem = <T extends string, Y extends IconProps>({
   route,
   focused,
   fixedLabelVisibility,
@@ -29,7 +30,7 @@ export const NavBarItem = <T extends IconProps>({
   onPress,
   style,
   ...props
-}: NavBarItemProps<T>) => {
+}: NavBarItemProps<T, Y>) => {
   const {surface, secondaryContainer} = useTheme();
   const {labelMediumProminent, labelMedium} = useTypography();
 
@@ -69,8 +70,14 @@ export const NavBarItem = <T extends IconProps>({
         <Animated.View
           style={[styles.iconWithBadge, {backgroundColor: secondaryContainer.background}, StyleSheet.absoluteFillObject, iconContainerAnimatedStyle]}
         />
-        {route.showBadge ? <Badge size={route.badgeSize} value={route.badge} style={styles.badge} /> : null}
-        <Icon size={24} color={iconColor} {...((route.iconProps as T) ?? {})} />
+        {route.showBadge || route.badge?.length ? (
+          <Badge
+            size={route.badgeSize}
+            value={route.badge}
+            style={[styles.badge, {transform: [{translateX: (route.iconProps?.size ?? DEFAULT_ICON_SIZE) - 8}]}]}
+          />
+        ) : null}
+        <Icon size={DEFAULT_ICON_SIZE} color={iconColor} {...((route.iconProps as Y) ?? {})} />
       </View>
       {route.label?.length ? (
         <Animated.Text style={[labelTypography, {color: labelColor}, fixedLabelVisibility ? {} : labelContainerAnimatedStyle]}>

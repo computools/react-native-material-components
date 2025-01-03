@@ -13,6 +13,8 @@ import {
 import {styles} from './tab.styles';
 import {useTheme} from '../../../../theme/useTheme.hook';
 import type {IconProps} from '../../../../icons/icon-props';
+import {DEFAULT_ICON_SIZE} from '../../../../constants/icon';
+import {Badge, BadgeSize} from '../../../../badge/Badge.component';
 import {useTypography} from '../../../../typography/useTypography.component';
 
 export enum TabType {
@@ -24,10 +26,13 @@ export interface TabProps<T, Y> extends Omit<TouchableOpacityProps, 'onPress'> {
   routeName: T;
   active: boolean;
 
+  badge?: string;
   type?: TabType;
   title?: string;
+  badgeSize?: BadgeSize;
   icon?: React.FC<Y>;
   iconProps?: Y;
+  badgeStyle?: StyleProp<ViewStyle>;
   titleStyle?: StyleProp<TextStyle>;
   innerContentStyle?: StyleProp<ViewStyle>;
 
@@ -41,10 +46,13 @@ export const Tab = <T extends string, Y extends IconProps>({
   title,
   active,
   routeName,
+  badge,
   type = TabType.PRIMATY,
+  badgeSize = BadgeSize.BIG,
 
   style,
   titleStyle,
+  badgeStyle,
   innerContentStyle,
   iconProps = {} as Y,
 
@@ -62,11 +70,27 @@ export const Tab = <T extends string, Y extends IconProps>({
 
   const handleTabPress = () => onPress(routeName);
 
+  const primaryTabAppliedStyle = icon ? TabType.PRIMATY : TabType.SECONDARY;
+  const [badgeBaseStyle, innerContentBaseStyle] =
+    type === TabType.PRIMATY
+      ? [styles[`badge ${primaryTabAppliedStyle}`], styles[`inner content ${primaryTabAppliedStyle}`]]
+      : [styles[`badge ${type}`], styles[`inner content ${TabType.SECONDARY}`]];
+
   return (
     <TouchableOpacity onPress={handleTabPress} style={[styles.container, style]} {...props}>
-      <View onLayout={onInnerContentLayout} style={[styles[type], innerContentStyle]}>
-        {Icon ? <Icon color={onContainerContentColor} size={24} {...iconProps} /> : null}
+      <View onLayout={onInnerContentLayout} style={[innerContentBaseStyle, innerContentStyle]}>
+        <View>
+          {Icon ? <Icon color={onContainerContentColor} size={DEFAULT_ICON_SIZE} {...iconProps} /> : null}
+          {badge && type === TabType.PRIMATY && Icon ? (
+            <Badge
+              size={badgeSize}
+              value={badge}
+              style={[badgeBaseStyle, {transform: [{translateX: (iconProps.size ?? DEFAULT_ICON_SIZE) - 4}]}, badgeStyle]}
+            />
+          ) : null}
+        </View>
         {title ? <Text style={[titleSmall, {color: onContainerContentColor}, titleStyle]}>{title}</Text> : null}
+        {badge && (!Icon || type === TabType.SECONDARY) ? <Badge size={badgeSize} value={badge} style={badgeBaseStyle} /> : null}
       </View>
     </TouchableOpacity>
   );

@@ -10,21 +10,21 @@ import {type BadgeSize} from '../../badge/Badge.component';
 import {ScrollDirection} from '../../types/scroll-direction.type';
 import {NavBarItem} from './navigation-bar-item/NavBarItem.component';
 
-export interface NavBarRoute<T> {
-  name: string;
-  icon: React.FC<T>;
-  selectedIcon: React.FC<T>;
+export interface NavBarRoute<T, Y> {
+  name: T;
+  icon: React.FC<Y>;
+  selectedIcon: React.FC<Y>;
 
   label?: string;
   badge?: string;
   showBadge?: boolean;
   badgeSize?: BadgeSize;
-  iconProps?: T;
+  iconProps?: Y;
 }
 
-export interface NavBarProps<T> extends SafeAreaViewProps {
-  routes: NavBarRoute<T>[];
-  activeRouteName: string;
+export interface NavBarProps<T, Y> extends SafeAreaViewProps {
+  routes: NavBarRoute<T, Y>[];
+  activeRouteName: T;
 
   damping?: number;
   fixedLabelVisibility?: boolean;
@@ -34,7 +34,7 @@ export interface NavBarProps<T> extends SafeAreaViewProps {
   onRoutePress: (route: string) => void;
 }
 
-export const NavBar = <T extends IconProps>({
+export const NavBar = <T extends string, Y extends IconProps>({
   routes,
   activeRouteName,
 
@@ -48,7 +48,7 @@ export const NavBar = <T extends IconProps>({
   containerStyle,
   style,
   ...props
-}: NavBarProps<T>) => {
+}: NavBarProps<T, Y>) => {
   const [navBarHeight, setNavBarHeight] = useState(0);
 
   const {surfaceContainer} = useTheme();
@@ -69,7 +69,7 @@ export const NavBar = <T extends IconProps>({
   };
 
   const renderRouteButton = useCallback(
-    (route: NavBarRoute<T>) => (
+    (route: NavBarRoute<T, Y>) => (
       <NavBarItem
         key={route.name}
         route={route}

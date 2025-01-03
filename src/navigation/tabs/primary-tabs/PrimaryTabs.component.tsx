@@ -7,6 +7,7 @@ import {styles} from './primary-tabs.styles';
 import {useTheme} from '../../../theme/useTheme.hook';
 import {type IconProps} from '../../../icons/icon-props';
 import {Tab as TabComponent} from '../ui/tab/Tab.component';
+import {type BadgeSize} from '../../../badge/Badge.component';
 
 export interface PrimaryTabsProps<T, Y> extends ViewProps {
   tabs: Tab<T, Y>[];
@@ -15,13 +16,16 @@ export interface PrimaryTabsProps<T, Y> extends ViewProps {
   animConfig?: WithSpringConfig;
 
   tabIconProps?: Y;
+  title?: string;
+  badgeSize?: BadgeSize;
   tabStyle?: StyleProp<ViewStyle>;
+  badgeStyle?: StyleProp<ViewStyle>;
   tabTitleStyle?: StyleProp<TextStyle>;
   indicatorStyle?: StyleProp<ViewStyle>;
   tabsContainerStyle?: StyleProp<ViewStyle>;
   tabInnerContentStyle?: StyleProp<ViewStyle>;
 
-  onTabPress: (tabName: T) => void;
+  onTabPress: (routeName: T) => void;
 }
 
 const BASE_INDICATOR_WIDTH = 33;
@@ -30,9 +34,11 @@ export const PrimaryTabs = <T extends string, Y extends IconProps>({
   tabs,
   activeTab,
 
+  badgeSize,
   animConfig = {} as WithSpringConfig,
 
   tabStyle,
+  badgeStyle,
   tabIconProps,
   tabTitleStyle,
   indicatorStyle,
@@ -112,6 +118,8 @@ export const PrimaryTabs = <T extends string, Y extends IconProps>({
       onPress={onTabPress}
       active={tab.routeName === activeTab}
       iconProps={tabIconProps}
+      badgeSize={badgeSize}
+      badgeStyle={badgeStyle}
       titleStyle={tabTitleStyle}
       innerContentStyle={tabInnerContentStyle}
       style={[styles.tab, tab.style, tabStyle]}

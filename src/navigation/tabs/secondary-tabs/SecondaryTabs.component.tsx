@@ -6,31 +6,36 @@ import {type Tab} from '../tab.type';
 import {styles} from './secondary-tabs.styles';
 import {useTheme} from '../../../theme/useTheme.hook';
 import {type IconProps} from '../../../icons/icon-props';
+import {type BadgeSize} from '../../../badge/Badge.component';
 import {Tab as TabComponent, TabType} from '../ui/tab/Tab.component';
 
 export interface SecondaryTabsProps<T, Y> extends ViewProps {
   tabs: Tab<T, Y>[];
   activeTab: T;
 
+  badgeSize?: BadgeSize;
   animConfig?: WithSpringConfig;
 
   tabIconProps?: Y;
   tabStyle?: StyleProp<ViewStyle>;
+  badgeStyle?: StyleProp<ViewStyle>;
   tabTitleStyle?: StyleProp<TextStyle>;
   indicatorStyle?: StyleProp<ViewStyle>;
   tabsContainerStyle?: StyleProp<ViewStyle>;
   tabInnerContentStyle?: StyleProp<ViewStyle>;
 
-  onTabPress: (tabName: T) => void;
+  onTabPress: (routeName: T) => void;
 }
 
 export const SecondaryTabs = <T extends string, Y extends IconProps>({
   tabs,
   activeTab,
 
+  badgeSize,
   animConfig = {} as WithSpringConfig,
 
   tabStyle,
+  badgeStyle,
   tabIconProps,
   tabTitleStyle,
   indicatorStyle,
@@ -76,6 +81,8 @@ export const SecondaryTabs = <T extends string, Y extends IconProps>({
       type={TabType.SECONDARY}
       active={tab.routeName === activeTab}
       iconProps={tabIconProps}
+      badgeSize={badgeSize}
+      badgeStyle={badgeStyle}
       titleStyle={tabTitleStyle}
       style={[styles.tab, tab.style, tabStyle]}
       innerContentStyle={tabInnerContentStyle}

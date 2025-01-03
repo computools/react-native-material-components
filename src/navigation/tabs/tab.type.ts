@@ -5,6 +5,7 @@ export interface Tab<T, Y> extends Omit<TouchableOpacityProps, 'onPress'> {
 
   title?: string;
   icon?: React.FC<Y>;
+  badge?: string;
   iconProps?: Y;
   titleStyle?: StyleProp<TextStyle>;
 }

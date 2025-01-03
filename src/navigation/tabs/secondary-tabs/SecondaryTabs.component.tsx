@@ -4,8 +4,8 @@ import Animated, {useSharedValue, type WithSpringConfig, Extrapolation, withSpri
 
 import {type Tab} from '../tab.type';
 import {styles} from './secondary-tabs.styles';
-import {useTheme} from '../../theme/useTheme.hook';
-import {type IconProps} from '../../icons/icon-props';
+import {useTheme} from '../../../theme/useTheme.hook';
+import {type IconProps} from '../../../icons/icon-props';
 import {Tab as TabComponent, TabType} from '../ui/tab/Tab.component';
 
 export interface SecondaryTabsProps<T, Y> extends ViewProps {

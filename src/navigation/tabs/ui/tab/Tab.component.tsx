@@ -11,9 +11,9 @@ import {
 } from 'react-native';
 
 import {styles} from './tab.styles';
-import {useTheme} from '../../../theme/useTheme.hook';
-import type {IconProps} from '../../../icons/icon-props';
-import {useTypography} from '../../../typography/useTypography.component';
+import {useTheme} from '../../../../theme/useTheme.hook';
+import type {IconProps} from '../../../../icons/icon-props';
+import {useTypography} from '../../../../typography/useTypography.component';
 
 export enum TabType {
   PRIMATY = 'PRIMATY',

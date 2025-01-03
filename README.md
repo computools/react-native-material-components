@@ -763,6 +763,145 @@ const onSubmitPress = async () => {
 
 ![divider](https://ik.imagekit.io/Computools/rn-material-components/divider.png?updatedAt=1705067870577)
 </details>
+<details><summary>Navigation</summary>
+<br />
+<details><summary>Nav Bar</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| routes | required | NavBarRoute<T, Y>[] | - |
+| activeRouteName | required | T | - |
+| onRoutePress | required | (route: T) => void | - |
+| damping | - | number | 20 |
+| fixedLabelVisibility | - | boolean | false |
+| scrollDirection | 'UP' or 'DOWN'. Use this propert to hide/show NavBar on scroll. | ScrollDirection | - |
+| containerStyle | - | ViewStyle | false |
+
+```
+export interface NavBarRoute<T, Y> {
+  name: T;
+  icon: React.FC<Y>;
+  selectedIcon: React.FC<Y>;
+
+  label?: string;
+  badge?: string;
+  showBadge?: boolean;
+  badgeSize?: BadgeSize;
+  iconProps?: Y;
+}
+```
+
+To enable animation on scroll use ScrollView from Animated, create a shared value with a ScrollDirection value, scrollContext with a number value and manage them onScroll.
+
+See the example:
+```
+export const MyComponent: React.FC = () => {
+  const scrollDirection = useSharedValue(ScrollDirection.UP);
+  const scrollContext = useSharedValue(0);
+
+  const onScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const currentOffsetY = e.nativeEvent.contentOffset.y;
+
+    if (currentOffsetY <= 0 || currentOffsetY < scrollContext.value) {
+      scrollDirection.value = ScrollDirection.UP;
+    } else if (currentOffsetY >= scrollContext.value) {
+      scrollDirection.value = ScrollDirection.DOWN;
+    }
+
+    scrollContext.value = currentOffsetY;
+  };
+
+  return (
+    <>
+      <Animated.ScrollView onScroll={onScroll}>
+        <!-- scrollview content -->
+      </Animated.ScrollView>
+      <NavBar
+        scrollDirection={scrollDirection}
+        routes={routes}
+        activeRouteName={activeRouteName}
+        onRoutePress={setRoute}
+      />
+    </>
+  )
+}
+
+```
+
+![nav bar](https://ik.imagekit.io/Computools/rn-material-components/nav_bar.gif?updatedAt=1735922886681)
+![anim nav bar](https://ik.imagekit.io/Computools/rn-material-components/anim_nav_bar.gif?updatedAt=1735922886792)
+
+</details>
+<details><summary>Tabs</summary>
+<br />
+
+Each Tabs accepts the required property ```tabs```, an array of the Tab interface.
+
+```
+export interface Tab<T, Y> extends Omit<TouchableOpacityProps, 'onPress'> {
+  routeName: T;
+
+  title?: string;
+  icon?: React.FC<Y>;
+  iconProps?: Y;
+  titleStyle?: TextStyle;
+}
+```
+
+<details><summary>Primary Tabs</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| tabs | required | Tab<T, Y>[] | - |
+| activeTab | required | T | - |
+| onTabPress | required | T | - |
+| badgeSize | - | SMALL or BIG | BIG |
+| animConfig | - |  (routeName: T) => void | - |
+| tabIconProps | - | Y | - |
+| tabStyle | - | ViewStyle | - |
+| badgeStyle | - | ViewStyle | - |
+| indicatorStyle | - | ViewStyle | - |
+| indicatorContainerStyle | - | ViewStyle | - |
+| tabsContainerStyle | - | ViewStyle | - |
+| tabInnerContentStyle | - | ViewStyle | - |
+| tabTitleStyle | - | TextStyle | - |
+
+![primary tabs](https://ik.imagekit.io/Computools/rn-material-components/primary_tabs.gif?updatedAt=1735922886826)
+![primary tabs with badges](https://ik.imagekit.io/Computools/rn-material-components/secondary_tabs_with_badges.png?updatedAt=1735922619925)
+
+</details>
+<details><summary>Secondary Tabs</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| tabs | required | Tab<T, Y>[] | - |
+| activeTab | required | T | - |
+| onTabPress | required | T | - |
+| badgeSize | - | SMALL or BIG | BIG |
+| animConfig | - |  (routeName: T) => void | - |
+| tabIconProps | - | Y | - |
+| tabStyle | - | ViewStyle | - |
+| badgeStyle | - | ViewStyle | - |
+| indicatorStyle | - | ViewStyle | - |
+| tabsContainerStyle | - | ViewStyle | - |
+| tabInnerContentStyle | - | ViewStyle | - |
+| tabTitleStyle | - | TextStyle | - |
+
+![secondary tabs](https://ik.imagekit.io/Computools/rn-material-components/secondart_tabs.gif?updatedAt=1735922886638)
+![secondary tabs with badges](https://ik.imagekit.io/Computools/rn-material-components/primary_tabs_with_badges.png?updatedAt=1735922619944)
+
+</details>
+</details>
+</details>
 <details><summary>Sheets</summary>
 <br />
 <details><summary>Bottom Sheet</summary>

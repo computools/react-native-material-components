@@ -58,9 +58,10 @@ export const PrimaryTabs = <T extends string, Y extends IconProps>({
 
   useEffect(() => {
     indicatorStartPos.value = withSpring(calcStartIndicatorPosition(tabs.length, activeTabIndex), {
-      damping: 15,
-      restSpeedThreshold: 0.001,
-      restDisplacementThreshold: 0.001,
+      duration: 300,
+      dampingRatio: 1.5,
+      overshootClamping: true,
+      restSpeedThreshold: 0.0001,
       ...animConfig,
     } as WithSpringConfig);
   }, [activeTabIndex]);

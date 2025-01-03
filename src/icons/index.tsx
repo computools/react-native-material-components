@@ -7,7 +7,7 @@ export {CloseIcon} from './close-icon/CloseIcon.component';
 export {DeleteIcon} from './delete-icon/DeleteIcon.component';
 export {SearchIcon} from './search-icon/SearchIcon.component';
 export {CommuteIcon} from './commute-icon/CommuteIcon.component';
-export {VideoCamIcon} from './videocam-icon/VideoCamIcon.component';
+export {VideoCamIcon} from './videocam-icon/CloseIcon.component';
 export {LocationIcon} from './location-icon/LocationIcon.component';
 export {MoreVertIcon} from './more-vert-icon/MoreVertIcon.component';
 export {MusicNoteIcon} from './music-note-icon/MusicNoteIcon.component';

@@ -11,6 +11,7 @@ export {FilterChip, type FilterChipProps} from './chips/filter-chip/FilterChip.c
 export {SuggestionChip, type SuggestionChipProps} from './chips/suggestion-chip/SuggestionChip.component';
 export {AssistChip, type AssistChipProps, IconType} from './chips/assist-chip/AssistChip.component';
 
+export {PrimaryTabs, type PrimaryTabsProps} from './tabs/primary-tabs/PrimaryTabs.component';
 export {SecondaryTabs, type SecondaryTabsProps} from './tabs/secondary-tabs/SecondaryTabs.component';
 
 export {

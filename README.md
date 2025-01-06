@@ -136,7 +136,33 @@ export const MySubmitButton: React.FC<TouchableOpacityProps> = ({style, ...props
 
 ## Basic usage
 
-You don't need extra steps to use the default typography via whole app. The default font is Roboto for Android and san Francisco for IOS.
+The default font used in this library is Roboto. While no additional setup is required for Android, you will need to perform a few extra steps to configure it on iOS.
+
+### Android
+
+No additional steps are needed for Android. The Roboto font is bundled and ready to use.
+
+### IOS
+
+1. Create the ```react-native.config.js``` file
+
+In the root of your project, create a ```react-native.config.js``` file with the following content:
+
+```
+module.exports = {
+    assets: ['node_modules/react-native-material-components/ios/fonts'],
+};
+```
+
+2. Run the Asset Linking Command
+
+Run ```npx react-native-asset```
+
+This will automatically:
+- Copy the fonts into the iOS project.
+- Add the fonts to the Info.plist file.
+
+3. Rebuild the project
 
 ## Custom Typography
 

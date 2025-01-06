@@ -3,7 +3,7 @@ import Animated, {FadeInDown, FadeOut, withDelay, useAnimatedStyle, withSpring, 
 
 import {useTheme} from '../../../theme/useTheme.hook';
 import {type IconProps} from '../../../icons/icon-props';
-import {ScrollDirection} from '../BottomAppBar.component';
+import {ScrollDirection} from '../../../types/scroll-direction.type';
 import {type IconButtonProps} from '../../../buttons/icon-buttons/icon-button.types';
 import {StandartIconButton} from '../../../buttons/icon-buttons/standart-icon-button/StandardIconButton.component';
 

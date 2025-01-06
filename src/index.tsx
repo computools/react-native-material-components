@@ -4,6 +4,7 @@ export {Badge, type BadgeProps} from './badge/Badge.component';
 
 export {Divider, type DividerProps} from './divider/Divider.component';
 
+export {NavBar} from './navigation/navigation-bar/NavBar.component';
 export {Slider, type SliderProps} from './sliders/slider /Slider.component';
 export {RangeSlider, type RangeSliderProps} from './sliders/range-slider/RangeSlider.component';
 
@@ -12,12 +13,15 @@ export {FilterChip, type FilterChipProps} from './chips/filter-chip/FilterChip.c
 export {AssistChip, type AssistChipProps, IconType} from './chips/assist-chip/AssistChip.component';
 export {SuggestionChip, type SuggestionChipProps} from './chips/suggestion-chip/SuggestionChip.component';
 
+export {PrimaryTabs, type PrimaryTabsProps} from './navigation/tabs/primary-tabs/PrimaryTabs.component';
+export {SecondaryTabs, type SecondaryTabsProps} from './navigation/tabs/secondary-tabs/SecondaryTabs.component';
+
 export {
   CenterAlignedTopAppBar,
   type CenterAlignedTopAppBarProps,
 } from './app-bars/top-app-bars/center-aligned-top-app-bar/CenterAlignedTopAppBar.component';
 export {TopAppBar, type TopAppBarProps, TopAppBarSize} from './app-bars/top-app-bars/top-app-bar/TopAppBar.component';
-export {BottomAppBar, type BottomAppBarProps, type BottomAppBarRef, ScrollDirection} from './app-bars/bottom-app-bar/BottomAppBar.component';
+export {BottomAppBar, type BottomAppBarProps, type BottomAppBarRef} from './app-bars/bottom-app-bar/BottomAppBar.component';
 
 export {BottomSheet, type BottomSheetProps, type BottomSheetRef} from './sheets/bottom-sheet/BottomSheet.component';
 export {SideSheet, type SideSheetProps, type SideSheetRef, type StickySide} from './sheets/side-sheet/SideSheet.component';
@@ -85,3 +89,4 @@ export {type MaterialTypography} from './typography/typography.types';
 export {type MaterialComponentsProviderProps, MaterialComponentsProvider} from './provider/MaterialComponents.context';
 
 export {type IconProps} from './types/icon-props.type';
+export {ScrollDirection} from './types/scroll-direction.type';

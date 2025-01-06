@@ -5,15 +5,11 @@ import Animated, {useAnimatedStyle, withSpring, type SharedValue} from 'react-na
 
 import {useTheme} from '../../theme/useTheme.hook';
 import {type IconProps} from '../../icons/icon-props';
+import {ScrollDirection} from '../../types/scroll-direction.type';
 import {BOTTOM_APP_BAR_PADDING_VARTICAL, styles} from './bottom-app-bar.styles';
 import {type IconButtonProps} from '../../buttons/icon-buttons/icon-button.types';
 import {FloatingActionButton, FloatingActionButtonSize} from '../../buttons/floating-action-button/FloatingActionButton.component';
 import {AnimatedBottomAppBarActionButton} from './animated-bottom-app-bar-action-button/AnimatedBottomAppBarActionButton.component';
-
-export enum ScrollDirection {
-  UP = 'UP',
-  DOWN = 'DOWN',
-}
 
 export interface BottomAppBarProps<T extends IconProps> extends ViewProps {
   iconButtons: IconButtonProps<T>[];

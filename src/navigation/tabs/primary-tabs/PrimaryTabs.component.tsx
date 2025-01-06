@@ -1,6 +1,14 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {View, type ViewProps, type DimensionValue, type StyleProp, type ViewStyle, type TextStyle, type LayoutChangeEvent} from 'react-native';
-import Animated, {useSharedValue, type WithSpringConfig, Extrapolation, withSpring, useAnimatedStyle, interpolate} from 'react-native-reanimated';
+import Animated, {
+  withSpring,
+  interpolate,
+  Extrapolation,
+  useSharedValue,
+  useAnimatedStyle,
+  type SharedValue,
+  type WithSpringConfig,
+} from 'react-native-reanimated';
 
 import {type Tab} from '../tab.type';
 import {styles} from './primary-tabs.styles';
@@ -14,6 +22,7 @@ export interface PrimaryTabsProps<T, Y> extends ViewProps {
   activeTab: T;
 
   animConfig?: WithSpringConfig;
+  scrollAnim?: SharedValue<number>;
 
   tabIconProps?: Y;
   title?: string;
@@ -24,8 +33,6 @@ export interface PrimaryTabsProps<T, Y> extends ViewProps {
   indicatorStyle?: StyleProp<ViewStyle>;
   tabsContainerStyle?: StyleProp<ViewStyle>;
   tabInnerContentStyle?: StyleProp<ViewStyle>;
-
-  onTabPress: (routeName: T) => void;
 }
 
 const BASE_INDICATOR_WIDTH = 33;
@@ -35,6 +42,7 @@ export const PrimaryTabs = <T extends string, Y extends IconProps>({
   activeTab,
 
   badgeSize,
+  scrollAnim,
   animConfig = {} as WithSpringConfig,
 
   tabStyle,
@@ -44,8 +52,6 @@ export const PrimaryTabs = <T extends string, Y extends IconProps>({
   indicatorStyle,
   tabsContainerStyle,
   tabInnerContentStyle,
-
-  onTabPress,
   ...props
 }: PrimaryTabsProps<T, Y>) => {
   const [tabTextWidths, setTabTextWidths] = useState<number[]>(tabs.map(() => 0));
@@ -94,7 +100,12 @@ export const PrimaryTabs = <T extends string, Y extends IconProps>({
     const maxPosition = calcStartIndicatorPosition(tabs.length, tabs.length - 1);
 
     return {
-      start: `${interpolate(indicatorStartPos.value, [0, maxPosition], [0, maxPosition * 100], Extrapolation.CLAMP)}%`,
+      start: `${interpolate(
+        scrollAnim ? scrollAnim.value : indicatorStartPos.value,
+        [0, maxPosition],
+        [0, maxPosition * 100],
+        Extrapolation.CLAMP
+      )}%`,
     };
   }, [tabs]);
 
@@ -116,7 +127,6 @@ export const PrimaryTabs = <T extends string, Y extends IconProps>({
       key={tab.routeName}
       onInnerContentLayout={handleTextLayout(index)}
       {...tab}
-      onPress={onTabPress}
       active={tab.routeName === activeTab}
       iconProps={tabIconProps}
       badgeSize={badgeSize}

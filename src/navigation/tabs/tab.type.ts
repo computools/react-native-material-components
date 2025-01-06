@@ -8,4 +8,6 @@ export interface Tab<T, Y> extends Omit<TouchableOpacityProps, 'onPress'> {
   badge?: string;
   iconProps?: Y;
   titleStyle?: StyleProp<TextStyle>;
+
+  onPress: (routeName: T) => void;
 }

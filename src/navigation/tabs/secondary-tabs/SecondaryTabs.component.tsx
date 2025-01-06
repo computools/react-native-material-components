@@ -1,6 +1,14 @@
 import React, {useCallback, useEffect} from 'react';
 import {View, type ViewProps, type StyleProp, type ViewStyle, type TextStyle} from 'react-native';
-import Animated, {useSharedValue, type WithSpringConfig, Extrapolation, withSpring, useAnimatedStyle, interpolate} from 'react-native-reanimated';
+import Animated, {
+  withSpring,
+  interpolate,
+  Extrapolation,
+  useSharedValue,
+  useAnimatedStyle,
+  type SharedValue,
+  type WithSpringConfig,
+} from 'react-native-reanimated';
 
 import {type Tab} from '../tab.type';
 import {styles} from './secondary-tabs.styles';
@@ -15,6 +23,7 @@ export interface SecondaryTabsProps<T, Y> extends ViewProps {
 
   badgeSize?: BadgeSize;
   animConfig?: WithSpringConfig;
+  scrollAnim?: SharedValue<number>;
 
   tabIconProps?: Y;
   tabStyle?: StyleProp<ViewStyle>;
@@ -23,8 +32,6 @@ export interface SecondaryTabsProps<T, Y> extends ViewProps {
   indicatorStyle?: StyleProp<ViewStyle>;
   tabsContainerStyle?: StyleProp<ViewStyle>;
   tabInnerContentStyle?: StyleProp<ViewStyle>;
-
-  onTabPress: (routeName: T) => void;
 }
 
 export const SecondaryTabs = <T extends string, Y extends IconProps>({
@@ -32,6 +39,7 @@ export const SecondaryTabs = <T extends string, Y extends IconProps>({
   activeTab,
 
   badgeSize,
+  scrollAnim,
   animConfig = {} as WithSpringConfig,
 
   tabStyle,
@@ -41,8 +49,6 @@ export const SecondaryTabs = <T extends string, Y extends IconProps>({
   indicatorStyle,
   tabsContainerStyle,
   tabInnerContentStyle,
-
-  onTabPress,
 
   ...props
 }: SecondaryTabsProps<T, Y>) => {
@@ -70,14 +76,20 @@ export const SecondaryTabs = <T extends string, Y extends IconProps>({
   const indicatorAnimatedStyle = useAnimatedStyle(() => {
     const maxPosition = calcStartIndicatorPosition(tabs.length, tabs.length - 1);
 
-    return {start: `${interpolate(indicatorStartPos.value, [0, maxPosition], [0, maxPosition * 100], Extrapolation.CLAMP)}%`};
+    return {
+      start: `${interpolate(
+        scrollAnim ? scrollAnim.value : indicatorStartPos.value,
+        [0, maxPosition],
+        [0, maxPosition * 100],
+        Extrapolation.CLAMP
+      )}%`,
+    };
   }, [tabs]);
 
   const renderSecondaryTab = (tab: Tab<T, Y>) => (
     <TabComponent
       key={tab.routeName}
       {...tab}
-      onPress={onTabPress}
       type={TabType.SECONDARY}
       active={tab.routeName === activeTab}
       iconProps={tabIconProps}

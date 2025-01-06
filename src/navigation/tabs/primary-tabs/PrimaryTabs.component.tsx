@@ -19,8 +19,8 @@ import {type BadgeSize} from '../../../badge/Badge.component';
 
 export interface PrimaryTabsProps<T, Y> extends ViewProps {
   tabs: Tab<T, Y>[];
-  activeTab: T;
 
+  activeTab?: T;
   animConfig?: WithSpringConfig;
   scrollAnim?: SharedValue<number>;
 
@@ -39,8 +39,8 @@ const BASE_INDICATOR_WIDTH = 33;
 
 export const PrimaryTabs = <T extends string, Y extends IconProps>({
   tabs,
-  activeTab,
 
+  activeTab,
   badgeSize,
   scrollAnim,
   animConfig = {} as WithSpringConfig,

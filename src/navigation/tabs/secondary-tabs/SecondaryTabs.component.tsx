@@ -19,8 +19,8 @@ import {Tab as TabComponent, TabType} from '../ui/tab/Tab.component';
 
 export interface SecondaryTabsProps<T, Y> extends ViewProps {
   tabs: Tab<T, Y>[];
-  activeTab: T;
 
+  activeTab?: T;
   badgeSize?: BadgeSize;
   animConfig?: WithSpringConfig;
   scrollAnim?: SharedValue<number>;

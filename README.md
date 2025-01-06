@@ -848,6 +848,8 @@ export interface Tab<T, Y> extends Omit<TouchableOpacityProps, 'onPress'> {
   icon?: React.FC<Y>;
   iconProps?: Y;
   titleStyle?: TextStyle;
+
+  onPress: (routeName: T) => void;
 }
 ```
 
@@ -859,8 +861,8 @@ export interface Tab<T, Y> extends Omit<TouchableOpacityProps, 'onPress'> {
 | name | description | type | default |
 | ------ | ------ | ------ | ---- |
 | tabs | required | Tab<T, Y>[] | - |
-| activeTab | required | T | - |
-| onTabPress | required | T | - |
+| activeTab | The active tab is managed through the state. Pass the activeTab prop to enable the active tab indicator animation when scrollAnim is not provided. | T | - |
+| scrollAnim | From 0 to 1 / tabs.lenght. Make the indicator responsive to scrolling. See more in the bottom of Tabs section. | SharedValue<number> | - |
 | badgeSize | - | SMALL or BIG | BIG |
 | animConfig | - |  (routeName: T) => void | - |
 | tabIconProps | - | Y | - |
@@ -884,8 +886,8 @@ export interface Tab<T, Y> extends Omit<TouchableOpacityProps, 'onPress'> {
 | name | description | type | default |
 | ------ | ------ | ------ | ---- |
 | tabs | required | Tab<T, Y>[] | - |
-| activeTab | required | T | - |
-| onTabPress | required | T | - |
+| activeTab | The active tab is managed through the state. Pass the activeTab prop to enable the active tab indicator animation when scrollAnim is not provided. | T | - |
+| scrollAnim | From 0 to 1 / tabs.lenght. Make the indicator responsive to scrolling. See more in the bottom of Tabs section. | SharedValue<number> | - |
 | badgeSize | - | SMALL or BIG | BIG |
 | animConfig | - |  (routeName: T) => void | - |
 | tabIconProps | - | Y | - |
@@ -900,6 +902,59 @@ export interface Tab<T, Y> extends Omit<TouchableOpacityProps, 'onPress'> {
 ![secondary tabs with badges](https://ik.imagekit.io/Computools/rn-material-components/primary_tabs_with_badges.png?updatedAt=1735922619944)
 
 </details>
+<br />
+
+To make the indicator responsive to scrolling, handle the scrollAnim state in the parent component and pass it as a prop to the Tabs component. This allows for seamless synchronization between the scrolling behavior and the indicator movement.
+
+See the example:
+
+```
+const ParentComponent = () => {
+  const {width: windowWidth} = useWindowDimensions();
+
+  const acitveViewAnim = useSharedValue(0);
+  const scrollViewRef = React.useRef<AnimatedScrollView>(null);
+
+  const tabs: Tab[] = [<--- your tabs --->]
+  const maxOutput = 1 / tabs.lenght; // The maximum output is calculated as 1 / tabsCount, where tabsCount represents the total number of tabs.
+
+  const handleScrollToScreen1 = () => {
+    acitveViewAnim.value = withTiming(0);
+    scrollViewRef.current?.scrollTo({x: 0});
+  };
+
+  const handleScrollToScreen2 = () => {
+    acitveViewAnim.value = withTiming(maxOutput);
+    scrollViewRef.current?.scrollToEnd();
+  };
+
+
+  const scrollHandler = useAnimatedScrollHandler(
+    {
+      onScroll: (e) => {
+        acitveViewAnim.value = interpolate(e.contentOffset.x, [0, windowWidth], [0, maxOutput]);
+      },
+      onEndDrag: (e) => {
+        if (e.contentOffset.x > maxOutput) {
+          runOnJS(handleScrollToScreen2)();
+        } else {
+          runOnJS(handleScrollToScreen1)();
+        }
+      },
+    },
+    [windowWidth]
+  );
+
+  return (
+    <SecondaryTabs scrollAnim={acitveViewAnim} tabs={tabs}/>
+    <Animated.ScrollView horizontal ref={scrollViewRef} bounces={false} showsHorizontalScrollIndicator={false} onScroll={scrollHandler}>
+      <Text style={{width: windowWidth, paddingStart: 20}}>Screen 1</Text>
+      <Text style={{width: windowWidth, paddingStart: 20}}>Screen 2</Text>
+    </Animated.ScrollView>
+  )
+};
+```
+
 </details>
 </details>
 <details><summary>Sheets</summary>

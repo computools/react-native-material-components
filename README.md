@@ -1053,6 +1053,70 @@ export const MyScreen = () => {
 ![right side sheet](https://ik.imagekit.io/Computools/rn-material-components/right-side-sheet.gif?updatedAt=1706171192408)
 </details>
 </details>
+<details><summary>Sliders</summary>
+<br />
+<details><summary>Slider</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| max | required | number | - |
+| min | required | number | - |
+| value | - | number | 0 |
+| step | The slider operates in discrete mode when a step value is provided. | number | - |
+| onChangeValue | - | (value: number) => void | - |
+| disabled | - | boolean | false |
+| centered | The slider operates in centered mode when a centered props is true | number | boolean | false |
+| damping | Controls thumb animation when a track point is pressed. | number | 20 |
+| valueHeight | - | number | 44 |
+| thumbWidthActive | - | number | 2 |
+| thumbWidthInactive | - | number | 4 |
+| thumbStyle | - | ViewStyle | - |
+| valueStyle | - | ViewStyle | - |
+| indicatorStyle | - | ViewStyle | - |
+| trackPointStyle | - | ViewStyle | - |
+| trackPointsStyle | - | ViewStyle | - |
+| filledTrackStyle | - | ViewStyle | - |
+| remainingTrackStyle | - | ViewStyle | - |
+
+![continuous slider](https://ik.imagekit.io/Computools/rn-material-components/continuous-slider.gif?updatedAt=1734970059184)
+![centered slider](https://ik.imagekit.io/Computools/rn-material-components/centered-slider.gif?updatedAt=1734970059052)
+![discrete slider](https://ik.imagekit.io/Computools/rn-material-components/discrete-slider.gif?updatedAt=1734970059069)
+
+</details>
+<details><summary>Range Slider</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| max | required | number | - |
+| min | required | number | - |
+| range | The first element represents the minimum value, and the second represents the maximum value. The range must have exactly two elements, with the minimum value less than or equal to the maximum value. | number | - |
+| step | The slider operates in discrete mode when a step value is provided. | number | - |
+| onChangeValue | - | (value: number) => void | - |
+| disabled | - | boolean | false |
+| centered | The slider operates in centered mode when a centered props is true | number | boolean | false |
+| damping | Controls thumb animation when a track point is pressed. | number | 20 |
+| valueHeight | - | number | 44 |
+| thumbWidthActive | - | number | 2 |
+| thumbWidthInactive | - | number | 4 |
+| thumbStyle | - | ViewStyle | - |
+| valueStyle | - | ViewStyle | - |
+| indicatorStyle | - | ViewStyle | - |
+| trackPointStyle | - | ViewStyle | - |
+| trackPointsStyle | - | ViewStyle | - |
+| filledTrackStyle | - | ViewStyle | - |
+| remainingTrackStyle | - | ViewStyle | - |
+
+![range slider](https://ik.imagekit.io/Computools/rn-material-components/range-slider.gif?updatedAt=1734970059452)
+![discrete range slider](https://ik.imagekit.io/Computools/rn-material-components/continuous-slider.gif?updatedAt=1734970059184)
+
+</details>
+</details>
 <details><summary>Snackbar</summary>
 <br />
 

@@ -5,11 +5,13 @@ export {Badge, type BadgeProps} from './badge/Badge.component';
 export {Divider, type DividerProps} from './divider/Divider.component';
 
 export {NavBar} from './navigation/navigation-bar/NavBar.component';
+export {Slider, type SliderProps} from './sliders/slider /Slider.component';
+export {RangeSlider, type RangeSliderProps} from './sliders/range-slider/RangeSlider.component';
 
 export {InputChip, type InputChipProps} from './chips/input-chip/InputChip.component';
 export {FilterChip, type FilterChipProps} from './chips/filter-chip/FilterChip.component';
-export {SuggestionChip, type SuggestionChipProps} from './chips/suggestion-chip/SuggestionChip.component';
 export {AssistChip, type AssistChipProps, IconType} from './chips/assist-chip/AssistChip.component';
+export {SuggestionChip, type SuggestionChipProps} from './chips/suggestion-chip/SuggestionChip.component';
 
 export {PrimaryTabs, type PrimaryTabsProps} from './navigation/tabs/primary-tabs/PrimaryTabs.component';
 export {SecondaryTabs, type SecondaryTabsProps} from './navigation/tabs/secondary-tabs/SecondaryTabs.component';

@@ -73,8 +73,8 @@ export const Tab = <T extends string, Y extends IconProps>({
   const primaryTabAppliedStyle = icon ? TabType.PRIMATY : TabType.SECONDARY;
   const [badgeBaseStyle, innerContentBaseStyle] =
     type === TabType.PRIMATY
-      ? [styles[`badge ${primaryTabAppliedStyle}`], styles[`inner content ${primaryTabAppliedStyle}`]]
-      : [styles[`badge ${type}`], styles[`inner content ${TabType.SECONDARY}`]];
+      ? [styles[`badge${primaryTabAppliedStyle}`], styles[`innerContent${primaryTabAppliedStyle}`]]
+      : [styles[`badge${type}`], styles[`innerContent${TabType.SECONDARY}`]];
 
   return (
     <TouchableOpacity onPress={handleTabPress} style={[styles.container, style]} {...props}>

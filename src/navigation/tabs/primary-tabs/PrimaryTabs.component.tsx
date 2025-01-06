@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {View, type ViewProps, type StyleProp, type ViewStyle, type TextStyle, type LayoutChangeEvent} from 'react-native';
+import {View, type ViewProps, type DimensionValue, type StyleProp, type ViewStyle, type TextStyle, type LayoutChangeEvent} from 'react-native';
 import Animated, {useSharedValue, type WithSpringConfig, Extrapolation, withSpring, useAnimatedStyle, interpolate} from 'react-native-reanimated';
 
 import {type Tab} from '../tab.type';
@@ -52,6 +52,7 @@ export const PrimaryTabs = <T extends string, Y extends IconProps>({
 
   const {primary, outlineVariant} = useTheme();
 
+  const tabWidth: DimensionValue = `${100 / tabs.length}%`;
   const activeTabIndex = tabs.findIndex((tab) => tab.routeName === activeTab);
 
   const calcStartIndicatorPosition = useCallback((totalTabsCount: number, targetTabIndex: number) => {
@@ -129,7 +130,7 @@ export const PrimaryTabs = <T extends string, Y extends IconProps>({
   return (
     <View style={[styles.container, {borderBottomColor: outlineVariant}]} {...props}>
       <View style={[styles.tabs, tabsContainerStyle]}>{tabs.map(renderTab)}</View>
-      <Animated.View style={[styles.indicatorContainer, {width: `${100 / tabs.length}%`}, indicatorContainerAnimatedStyle]}>
+      <Animated.View style={[styles.indicatorContainer, {width: tabWidth}, indicatorContainerAnimatedStyle]}>
         <Animated.View
           style={[
             styles.indicator,

@@ -853,55 +853,6 @@ export interface Tab<T, Y> extends Omit<TouchableOpacityProps, 'onPress'> {
 }
 ```
 
-<details><summary>Primary Tabs</summary>
-<br />
-
-**Properties**
-
-| name | description | type | default |
-| ------ | ------ | ------ | ---- |
-| tabs | required | Tab<T, Y>[] | - |
-| activeTab | The active tab is managed through the state. Pass the activeTab prop to enable the active tab indicator animation when scrollAnim is not provided. | T | - |
-| scrollAnim | From 0 to 1 / tabs.lenght. Make the indicator responsive to scrolling. See more in the bottom of Tabs section. | SharedValue<number> | - |
-| badgeSize | - | SMALL or BIG | BIG |
-| animConfig | - |  (routeName: T) => void | - |
-| tabIconProps | - | Y | - |
-| tabStyle | - | ViewStyle | - |
-| badgeStyle | - | ViewStyle | - |
-| indicatorStyle | - | ViewStyle | - |
-| indicatorContainerStyle | - | ViewStyle | - |
-| tabsContainerStyle | - | ViewStyle | - |
-| tabInnerContentStyle | - | ViewStyle | - |
-| tabTitleStyle | - | TextStyle | - |
-
-![primary tabs](https://ik.imagekit.io/Computools/rn-material-components/primary_tabs.gif?updatedAt=1735922886826)
-![primary tabs with badges](https://ik.imagekit.io/Computools/rn-material-components/secondary_tabs_with_badges.png?updatedAt=1735922619925)
-
-</details>
-<details><summary>Secondary Tabs</summary>
-<br />
-
-**Properties**
-
-| name | description | type | default |
-| ------ | ------ | ------ | ---- |
-| tabs | required | Tab<T, Y>[] | - |
-| activeTab | The active tab is managed through the state. Pass the activeTab prop to enable the active tab indicator animation when scrollAnim is not provided. | T | - |
-| scrollAnim | From 0 to 1 / tabs.lenght. Make the indicator responsive to scrolling. See more in the bottom of Tabs section. | SharedValue<number> | - |
-| badgeSize | - | SMALL or BIG | BIG |
-| animConfig | - |  (routeName: T) => void | - |
-| tabIconProps | - | Y | - |
-| tabStyle | - | ViewStyle | - |
-| badgeStyle | - | ViewStyle | - |
-| indicatorStyle | - | ViewStyle | - |
-| tabsContainerStyle | - | ViewStyle | - |
-| tabInnerContentStyle | - | ViewStyle | - |
-| tabTitleStyle | - | TextStyle | - |
-
-![secondary tabs](https://ik.imagekit.io/Computools/rn-material-components/secondart_tabs.gif?updatedAt=1735922886638)
-![secondary tabs with badges](https://ik.imagekit.io/Computools/rn-material-components/primary_tabs_with_badges.png?updatedAt=1735922619944)
-
-</details>
 <br />
 
 To make the indicator responsive to scrolling, handle the scrollAnim state in the parent component and pass it as a prop to the Tabs component. This allows for seamless synchronization between the scrolling behavior and the indicator movement.
@@ -955,6 +906,55 @@ const ParentComponent = () => {
 };
 ```
 
+<details><summary>Primary Tabs</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| tabs | required | Tab<T, Y>[] | - |
+| activeTab | The active tab is managed through the state. Pass the activeTab prop to enable the active tab indicator animation when scrollAnim is not provided. | T | - |
+| scrollAnim | The indicator progresses from 0 to 1 / tabs.length. To make the indicator responsive to scrolling, refer to the "Tabs" section above for more details. | SharedValue<number> | - |
+| badgeSize | - | SMALL or BIG | BIG |
+| animConfig | - |  (routeName: T) => void | - |
+| tabIconProps | - | Y | - |
+| tabStyle | - | ViewStyle | - |
+| badgeStyle | - | ViewStyle | - |
+| indicatorStyle | - | ViewStyle | - |
+| indicatorContainerStyle | - | ViewStyle | - |
+| tabsContainerStyle | - | ViewStyle | - |
+| tabInnerContentStyle | - | ViewStyle | - |
+| tabTitleStyle | - | TextStyle | - |
+
+![primary tabs](https://ik.imagekit.io/Computools/rn-material-components/primary_tabs.gif?updatedAt=1735922886826)
+![primary tabs with badges](https://ik.imagekit.io/Computools/rn-material-components/secondary_tabs_with_badges.png?updatedAt=1735922619925)
+
+</details>
+<details><summary>Secondary Tabs</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| tabs | required | Tab<T, Y>[] | - |
+| activeTab | The active tab is managed through the state. Pass the activeTab prop to enable the active tab indicator animation when scrollAnim is not provided. | T | - |
+| scrollAnim | The indicator progresses from 0 to 1 / tabs.length. To make the indicator responsive to scrolling, refer to the "Tabs" section above for more details. | SharedValue<number> | - |
+| badgeSize | - | SMALL or BIG | BIG |
+| animConfig | - |  (routeName: T) => void | - |
+| tabIconProps | - | Y | - |
+| tabStyle | - | ViewStyle | - |
+| badgeStyle | - | ViewStyle | - |
+| indicatorStyle | - | ViewStyle | - |
+| tabsContainerStyle | - | ViewStyle | - |
+| tabInnerContentStyle | - | ViewStyle | - |
+| tabTitleStyle | - | TextStyle | - |
+
+![secondary tabs](https://ik.imagekit.io/Computools/rn-material-components/secondart_tabs.gif?updatedAt=1735922886638)
+![secondary tabs with badges](https://ik.imagekit.io/Computools/rn-material-components/primary_tabs_with_badges.png?updatedAt=1735922619944)
+
+</details>
 </details>
 </details>
 <details><summary>Sheets</summary>

@@ -43,7 +43,7 @@ export interface FilledTextInputProps<T> extends TextInputProps {
   onOuterContainerLayout?: (e: LayoutChangeEvent) => void;
 }
 
-const FOCUSED_LABEL_TOP_PLACEMENT = 8;
+const UNFOCUSED_LABEL_TOP_PLACEMENT = 8;
 const DEFAULT_LABEL_SMALL_FONT_SIZE = 12;
 const DEFAULT_LABEL_LARGE_FONT_SIZE = 16;
 const ACTIVE_INDICATOR_FOCUSED_HEIGHT = 3;
@@ -111,7 +111,7 @@ export const FilledTextInput = forwardRef(
     ];
     const [unfocusedLabelFontSize, unfocusedLabelTopPlacement] = placeholder
       ? [smallLabelFontSize, 0]
-      : [largeLabelFontSize, FOCUSED_LABEL_TOP_PLACEMENT];
+      : [largeLabelFontSize, UNFOCUSED_LABEL_TOP_PLACEMENT];
 
     const labelAnimatedStyles = useAnimatedStyle(
       () => ({

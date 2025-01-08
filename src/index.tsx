@@ -17,6 +17,7 @@ export {PrimaryTabs, type PrimaryTabsProps} from './navigation/tabs/primary-tabs
 export {SecondaryTabs, type SecondaryTabsProps} from './navigation/tabs/secondary-tabs/SecondaryTabs.component';
 
 export {FilledTextInput, type FilledTextInputProps} from './text-inputs/filled-text-input/FilledTextInput.component';
+export {OutlinedTextInput, type OutlinedTextInputProps} from './text-inputs/outlined-text-input/OutlinedTextInput.component';
 
 export {
   CenterAlignedTopAppBar,

@@ -59,7 +59,7 @@ export const useTextInputColors = ({disabled, isError}: UseTextInputColorsParams
             activeIndicatorFocusedColor: primaryColorBasedOnError,
             activeIndicatorUnfocusedColor: surfaceVariantColorBasedOnError,
           },
-    [disabled]
+    [disabled, disabledOnSurfaceColor, disabledSurfaceContaienerHighestColor, primaryColorBasedOnError, surfaceVariantColorBasedOnError]
   );
 
   return {

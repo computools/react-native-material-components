@@ -1166,6 +1166,45 @@ export const MyScreen = () => {
 ![snackbar with icon](https://ik.imagekit.io/Computools/rn-material-components/snackbar-with-icon.png?updatedAt=1704887400512)
 ![snackbar gif](https://ik.imagekit.io/Computools/rn-material-components/snackbar-gif.gif?updatedAt=1704887530020)
 </details>
+<details><summary>Text Inputs</summary>
+<br />
+
+**Properties**
+
+| name | description | type | default |
+| ------ | ------ | ------ | ---- |
+| label | Required | string | - |
+| disabled | - | boolean | - |
+| errorText | - | string | - |
+| suportingText | - | string | - |
+| leadingIcon | - | React.FC<T> | - |
+| trailingIcon | - | React.FC<T> | - |
+| leadingIconProps | - | T | - |
+| trailingIconProps | - | T | - |
+| leadingComponent | - | ReactNode | - |
+| trailingComponent | - | ReactNode | - |
+| labelStyle | - | ViewStyle | - |
+| supportingTextStyle | - | TextStyle | - |
+| innerContainerStyle | - | ViewStyle | - |
+| outerContainerStyle | - | ViewStyle | - |
+| activeIndicatorStyle | - | ViewStyle | - |
+| onOuterContainerLayout | - | (e: LayoutChangeEvent) => void | - |
+
+<details><summary>Filled Input</summary>
+<br />
+
+![filled text input](https://ik.imagekit.io/Computools/rn-material-components/filled_text_input.png?updatedAt=1736357640156)
+![filled text input animation](https://ik.imagekit.io/Computools/rn-material-components/filled_text_input.gif?updatedAt=1736357640313)
+
+</deatils>
+<details><summary>Outlined Input</summary>
+<br />
+
+![outlined text input](https://ik.imagekit.io/Computools/rn-material-components/outlined_text_input.png?updatedAt=1736357640133)
+![outlined text input animation](https://ik.imagekit.io/Computools/rn-material-components/outlined-text-input.gif?updatedAt=1736357640468)
+
+</deatils>
+</deatils>
 </deatils>
 
 ## Contributing

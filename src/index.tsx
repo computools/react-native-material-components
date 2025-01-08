@@ -16,6 +16,8 @@ export {SuggestionChip, type SuggestionChipProps} from './chips/suggestion-chip/
 export {PrimaryTabs, type PrimaryTabsProps} from './navigation/tabs/primary-tabs/PrimaryTabs.component';
 export {SecondaryTabs, type SecondaryTabsProps} from './navigation/tabs/secondary-tabs/SecondaryTabs.component';
 
+export {FilledTextInput, type FilledTextInputProps} from './text-inputs/filled-text-input/FilledTextInput.component';
+
 export {
   CenterAlignedTopAppBar,
   type CenterAlignedTopAppBarProps,

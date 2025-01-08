@@ -1,47 +1,14 @@
-import React, {forwardRef, useRef, type ReactNode} from 'react';
+import React, {forwardRef, useRef} from 'react';
+import {Text, View, TextInput, TouchableWithoutFeedback} from 'react-native';
 import Animated, {useAnimatedStyle, interpolateColor, interpolate} from 'react-native-reanimated';
-import {
-  Text,
-  View,
-  TextInput,
-  TouchableWithoutFeedback,
-  type StyleProp,
-  type ViewStyle,
-  type TextStyle,
-  type TextInputProps,
-  type LayoutChangeEvent,
-} from 'react-native';
 
 import {ErrorIcon} from '../../icons';
 import {styles} from './filled-text-input.styles';
 import {type IconProps} from '../../icons/icon-props';
+import type {TextInputProps} from '../text-input.type';
 import {useTextInputColors} from '../use-text-input-colors.hook';
 import {useTextInputFocus} from '../use-text-input-focus-anim.hook';
 import {useTypography} from '../../typography/useTypography.component';
-
-export interface FilledTextInputProps<T> extends TextInputProps {
-  label: string;
-
-  disabled?: boolean;
-  errorText?: string;
-  suportingText?: string;
-
-  leadingIconProps?: T;
-  trailingIconProps?: T;
-  trailingIcon?: React.FC<T>;
-  leadingIcon?: React.FC<T>;
-
-  leadingComponent?: ReactNode;
-  trailingComponent?: ReactNode;
-
-  labelStyle?: StyleProp<ViewStyle>;
-  supportingTextStyle?: StyleProp<TextStyle>;
-  innerContainerStyle?: StyleProp<ViewStyle>;
-  outerContainerStyle?: StyleProp<ViewStyle>;
-  activeIndicatorStyle?: StyleProp<ViewStyle>;
-
-  onOuterContainerLayout?: (e: LayoutChangeEvent) => void;
-}
 
 const UNFOCUSED_LABEL_TOP_PLACEMENT = 8;
 const DEFAULT_LABEL_SMALL_FONT_SIZE = 12;
@@ -78,7 +45,7 @@ export const FilledTextInput = forwardRef(
       onBlur,
       onOuterContainerLayout,
       ...props
-    }: FilledTextInputProps<T>,
+    }: TextInputProps<T>,
     ref: React.Ref<TextInput>
   ) => {
     const {bodyLarge, bodySmall} = useTypography();

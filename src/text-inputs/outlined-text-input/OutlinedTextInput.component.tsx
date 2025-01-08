@@ -1,47 +1,15 @@
-import React, {forwardRef, useCallback, useRef, useState, type ReactNode} from 'react';
+import React, {forwardRef, useCallback, useRef, useState} from 'react';
 import Animated, {useAnimatedStyle, interpolateColor, interpolate} from 'react-native-reanimated';
-import {
-  Text,
-  View,
-  TextInput,
-  TouchableWithoutFeedback,
-  type StyleProp,
-  type ViewStyle,
-  type TextStyle,
-  type TextInputProps,
-  type LayoutChangeEvent,
-} from 'react-native';
+import {Text, View, TextInput, TouchableWithoutFeedback, type LayoutChangeEvent} from 'react-native';
 
 import {ErrorIcon} from '../../icons';
 import {useTheme} from '../../theme/useTheme.hook';
 import {type IconProps} from '../../icons/icon-props';
+import {type TextInputProps} from '../text-input.type';
 import {useTextInputColors} from '../use-text-input-colors.hook';
 import {useTextInputFocus} from '../use-text-input-focus-anim.hook';
 import {useTypography} from '../../typography/useTypography.component';
 import {OUTLINED_TEXT_INPUT_CONTAINER_PADDING_VERTICAL, OUTLINED_TEXT_INPUT_CONTAINER_PADDING_HORIZONTAL, styles} from './outlined-text-input.styles';
-
-export interface OutlinedTextInputProps<T> extends TextInputProps {
-  label: string;
-
-  disabled?: boolean;
-  errorText?: string;
-  suportingText?: string;
-
-  leadingIconProps?: T;
-  trailingIconProps?: T;
-  trailingIcon?: React.FC<T>;
-  leadingIcon?: React.FC<T>;
-
-  leadingComponent?: ReactNode;
-  trailingComponent?: ReactNode;
-
-  labelStyle?: StyleProp<ViewStyle>;
-  supportingTextStyle?: StyleProp<TextStyle>;
-  innerContainerStyle?: StyleProp<ViewStyle>;
-  outerContainerStyle?: StyleProp<ViewStyle>;
-
-  onOuterContainerLayout?: (e: LayoutChangeEvent) => void;
-}
 
 const BORDER_FOCUSED_WIDTH = 3;
 const BORDER_UNFOCUSED_WIDTH = 1;
@@ -79,7 +47,7 @@ export const OutlinedTextInput = forwardRef(
       onBlur,
       onOuterContainerLayout,
       ...props
-    }: OutlinedTextInputProps<T>,
+    }: Omit<TextInputProps<T>, 'activeIndicatorStyle'>,
     ref: React.Ref<TextInput>
   ) => {
     const [labelWidth, setLabeWidth] = useState(0);

@@ -4,6 +4,7 @@ export {PlusIcon} from './plus-icon/PlusIcon.component';
 export {PhotoIcon} from './photo-icon/PhotoIcon.component';
 export {TodayIcon} from './today-icon/TodayIcon.component';
 export {CloseIcon} from './close-icon/CloseIcon.component';
+export {ErrorIcon} from './error-icon/ErrorIcon.component';
 export {DeleteIcon} from './delete-icon/DeleteIcon.component';
 export {SearchIcon} from './search-icon/SearchIcon.component';
 export {CommuteIcon} from './commute-icon/CommuteIcon.component';

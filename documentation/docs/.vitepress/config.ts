@@ -36,8 +36,8 @@ export default defineConfig({
       {
         text: 'Styles',
         items: [
-           {text: 'Theme', link: '/theme'},
-           {text: 'Typography', link: '/typography'},
+           {text: 'Theme', link: 'styles/theme'},
+           {text: 'Typography', link: 'styles/typography'},
         ],
         collapsed: true
       },
@@ -47,11 +47,19 @@ export default defineConfig({
           {
             text: 'Activity Indicators',
             items: [
-              {text: 'Circular Activity Indicator', link: '/circularActivityIndicator'},
-              {text: 'Linear Activity Indicator', link: '/linearActivityIndicator'}
+              {text: 'Circular Activity Indicator', link: '/components/activity-indicators/circularActivityIndicator'},
+              {text: 'Linear Activity Indicator', link: '/components/activity-indicators/linearActivityIndicator'}
             ],
             collapsed: true
           },
+          {
+            text: 'App Bars',
+             items: [
+              {text: 'Bottom App Bar', link: 'components/app-bars/bottomAppBar'},
+              {text: 'Top App Bar', link: ''}
+            ],
+            collapsed: true
+          }
         ],
         collapsed: true
       }

@@ -5,7 +5,6 @@ export default defineConfig({
   lang: 'en-US',
   title: 'Meterial Components',
   description: 'React Native powered Material UI Library.',
-
   themeConfig: {
     // nav: [
     //   {text: 'Get Started', link: '/installation'},
@@ -56,7 +55,7 @@ export default defineConfig({
             text: 'App Bars',
              items: [
               {text: 'Bottom App Bar', link: 'components/app-bars/bottomAppBar'},
-              {text: 'Top App Bar', link: ''}
+              {text: 'Top App Bars', link: 'components/app-bars/topAppBar'}
             ],
             collapsed: true
           }

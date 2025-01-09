@@ -20,7 +20,21 @@ export interface TextInputProps<T> extends RNTextInputProps {
   supportingTextStyle?: StyleProp<TextStyle>;
   innerContainerStyle?: StyleProp<ViewStyle>;
   outerContainerStyle?: StyleProp<ViewStyle>;
-  activeIndicatorStyle?: StyleProp<ViewStyle>;
 
   onOuterContainerLayout?: (e: LayoutChangeEvent) => void;
+}
+
+export enum TextInputColors {
+  VALUE_COLOR = 'valueColor',
+  CONTAINER_COLOR = 'containerColor',
+  SELECTION_COLOR = 'selectionColor',
+  PLACEHOLDER_COLOR = 'placeholderColor',
+  LABEL_FOCUSED_COLOR = 'labelFocusedColor',
+  LABEL_COLOR = 'labelFocusedColor',
+  TRAILING_ICON_COLOR = 'trailingIconColor',
+  LEADING_ICON_COLOR = 'leadingIconColor',
+  LABEL_UNFOCUSED_COLOR = 'labelUnfocusedColor',
+  SUPPORING_TEXT_COLOR = 'supportingTextColor',
+  ACTIVE_INDICATOR_FOCUSED_COLOR = 'activeIndicatorFocusedColor',
+  ACTIVE_INDICATOR_UNFOCUSED_COLOR = 'activeIndicatorUnfocusedColor',
 }

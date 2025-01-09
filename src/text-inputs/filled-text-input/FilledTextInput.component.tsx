@@ -1,11 +1,11 @@
 import React, {forwardRef, useRef} from 'react';
-import {Text, View, TextInput, TouchableWithoutFeedback} from 'react-native';
 import Animated, {useAnimatedStyle, interpolateColor, interpolate} from 'react-native-reanimated';
+import {Text, View, TextInput, TouchableWithoutFeedback, type StyleProp, type ViewStyle} from 'react-native';
 
 import {ErrorIcon} from '../../icons';
 import {styles} from './filled-text-input.styles';
 import {type IconProps} from '../../icons/icon-props';
-import type {TextInputProps} from '../text-input.type';
+import type {TextInputProps} from '../text-input.types';
 import {useTextInputColors} from '../use-text-input-colors.hook';
 import {useTextInputFocus} from '../use-text-input-focus-anim.hook';
 import {useTypography} from '../../typography/useTypography.component';
@@ -15,6 +15,10 @@ const DEFAULT_LABEL_SMALL_FONT_SIZE = 12;
 const DEFAULT_LABEL_LARGE_FONT_SIZE = 16;
 const ACTIVE_INDICATOR_FOCUSED_HEIGHT = 3;
 const ACTIVE_INDICATOR_UNFOCUSED_HEIGHT = 1;
+
+export interface FilledTextInputProps<T> extends TextInputProps<T> {
+  activeIndicatorStyle?: StyleProp<ViewStyle>;
+}
 
 export const FilledTextInput = forwardRef(
   <T extends IconProps>(
@@ -45,7 +49,7 @@ export const FilledTextInput = forwardRef(
       onBlur,
       onOuterContainerLayout,
       ...props
-    }: TextInputProps<T>,
+    }: FilledTextInputProps<T>,
     ref: React.Ref<TextInput>
   ) => {
     const {bodyLarge, bodySmall} = useTypography();

@@ -1,11 +1,11 @@
 import React, {forwardRef, useCallback, useRef, useState} from 'react';
 import Animated, {useAnimatedStyle, interpolateColor, interpolate} from 'react-native-reanimated';
-import {Text, View, TextInput, TouchableWithoutFeedback, type LayoutChangeEvent} from 'react-native';
+import {Text, View, TextInput, TouchableWithoutFeedback, type StyleProp, type ViewStyle, type LayoutChangeEvent} from 'react-native';
 
 import {ErrorIcon} from '../../icons';
 import {useTheme} from '../../theme/useTheme.hook';
 import {type IconProps} from '../../icons/icon-props';
-import {type TextInputProps} from '../text-input.type';
+import {type TextInputProps} from '../text-input.types';
 import {useTextInputColors} from '../use-text-input-colors.hook';
 import {useTextInputFocus} from '../use-text-input-focus-anim.hook';
 import {useTypography} from '../../typography/useTypography.component';
@@ -18,6 +18,10 @@ const DEFAULT_LABEL_SMALL_FONT_SIZE = 12;
 const DEFAULT_LABEL_LARGE_FONT_SIZE = 16;
 const DEFAULT_LABEL_SMALL_LINE_HEIGHT = 15;
 const FOCUSED_LABEL_SLOT_PADDING_HORIZONTAL = 4;
+
+export interface OutlinedTextInputProps<T> extends TextInputProps<T> {
+  labelSlotStyle?: StyleProp<ViewStyle>;
+}
 
 export const OutlinedTextInput = forwardRef(
   <T extends IconProps>(
@@ -39,6 +43,7 @@ export const OutlinedTextInput = forwardRef(
 
       style,
       labelStyle,
+      labelSlotStyle,
       outerContainerStyle,
       innerContainerStyle,
       supportingTextStyle,
@@ -47,7 +52,7 @@ export const OutlinedTextInput = forwardRef(
       onBlur,
       onOuterContainerLayout,
       ...props
-    }: Omit<TextInputProps<T>, 'activeIndicatorStyle'>,
+    }: OutlinedTextInputProps<T>,
     ref: React.Ref<TextInput>
   ) => {
     const [labelWidth, setLabeWidth] = useState(0);
@@ -142,7 +147,7 @@ export const OutlinedTextInput = forwardRef(
           <Animated.View style={[styles.container, containerAnimatedStyles, innerContainerStyle]}>
             {leadingComponent}
             {LeadingIcon ? <LeadingIcon color={leadingIconColor} style={styles.leadingIcon} {...leadingIconProps} /> : null}
-            <Animated.View style={[styles.labelSlot, {backgroundColor: surfaceContainer.backgroundLow}, focusedLabelSlot]} />
+            <Animated.View style={[styles.labelSlot, {backgroundColor: surfaceContainer.backgroundLow}, focusedLabelSlot, labelSlotStyle]} />
             <View onLayout={getLabelDistanceToContainerStart} style={[styles.inputWithLabelContainer]}>
               <Animated.Text onLayout={getLabelWidth} style={[styles.label, bodyLarge, labelAnimatedStyles, labelStyle]}>
                 {label}

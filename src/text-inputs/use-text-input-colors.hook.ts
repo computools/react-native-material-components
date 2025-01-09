@@ -1,6 +1,9 @@
 import {useMemo} from 'react';
+
 import {useTheme} from '../theme/useTheme.hook';
 import {convertToRGBA} from '../utils/convert-to-rgba';
+import {getTextInputActiveColors} from './get-text-input-active-colors';
+import {getTextInputDisabledColors} from './get-text-input-disabled-colors';
 
 interface UseTextInputColorsParams {
   isError: boolean;
@@ -8,71 +11,24 @@ interface UseTextInputColorsParams {
 }
 
 export const useTextInputColors = ({disabled, isError}: UseTextInputColorsParams) => {
-  const {surface, surfaceContainer, error, primary} = useTheme();
+  const theme = useTheme();
 
-  const primaryColorBasedOnError = isError ? error.background : primary.background;
-  const surfaceVariantColorBasedOnError = isError ? error.background : surface.textVariant;
+  const [primaryColorBasedOnError, surfaceVariantColorBasedOnError] = isError
+    ? [theme.error.background, theme.error.background]
+    : [theme.primary.background, theme.surface.textVariant];
 
   const [disabledOnSurfaceColor, disabledSurfaceContaienerHighestColor] = useMemo(
-    () => [convertToRGBA(surface.text as string, 0.38), convertToRGBA(surfaceContainer.backgroundHighest as string, 0.38)],
-    [surface, surfaceContainer]
+    () => [convertToRGBA(theme.surface.text as string, 0.38), convertToRGBA(theme.surfaceContainer.backgroundHighest as string, 0.38)],
+    [theme]
   );
 
-  const {
-    valueColor,
-    containerColor,
-    selectionColor,
-    placeholderColor,
-    labelFocusedColor,
-    trailingIconColor,
-    leadingIconColor,
-    labelUnfocusedColor,
-    supportingTextColor,
-    activeIndicatorFocusedColor,
-    activeIndicatorUnfocusedColor,
-  } = useMemo(
+  const colors = useMemo(
     () =>
       disabled
-        ? {
-            valueColor: disabledOnSurfaceColor,
-            containerColor: disabledSurfaceContaienerHighestColor,
-            selectionColor: disabledOnSurfaceColor,
-            placeholderColor: disabledOnSurfaceColor,
-            labelFocusedColor: disabledOnSurfaceColor,
-            trailingIconColor: disabledOnSurfaceColor,
-            leadingIconColor: disabledOnSurfaceColor,
-            labelUnfocusedColor: disabledOnSurfaceColor,
-            supportingTextColor: disabledOnSurfaceColor,
-            activeIndicatorFocusedColor: disabledOnSurfaceColor,
-            activeIndicatorUnfocusedColor: disabledOnSurfaceColor,
-          }
-        : {
-            valueColor: surface.text,
-            containerColor: surfaceContainer.backgroundHighest,
-            selectionColor: primaryColorBasedOnError,
-            placeholderColor: surface.textVariant,
-            labelFocusedColor: primaryColorBasedOnError,
-            trailingIconColor: surfaceVariantColorBasedOnError,
-            leadingIconColor: surface.textVariant,
-            labelUnfocusedColor: surfaceVariantColorBasedOnError,
-            supportingTextColor: surfaceVariantColorBasedOnError,
-            activeIndicatorFocusedColor: primaryColorBasedOnError,
-            activeIndicatorUnfocusedColor: surfaceVariantColorBasedOnError,
-          },
+        ? getTextInputDisabledColors(disabledOnSurfaceColor, disabledSurfaceContaienerHighestColor)
+        : getTextInputActiveColors(theme, primaryColorBasedOnError, surfaceVariantColorBasedOnError),
     [disabled, disabledOnSurfaceColor, disabledSurfaceContaienerHighestColor, primaryColorBasedOnError, surfaceVariantColorBasedOnError]
   );
 
-  return {
-    valueColor,
-    containerColor,
-    selectionColor,
-    placeholderColor,
-    labelFocusedColor,
-    trailingIconColor,
-    leadingIconColor,
-    labelUnfocusedColor,
-    supportingTextColor,
-    activeIndicatorFocusedColor,
-    activeIndicatorUnfocusedColor,
-  };
+  return colors;
 };

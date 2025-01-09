@@ -34,7 +34,7 @@ export default defineConfig({
         link: '/gettingStarted',
       },
       {
-        text: 'Style',
+        text: 'Styles',
         items: [
            {text: 'Theme', link: '/theme'},
            {text: 'Typography', link: '/typography'},

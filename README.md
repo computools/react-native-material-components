@@ -737,8 +737,6 @@ export const YourComponent = () => {
 <br />
 
 **Properties**
-  animationDuration?: number;
-  animationType?: AnimationType;
 
 | name | description | type | default |
 | ------ | ------ | ------ | ----|

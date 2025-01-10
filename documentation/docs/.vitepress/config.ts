@@ -38,7 +38,6 @@ export default defineConfig({
            {text: 'Theme', link: 'styles/theme'},
            {text: 'Typography', link: 'styles/typography'},
         ],
-        collapsed: true
       },
       {
         text: 'Components',
@@ -90,8 +89,11 @@ export default defineConfig({
             ],
             collapsed: true
           },
+           {
+            text: 'Dialogs',
+            link: '/components/dialogs'
+          },
         ],
-        collapsed: true
       }
     ],
   },

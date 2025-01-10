@@ -13,6 +13,7 @@ export default defineConfig({
     ]
   ],
   outDir: '../public',
+  base: '/react-native/react-native-material-components/',
   themeConfig: {
     search: {
       provider: "local",

@@ -99,8 +99,12 @@ export default defineConfig({
             collapsed: true
           },
           {
-            text: 'Slidets',
+            text: 'Sliders',
             link: '/components/sliders'
+          },
+          {
+            text: 'Snackbar',
+            link: '/components/snackbar'
           },
         ],
       }

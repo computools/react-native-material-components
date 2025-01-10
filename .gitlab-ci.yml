@@ -9,7 +9,7 @@ pages:
     - npm run docs:build
   artifacts:
     paths:
-      - public
+      - documentation/public
   only:
     - main
     - doc-web-site

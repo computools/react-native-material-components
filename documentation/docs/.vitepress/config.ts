@@ -58,6 +58,10 @@ export default defineConfig({
               {text: 'Top App Bars', link: 'components/app-bars/topAppBar'}
             ],
             collapsed: true
+          },
+          {
+            text: 'Badge',
+            link: '/components/badge'
           }
         ],
         collapsed: true

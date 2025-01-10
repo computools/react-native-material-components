@@ -73,6 +73,10 @@ export default defineConfig({
             ],
             collapsed: true
           },
+          {
+            text: 'Cards',
+            link: '/components/cards'
+          },
         ],
         collapsed: true
       }

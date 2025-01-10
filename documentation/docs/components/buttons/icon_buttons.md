@@ -4,7 +4,7 @@
 
 ![icon buttons](https://ik.imagekit.io/Computools/rn-material-components/icon_buttons.png?updatedAt=1730123727799)
 
-## Button Components
+## Icon Button Components
 
 The library provides the following ```icon components```:
 

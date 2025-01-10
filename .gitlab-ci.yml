@@ -1,4 +1,9 @@
 image: node:18
+
+variables:
+  # Explicitly define CI_SERVER_URL
+  CI_SERVER_URL: "https://newgit.computools.org"
+
 pages:
   cache:
     paths:

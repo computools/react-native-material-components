@@ -106,6 +106,14 @@ export default defineConfig({
             ],
             collapsed: true
           },
+          {
+            text: 'Sheets',
+             items: [
+              {text: 'Bottom Sheet', link: 'components/sheets/bottom_sheet'},
+              {text: 'Side Sheet', link: 'components/sheets/side_sheet'},
+            ],
+            collapsed: true
+          },
         ],
       }
     ],

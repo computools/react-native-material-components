@@ -2,12 +2,28 @@
 
 This library provides two separate **Top App Bar** components:
 
-```TopAppBar``` – The standard app bar, which can include a title, start icons, action buttons, and more. It supports different sizes and scroll-based background color changes.
-```CenterAlignedTopAppBar``` – A variant of the app bar where the title is centered, with optional start and end icons.
+[```TopAppBar```](#top-app-bar) – The standard app bar, which can include a title, start icons, action buttons, and more. It supports different sizes and scroll-based background color changes.
+[```CenterAlignedTopAppBar```](#center-aligned-top-app-bar) – A variant of the app bar where the title is centered, with optional start and end icons.
 
 ## Top App Bar
 
 The ```Top App Bar``` in its standard form includes a customizable title, start and end icons, and an optional action button list. This variant supports three different sizes (small, medium, large) and is ideal for more complex navigation schemes.
+
+- **Small Top App Bar**
+
+![small top app bar](https://ik.imagekit.io/Computools/rn-material-components/small_top_app_bar.png?updatedAt=1734088346321)
+
+- **Medium Top App Bar**
+
+![medium top app bar](https://ik.imagekit.io/Computools/rn-material-components/medium_top_app_bar.png?updatedAt=1734088346249)
+
+- **Large Top App Bar**
+
+![large top app bar](https://ik.imagekit.io/Computools/rn-material-components/large_top_app_bar.png?updatedAt=1734088346230)
+
+- **Top App Bar with on scroll animation**
+
+<img src="https://ik.imagekit.io/Computools/rn-material-components/animated-top-app-bar.gif?updatedAt=1734088599114" style="height: 700px;" alt="animated top app bar" />
 
 ### Properties
 
@@ -54,27 +70,11 @@ export const MyComponent: React.FC = () => {
 };
 ```
 
-### Visual Examples
-
-- **Small Top App Bar**
-
-![small top app bar](https://ik.imagekit.io/Computools/rn-material-components/small_top_app_bar.png?updatedAt=1734088346321)
-
-- **Medium Top App Bar**
-
-![medium top app bar](https://ik.imagekit.io/Computools/rn-material-components/medium_top_app_bar.png?updatedAt=1734088346249)
-
-- **Large Top App Bar**
-
-![large top app bar](https://ik.imagekit.io/Computools/rn-material-components/large_top_app_bar.png?updatedAt=1734088346230)
-
-- **Top App Bar with on scroll animation**
-
-<img src="https://ik.imagekit.io/Computools/rn-material-components/animated-top-app-bar.gif?updatedAt=1734088599114" style="height: 700px;" alt="animated top app bar" />
-
 ## Center Aligned Top App Bar
 
 The ```Center Aligned Top App Bar``` component centers the title within the app bar. It can optionally include start and end icons. This is suitable for layouts where the title is the primary focus, and the icons are secondary.
+
+![center aligned top app bar](https://ik.imagekit.io/Computools/rn-material-components/center_aligned_top_app_bar.png?updatedAt=1734088249862)
 
 ### Properties
 
@@ -119,7 +119,3 @@ export const MyComponent: React.FC = () => {
   );
 };
 ```
-
-### Visual Example
-
-![center aligned top app bar](https://ik.imagekit.io/Computools/rn-material-components/center_aligned_top_app_bar.png?updatedAt=1734088249862)

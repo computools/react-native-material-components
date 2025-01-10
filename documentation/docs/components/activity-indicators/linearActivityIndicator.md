@@ -2,6 +2,8 @@
 
 The ```Linear Activity Indicator``` is a progress indicator that can be used in both determinate and indeterminate modes, in a horizontal, linear style.
 
+![linear activity indicator gif](https://ik.imagekit.io/Computools/rn-material-components/linear-indicator-gif.gif?updatedAt=1705066319092)
+
 ## Component Overview
 
 The ```Linear Activity Indicator``` is used to show progress in a linear format. It's commonly used for tasks like loading screens or to indicate that a process is taking place. The indicator can be set to a determinate mode, where progress or to an indeterminate mode.
@@ -31,11 +33,3 @@ import { LinearActivityIndicator } from '@computools/react-native-material-compo
   progress={50} // 50% progress
 />
 ```
-
-## Visual Example
-
-To see the component in action, check out the animation below showing both ```determinate``` and ```indeterminate``` states:
-
-![linear activity indicator gif](https://ik.imagekit.io/Computools/rn-material-components/linear-indicator-gif.gif?updatedAt=1705066319092)
-
-

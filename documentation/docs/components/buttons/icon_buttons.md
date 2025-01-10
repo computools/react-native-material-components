@@ -2,8 +2,6 @@
 
 ```Icon buttons``` provide compact actions with an icon representation. These buttons are available in multiple styles to fit various use cases.
 
-## Visual Examples
-
 ![icon buttons](https://ik.imagekit.io/Computools/rn-material-components/icon_buttons.png?updatedAt=1730123727799)
 
 ## Button Components

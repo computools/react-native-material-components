@@ -2,8 +2,6 @@
 
 FAB provides a primary action in your application and can be customized with animation and size options.
 
-## Visual Examples
-
 ![fab](https://ik.imagekit.io/Computools/rn-material-components/fab.gif?updatedAt=1730123868550)
 
 ## Properties

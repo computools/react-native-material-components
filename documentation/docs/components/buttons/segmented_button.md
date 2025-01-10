@@ -2,8 +2,6 @@
 
 Segmented buttons allow users to toggle between multiple related options.
 
-## Visual Examples
-
 ![segmented buttons](https://ik.imagekit.io/Computools/rn-material-components/segmented_button_single.gif?updatedAt=1730123815131)
 
 ## Properties

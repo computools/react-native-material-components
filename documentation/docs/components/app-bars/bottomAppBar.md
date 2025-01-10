@@ -2,6 +2,8 @@
 
 The ```Bottom App Bar``` is a Material Design component that provides a fixed position at the bottom of the screen, typically used to hold important actions and icons, like navigation buttons and floating action buttons (FAB). It also allows for scroll-based animations and can react to scroll direction to hide or show itself dynamically.
 
+<img src="https://ik.imagekit.io/Computools/rn-material-components/bottom-app-bar.gif?updatedAt=1734086950022" style="height: 700px;" alt="bottom app bar" />
+
 ## Component Overview
 The ```Bottom App Bar``` typically houses action buttons, such as a FAB (Floating Action Button), and offers a simple, sleek interface for managing actions. It can animate based on the scroll direction, hiding itself when scrolling down and showing up when scrolling up, making it a useful component in applications with long content.
 
@@ -53,9 +55,3 @@ export const MyComponent: React.FC = () => {
   );
 };
 ```
-
-## Visual Example
-
-To see how the ```Bottom App Bar``` reacts to scrolling and displays animations, check out the animation below
-
-<img src="https://ik.imagekit.io/Computools/rn-material-components/bottom-app-bar.gif?updatedAt=1734086950022" style="height: 700px;" alt="bottom app bar" />

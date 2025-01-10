@@ -2,6 +2,8 @@
 
 The ```Circular Activity Indicator``` is a versatile loading spinner used to indicate an ongoing process, supporting both determinate and indeterminate modes. It provides smooth animations and can be customized based on your app's design requirements.
 
+![circular activity indicator gif](https://ik.imagekit.io/Computools/rn-material-components/circular-indicator-gif.gif?updatedAt=1705066319093)
+
 ## Component Overview
 
 This component displays a circular activity indicator, either with a specific progress value (determinate) or as a continuously spinning spinner (indeterminate). It can be customized with different sizes, colors, and animation durations.
@@ -31,11 +33,3 @@ import { CircularActivityIndicator } from '@computools/react-native-material-com
   progress={50} // 50% progress
 />
 ```
-
-## Visual Example
-
-To see the component in action, check out the animation below showing both ```determinate``` and ```indeterminate``` states:
-
-![circular activity indicator gif](https://ik.imagekit.io/Computools/rn-material-components/circular-indicator-gif.gif?updatedAt=1705066319093)
-
-

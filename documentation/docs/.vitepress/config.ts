@@ -1,10 +1,17 @@
 import {defineConfig} from 'vitepress';
 
 // refer https://vitepress.dev/reference/site-config for details
+
 export default defineConfig({
   lang: 'en-US',
   title: 'Meterial Components',
   description: 'React Native Material UI Library.',
+  head: [
+    [
+      'link',
+      { rel: 'icon', href: '/favicon.png' }
+    ]
+  ],
   themeConfig: {
     search: {
       provider: "local",

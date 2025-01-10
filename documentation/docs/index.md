@@ -1,6 +1,8 @@
 ---
 layout: home
 
+navbar: false
+
 hero:
   name: React Native Material Components &#128571;
   # text: React Native powered ui library.
@@ -8,5 +10,5 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /gettingStarted
+      link: /getting_started
 ---

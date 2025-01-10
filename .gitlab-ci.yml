@@ -14,7 +14,7 @@ pages:
     - npm run docs:build
   artifacts:
     paths:
-      - documentation/public
+      - public
   only:
     - main
     - doc-web-site

@@ -12,6 +12,8 @@ export default defineConfig({
       { rel: 'icon', href: '/favicon.png' }
     ]
   ],
+  outDir: '../public',
+  base: '/documentation/',
   themeConfig: {
     search: {
       provider: "local",

@@ -1,0 +1,14 @@
+image: node:18
+pages:
+  cache:
+    paths:
+      - documentation/node_modules/
+  script:
+    - cd documentation
+    - npm install
+    - npm run docs:build
+  artifacts:
+    paths:
+      - documentation/public
+  only:
+    - main

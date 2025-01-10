@@ -108,6 +108,6 @@ Run ```yarn android``` or open the project in Android Studio and build it.
 - For iOS:
 Run ```yarn ios``` or open the .xcworkspace file in Xcode and build the project.
 
-7. **Learn more about Font installation [here](/typography)**
+7. **Learn more about Font installation [here](/styles/typography)**
 
 

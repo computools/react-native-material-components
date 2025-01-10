@@ -81,6 +81,15 @@ export default defineConfig({
             text: 'Chips',
             link: '/components/chips'
           },
+          {
+            text: 'Controls',
+             items: [
+              {text: 'Checkbox', link: 'components/controls/checkbox'},
+              {text: 'Radio Button', link: 'components/controls/radio_button'},
+              {text: 'Switch', link: 'components/controls/switch'},
+            ],
+            collapsed: true
+          },
         ],
         collapsed: true
       }

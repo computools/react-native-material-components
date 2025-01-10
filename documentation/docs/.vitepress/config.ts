@@ -28,7 +28,7 @@ export default defineConfig({
         text: 'Components',
         items: [
           {
-            text: 'Activity Indicators',
+            text: 'Activity indicators',
             items: [
               {text: 'Circular Activity Indicator', link: '/components/activity-indicators/circular_activity_indicator'},
               {text: 'Linear Activity Indicator', link: '/components/activity-indicators/linear_activity_indicator'}
@@ -36,7 +36,7 @@ export default defineConfig({
             collapsed: true
           },
           {
-            text: 'App Bars',
+            text: 'App bars',
              items: [
               {text: 'Bottom App Bar', link: 'components/app-bars/bottom_app_bar'},
               {text: 'Top App Bars', link: 'components/app-bars/top_app_bar'}
@@ -105,6 +105,10 @@ export default defineConfig({
           {
             text: 'Snackbar',
             link: '/components/snackbar'
+          },
+          {
+            text: 'Text inputs',
+            link: '/components/text_inputs'
           },
         ],
       }

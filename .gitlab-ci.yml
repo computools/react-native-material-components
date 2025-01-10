@@ -9,7 +9,7 @@ pages:
     - npm run docs:build
   artifacts:
     paths:
-      - docs/.vitepress/dist
+      - ./documentation/docs/.vitepress/dist
   only:
     - main
     - doc-web-site

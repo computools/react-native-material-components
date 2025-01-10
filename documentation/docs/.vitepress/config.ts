@@ -13,7 +13,6 @@ export default defineConfig({
     ]
   ],
   outDir: '../public',
-  base: '/documentation/',
   themeConfig: {
     search: {
       provider: "local",

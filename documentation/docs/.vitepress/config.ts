@@ -12,6 +12,7 @@ export default defineConfig({
       { rel: 'icon', href: '/favicon.png' }
     ]
   ],
+  outDir: '../public',
   base: '/react-native/react-native-material-components/',
   themeConfig: {
     search: {

@@ -14,7 +14,7 @@ pages:
     - npm run docs:build
   artifacts:
     paths:
-      - ./documentation/docs/.vitepress/dist
+      - /documentation/public
   only:
     - main
     - doc-web-site

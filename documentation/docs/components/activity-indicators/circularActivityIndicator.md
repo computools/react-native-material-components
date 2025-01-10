@@ -1,5 +1,7 @@
 # Circular Activity Indicator
 
+## Overview
+
 The ```Circular Activity Indicator``` is a versatile loading spinner used to indicate an ongoing process, supporting both determinate and indeterminate modes. It provides smooth animations and can be customized based on your app's design requirements.
 
 ![circular activity indicator gif](https://ik.imagekit.io/Computools/rn-material-components/circular-indicator-gif.gif?updatedAt=1705066319093)

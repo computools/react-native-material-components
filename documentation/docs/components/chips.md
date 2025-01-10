@@ -1,5 +1,7 @@
 # Chips
 
+## Overview
+
 ```Chips``` are compact components used for inputs, filters, and suggestions, allowing users to interact with or provide contextual information in a concise format.
 
 This library provides follow ```chips components```:

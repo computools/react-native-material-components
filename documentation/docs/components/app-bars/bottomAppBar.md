@@ -1,5 +1,7 @@
 # Bottom App Bar
 
+## Overview
+
 The ```Bottom App Bar``` is a Material Design component that provides a fixed position at the bottom of the screen, typically used to hold important actions and icons, like navigation buttons and floating action buttons (FAB). It also allows for scroll-based animations and can react to scroll direction to hide or show itself dynamically.
 
 <img src="https://ik.imagekit.io/Computools/rn-material-components/bottom-app-bar.gif?updatedAt=1734086950022" style="height: 700px;" alt="bottom app bar" />

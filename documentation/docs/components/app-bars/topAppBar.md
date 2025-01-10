@@ -1,5 +1,7 @@
 # Top App Bar Components
 
+## Overview
+
 This library provides two separate **Top App Bar** components:
 
 [```Top App Bar```](#top-app-bar) – The standard app bar, which can include a title, start icons, action buttons, and more. It supports different sizes and scroll-based background color changes.

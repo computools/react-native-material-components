@@ -1,5 +1,7 @@
 # Linear Activity Indicator
 
+## Overview
+
 The ```Linear Activity Indicator``` is a progress indicator that can be used in both determinate and indeterminate modes, in a horizontal, linear style.
 
 ![linear activity indicator gif](https://ik.imagekit.io/Computools/rn-material-components/linear-indicator-gif.gif?updatedAt=1705066319092)

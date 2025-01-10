@@ -62,7 +62,17 @@ export default defineConfig({
           {
             text: 'Badge',
             link: '/components/badge'
-          }
+          },
+          {
+            text: 'Buttons',
+             items: [
+              {text: 'Common Buttons', link: 'components/buttons/common_buttons'},
+              {text: 'Icon Buttons', link: 'components/buttons/icon_buttons'},
+              {text: 'FAB', link: 'components/buttons/fab'},
+              {text: 'Segmented Button', link: 'components/buttons/segmented_button'}
+            ],
+            collapsed: true
+          },
         ],
         collapsed: true
       }

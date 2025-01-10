@@ -30,7 +30,7 @@ export default defineConfig({
         link: '/about',
       }, {
         text: 'Getting started',
-        link: '/gettingStarted',
+        link: '/getting_started',
       },
       {
         text: 'Styles',
@@ -45,16 +45,16 @@ export default defineConfig({
           {
             text: 'Activity Indicators',
             items: [
-              {text: 'Circular Activity Indicator', link: '/components/activity-indicators/circularActivityIndicator'},
-              {text: 'Linear Activity Indicator', link: '/components/activity-indicators/linearActivityIndicator'}
+              {text: 'Circular Activity Indicator', link: '/components/activity-indicators/circular_activity_indicator'},
+              {text: 'Linear Activity Indicator', link: '/components/activity-indicators/linear_activity_indicator'}
             ],
             collapsed: true
           },
           {
             text: 'App Bars',
              items: [
-              {text: 'Bottom App Bar', link: 'components/app-bars/bottomAppBar'},
-              {text: 'Top App Bars', link: 'components/app-bars/topAppBar'}
+              {text: 'Bottom App Bar', link: 'components/app-bars/bottom_app_bar'},
+              {text: 'Top App Bars', link: 'components/app-bars/top_app_bar'}
             ],
             collapsed: true
           },

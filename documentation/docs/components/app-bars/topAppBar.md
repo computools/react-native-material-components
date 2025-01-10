@@ -2,8 +2,8 @@
 
 This library provides two separate **Top App Bar** components:
 
-[```TopAppBar```](#top-app-bar) – The standard app bar, which can include a title, start icons, action buttons, and more. It supports different sizes and scroll-based background color changes.
-[```CenterAlignedTopAppBar```](#center-aligned-top-app-bar) – A variant of the app bar where the title is centered, with optional start and end icons.
+[```Top App Bar```](#top-app-bar) – The standard app bar, which can include a title, start icons, action buttons, and more. It supports different sizes and scroll-based background color changes.
+[```Center Aligned Top App Bar```](#center-aligned-top-app-bar) – A variant of the app bar where the title is centered, with optional start and end icons.
 
 ## Top App Bar
 

@@ -77,6 +77,10 @@ export default defineConfig({
             text: 'Cards',
             link: '/components/cards'
           },
+          {
+            text: 'Chips',
+            link: '/components/chips'
+          },
         ],
         collapsed: true
       }

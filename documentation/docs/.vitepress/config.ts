@@ -4,7 +4,8 @@ import {defineConfig} from 'vitepress';
 export default defineConfig({
   lang: 'en-US',
   title: 'Meterial Components',
-  description: 'React Native powered Material UI Library.',
+
+  description: 'React Native Material UI Library.',
   themeConfig: {
     // nav: [
     //   {text: 'Get Started', link: '/installation'},
@@ -93,9 +94,17 @@ export default defineConfig({
             text: 'Dialogs',
             link: '/components/dialogs'
           },
-           {
+          {
             text: 'Divider',
             link: '/components/divider'
+          },
+          {
+            text: 'Navigation',
+             items: [
+              {text: 'Nav Bar', link: 'components/navigation/nav_bar'},
+              {text: 'Tabs', link: 'components/navigation/tabs'},
+            ],
+            collapsed: true
           },
         ],
       }

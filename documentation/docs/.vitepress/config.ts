@@ -93,6 +93,10 @@ export default defineConfig({
             text: 'Dialogs',
             link: '/components/dialogs'
           },
+           {
+            text: 'Divider',
+            link: '/components/divider'
+          },
         ],
       }
     ],

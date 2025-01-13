@@ -25,7 +25,6 @@ export interface PrimaryTabsProps<T, Y> extends ViewProps {
   scrollAnim?: SharedValue<number>;
 
   tabIconProps?: Y;
-  title?: string;
   badgeSize?: BadgeSize;
   tabStyle?: StyleProp<ViewStyle>;
   badgeStyle?: StyleProp<ViewStyle>;

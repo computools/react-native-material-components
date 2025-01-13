@@ -1,3 +1,4 @@
+export {StarIcon} from './star-icon/StarIcon.component';
 export {MailIcon} from './mail-icon/MailIcon.component';
 export {SendIcon} from './send-icon/SendIcon.component';
 export {ListIcon} from './list-icon/ListIcon.component';
@@ -13,6 +14,7 @@ export {ErrorIcon} from './error-icon/ErrorIcon.component';
 export {UploadIcon} from './upload-icon/UploadIcon.component';
 export {DeleteIcon} from './delete-icon/DeleteIcon.component';
 export {SearchIcon} from './search-icon/SearchIcon.component';
+export {PersonIcon} from './ person-icon/PersonIcon.component';
 export {CommuteIcon} from './commute-icon/CommuteIcon.component';
 export {VideoCamIcon} from './videocam-icon/CloseIcon.component';
 export {SettingsIcon} from './settings-icon/SettingsIcon.component';

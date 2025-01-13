@@ -29,6 +29,7 @@ export default defineConfig({
       {
         text: 'Styles',
         items: [
+           {text: 'Icons', link: 'styles/icons'},
            {text: 'Theme', link: 'styles/theme'},
            {text: 'Typography', link: 'styles/typography'},
         ],

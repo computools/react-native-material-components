@@ -9,7 +9,7 @@ export default defineConfig({
   head: [
     [
       'link',
-      { rel: 'icon', href: '/favicon.png' }
+      { rel: 'icon', href: '/favicon.ico' }
     ]
   ],
   themeConfig: {

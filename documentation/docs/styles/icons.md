@@ -54,7 +54,7 @@ This library includes a selection of commonly used icons for building user inter
 If the provided icons do not meet your specific needs, you can explore and add more icons directly into your project.
 
 Explore more icons here:
-- [Material 3 Design Kit on Figma](https://www.figma.com/design/60rEc74mbCUjr5eBJlq7Cg/Material-3-Design-Kit-(Community)?node-id=55594-2483&p=f&t=QWcIej0o3w8vZgV0-0)
+- [Material 3 Design Kit on Figma](https://www.figma.com/design/siKJo238QbcA9I2EqYMZ9y/Material-Design-Icons-(Community)?node-id=2403-6067&t=A9XzkV9d7BET6fYs-0)
 - [Google Icons](https://fonts.google.com/icons?icon.query=favor&icon.size=24&icon.color=%23e8eaed)
 
 To use additional icons, download the SVGs and integrate them into your project using your preferred method.

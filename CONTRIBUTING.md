@@ -4,6 +4,54 @@ Contributions are always welcome, no matter how large or small!
 
 We want this community to be friendly and respectful to each other. Please follow it in all your interactions with the project. Before contributing, please read the [code of conduct](./CODE_OF_CONDUCT.md).
 
+## Setting Up the Second Remote (GitHub)
+
+Our project uses two remotes:
+
+**GitLab**: The main repository where development happens.
+**GitHub**: Used to deploy the documentation to Vercel.
+
+If you make changes to the **documentation**, you will need to push your changes to the GitHub repository to trigger the deployment process.
+
+Steps to Add the Second Remote
+Open a terminal and navigate to the project's root directory.
+
+Run the following command to add the GitHub remote:
+
+```
+git remote add github https://github.com/computools-anastasiia-nahaiska/react-native-material-components.git
+```
+
+### Pushing Changes to Both Remotes
+
+The GitHub repository is integrated with Vercel for automatic deployment of the documentation. Pushing to GitHub ensures that the latest documentation changes are deployed seamlessly.
+
+Whenever you update the documentation, it’s important to push your changes to both remotes:
+
+**origin (GitLab)**: For collaboration and code review.
+**github**: For triggering the deployment of documentation to Vercel.
+
+You can manually push to both remotes with the following commands:
+
+```
+git push origin <branch-name>
+git push github <branch-name>
+```
+However, to simplify this process, we’ve added a handy alias to automate it.
+
+Using the Alias
+To push the current branch to both remotes:
+
+```
+yarn push-to-remotes
+```
+
+To specify a branch explicitly:
+
+```
+npm run push-to-remotes -- <branch-name>
+```
+
 ## Development workflow
 
 To get started with the project, run `yarn` in the root directory to install the required dependencies for each package:
@@ -100,6 +148,7 @@ The `package.json` file contains various scripts for common tasks:
 - `yarn example start`: start the Metro server for the example app.
 - `yarn example android`: run the example app on Android.
 - `yarn example ios`: run the example app on iOS.
+- `yarn push-to-remotes`: push branch to origin and github remotes.
 
 ### Sending a pull request
 

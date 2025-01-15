@@ -1,6 +1,6 @@
 {
   "name": "@computools/react-native-material-components",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Computools react native material components package",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -52,7 +52,7 @@
   "bugs": {
     "url": "https://newgit.computools.org/react-native/react-native-material-components/issues"
   },
-  "homepage": "https://newgit.computools.org/react-native/react-native-material-components#readme",
+  "homepage": "https://react-native-material-components.vercel.app/",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"

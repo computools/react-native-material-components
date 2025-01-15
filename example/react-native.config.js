@@ -7,5 +7,5 @@ module.exports = {
       root: path.join(__dirname, '..'),
     },
   },
-  assets: [path.resolve(__dirname, '../ios/assets/fonts'), path.resolve(__dirname, '../android/src/main/assets/fonts')],
+  assets: [path.resolve(__dirname, '../assets/fonts')],
 };

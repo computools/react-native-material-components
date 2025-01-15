@@ -1,6 +1,6 @@
 {
   "name": "@computools/react-native-material-components",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Computools react native material components package",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",

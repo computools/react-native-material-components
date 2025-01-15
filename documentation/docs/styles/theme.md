@@ -13,7 +13,7 @@ For iOS 13+ and Android 10+, use the [Appearance API](https://reactnative.dev/do
 
 **Example:**
 
-```
+```typescript
 import { useColorScheme } from 'react-native';
 import { MaterialComponentsProvider, DarkTheme, LightTheme } from '@computools/react-native-material-components';
 
@@ -34,7 +34,7 @@ To use the current theme in your custom components, you can leverage the ```useT
 
 **Example:**
 
-```
+```typescript
 import React from 'react';
 import { TouchableOpacity, Text, TouchableOpacityProps } from 'react-native';
 import { useTheme } from '@computools/react-native-material-components';
@@ -61,7 +61,7 @@ The ```buildThemesFromColors``` function accepts colors in hex, rgb, or rgba for
 
 **Example:**
 
-```
+```typescript
 import { buildThemesFromColors, type ThemeColors } from '@computools/react-native-material-components';
 
 export const themeColors: ThemeColors = {

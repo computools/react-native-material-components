@@ -25,7 +25,7 @@ The ```Bottom App Bar``` works with scrolling content and adjusts its visibility
 
 ## Component Usage
 
-```
+```typescript
 import React from 'react';
 import { Animated, NativeSyntheticEvent, NativeScrollEvent } from 'react-native';
 import { useSharedValue } from 'react-native-reanimated';

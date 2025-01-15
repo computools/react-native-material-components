@@ -34,7 +34,7 @@ The ```SideSheetRef``` interface provides the following methods:
 3. Call ```toggle()``` method from ref.current to open/close the Side Sheet.
 
 **Code example:**
-```
+```typescript
 import {SideSheet, type SideSheetRef} from '@computools/react-native-material-components';
 
 export const MyScreen = () => {

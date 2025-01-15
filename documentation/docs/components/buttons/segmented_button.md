@@ -25,7 +25,7 @@ Segmented buttons allow users to toggle between multiple related options.
 
 The ```Button Segment``` interface defines the structure of each segment in the segmented button.
 
-```
+```typescript
 export interface ButtonSegment<T, U> {
   value: T; // The value associated with the segment.
   label?: string; // Optional text label for the segment.

@@ -40,7 +40,7 @@ Follow these steps to use the ```Snackbar``` component:
 3. Use the ```show()``` method from ```ref.current``` to display the Snackbar, or use the ```dismiss()``` method to hide it.
 
 **Code example:**
-```
+```typescript
 import React, { useRef } from 'react';
 import { Snackbar, type SnackbarRef } from '@computools/react-native-material-components';
 

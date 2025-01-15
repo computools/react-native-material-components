@@ -40,7 +40,7 @@ This library provides follow ```Tabs components```:
 
 Each Tabs component requires the ```tabs``` property, an array of ```Tab``` objects. The structure of a ```Tab``` is as follows:
 
-```
+```typescript
 export interface Tab<T, Y> extends Omit<TouchableOpacityProps, 'onPress'> {
   routeName: T;              // Unique identifier for the tab
   title?: string;            // Optional title of the tab
@@ -55,7 +55,7 @@ export interface Tab<T, Y> extends Omit<TouchableOpacityProps, 'onPress'> {
 
 To synchronize the tab indicator with scrolling behavior, manage the ```scrollAnim``` state in the parent component and pass it as a prop to the ```Tabs``` component.
 
-```
+```typescript
 import React from 'react';
 import { Animated, useWindowDimensions, Text } from 'react-native';
 import { useSharedValue, withTiming, interpolate, runOnJS } from 'react-native-reanimated';

@@ -62,7 +62,7 @@ The ```Dialog``` component serves as a ```wrapper``` for creating ```custom dial
 
 ### Usage Example
 
-```
+```typescript
 import React, { useRef } from 'react';
 import { Button } from 'react-native';
 import { Dialog, type DialogRef } from '@computools/react-native-material-components';
@@ -93,7 +93,7 @@ In certain scenarios, a modal might reappear after being closed, particularly if
 
 ### Fix Example
 
-```
+```typescript
 const onSubmitPress = async () => {
   const isSuccessfullySignedOut = await signOut();
 

@@ -1,82 +1,86 @@
-# Typography
+# Typography in React Native Material Design
 
-The library uses ```Roboto``` as the default font, providing a clean and modern look. You can use the default typography or customize it to suit your project’s needs. Below are the details for configuring and using typography.
+Material Design uses the **Roboto** font family as the default typography. However, it is the developer's responsibility to set up the required font assets in their project. This document provides a single, streamlined guide to:
 
-## Default Typography
+- Set up a font.
+- Use custom fonts for overriding the default typography.
 
-### Android
+## Setting Up Fonts
 
-No additional setup is required for Android. The ```Roboto``` font is bundled and ready to use.
+### Step 1: Download and Organize Font Files
+1. **Download Fonts**: Obtain the required font files (e.g., `.ttf` or `.otf`) from a trusted source or a designer.
+2. **Unzip and Rename**: Extract and rename the font files if needed (e.g., `Roboto-Regular.ttf`).
+3. **Add to Project**: Create a folder in your project for fonts (e.g., `src/assets/fonts`) and place the font files there.
 
-### iOS
+### Step 2: Configure Font Assets
+1. Create a `react-native.config.js` file in the root of your project with the following content:
 
-For iOS, you’ll need to configure the ```Roboto``` font manually. Follow these steps:
-
-1. **Add Font Configuration**
-
-Create a ```react-native.config.js``` file at the root of your project and include the following content:
-
-```
+```javascript
 module.exports = {
-    assets: ['node_modules/@computools/react-native-material-components/assets/fonts'],
+  project: {
+    ios: {},
+    android: {},
+  },
+  assets: ['./src/assets/fonts'], // Adjust the path based on your folder structure
 };
-
 ```
 
-2. **Link Font Assets**
+2. Run the following command to link the font files:
 
-Run the following command to link the font assets:
-
-```
+```bash
 npx react-native-asset
 ```
 
-This will:
+This command:
+- Links fonts for iOS by adding `link-assets-manifest.json`.
+- Copies fonts to the appropriate Android assets folder.
 
-- Copy the fonts to your IOS project.
-- Update the ```Info.plist``` file automatically.
+### Step 3: Add Fonts to iOS Targets
 
-3. **Rebuild Your Project**
+For iOS, update your app’s `Info.plist` file to include the fonts:
 
-After linking the assets, rebuild your project to apply the changes.
-
-## Accessing Typography in Components
-
-Use the ```useTypography``` hook to retrieve the active typography styles in your components. This hook makes it simple to apply consistent typography throughout your app.
-
-**Example:**
-
+```xml
+<key>UIAppFonts</key>
+<array>
+  <string>Roboto-Regular.ttf</string>
+  <string>Roboto-Bold.ttf</string>
+  <string>Roboto-Italic.ttf</string>
+  ...
+</array>
 ```
-import React, { PropsWithChildren } from 'react';
-import { Text } from 'react-native';
-import { useTypography } from '@computools/react-native-material-components';
 
-export const AppBodyLargeText: React.FC<PropsWithChildren> = ({ children }) => {
-  const { bodyLarge } = useTypography();
+If your app has multiple targets, repeat this step for each target under **Build Phases > Copy Bundle Resources** in Xcode.
 
-  return <Text style={bodyLarge}>{children}</Text>;
-};
+### Step 4: Use Fonts in Styles
+Ensure the `fontFamily` values match:
 
-```
+- **Android**: Match the file name, e.g., `Roboto-Bold.ttf` -> `fontFamily: 'Roboto-Bold'`.
+- **iOS**: Use the PostScript name of the font. You can find it using Font Book or by logging available fonts in Xcode:
 
 ## Customizing Typography
 
-To define your own typography styles, you can create a custom configuration and pass it to the ```MaterialComponentsProvider```.
+If you want to use a font other than Roboto, you can override the default typography configuration.
 
-### Creating a Custom Typography
+### Example: Using a Custom Font
 
-You can start by modifying the default ```materialTypography``` object. This provides a consistent foundation while allowing customization of specific styles. Wrap your application in the ```MaterialComponentsProvider``` and provide your custom typography via the typography property.
+1. Import the necessary components from the Material Design library:
 
-**Example:**
-
-```
+```typescript
 import { MaterialComponentsProvider, materialTypography, MaterialTypography } from '@computools/react-native-material-components';
+```
 
+2. Create a custom typography object by extending the default `materialTypography`:
+
+```typescript
 const customTypography: MaterialTypography = {
   ...materialTypography,
   bodyMedium: { ...materialTypography.bodyMedium, fontFamily: 'Montserrat-Medium' },
 };
+```
 
+3. Wrap your app in the `MaterialComponentsProvider` and pass the custom typography:
+
+```typescript
 export default function App() {
   return (
     <MaterialComponentsProvider typography={customTypography}>
@@ -86,7 +90,15 @@ export default function App() {
 }
 ```
 
+## Troubleshooting Tips
 
+1. **Fonts Not Applying:**
+   - Check file names, paths, and `fontFamily` values.
+   - Ensure `npx react-native-asset` is run after adding or renaming fonts.
 
+2. **Inconsistent Behavior:**
+   - Use the correct font names for each platform.
+   - Verify the PostScript name for iOS and file name for Android.
 
-
+3. **Missing Fonts in Targets:**
+   - Ensure fonts are added under **Build Phases > Copy Bundle Resources** for all targets in Xcode.

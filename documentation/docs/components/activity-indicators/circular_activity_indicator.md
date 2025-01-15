@@ -28,7 +28,7 @@ This component displays a circular activity indicator, either with a specific pr
 
 ## Usage Example
 
-```
+```typescript
 import { CircularActivityIndicator } from '@computools/react-native-material-components';
 
 <CircularActivityIndicator

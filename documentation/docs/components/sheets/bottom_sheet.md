@@ -34,7 +34,7 @@ The ```BottomSheetRef``` interface provides the following methods:
 3. Use the ```toggle()``` method from ```ref.current``` to open or close the bottom sheet, or use the ```expand()``` method to fully expand it.
 
 **Code example:**
-```
+```typescript
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { BottomSheet, type BottomSheetRef } from '@computools/react-native-material-components';

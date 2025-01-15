@@ -44,7 +44,7 @@ The ```Top App Bar``` in its standard form includes a customizable title, start 
 
 ### Component Usage
 
-```
+```typescript
 import React from 'react';
 import { Animated, NativeSyntheticEvent, NativeScrollEvent } from 'react-native';
 import { useSharedValue } from 'react-native-reanimated';
@@ -94,7 +94,7 @@ The ```Center Aligned Top App Bar``` component centers the title within the app 
 
 ### Component Usage
 
-```
+```typescript
 import React from 'react';
 import { Animated, NativeSyntheticEvent, NativeScrollEvent } from 'react-native';
 import { useSharedValue } from 'react-native-reanimated';

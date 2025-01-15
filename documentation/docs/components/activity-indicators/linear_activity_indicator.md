@@ -28,7 +28,7 @@ The ```Linear Activity Indicator``` is used to show progress in a linear format.
 
 ## Usage Example
 
-```
+```typescript
 import { LinearActivityIndicator } from '@computools/react-native-material-components';
 
 <LinearActivityIndicator

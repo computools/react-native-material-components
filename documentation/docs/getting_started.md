@@ -29,7 +29,7 @@ Once you're comfortable with these concepts, come back and start building stunni
 
 Run the following command to add the library to your project:
 
-```
+```bash
 yarn add @computools/react-native-material-components
 ```
 
@@ -37,7 +37,7 @@ yarn add @computools/react-native-material-components
 
 Install the necessary dependencies:
 
-```
+```bash
 yarn add react-native-reanimated react-native-gesture-handler react-native-safe-area-context react-native-svg
 
 ```
@@ -49,7 +49,7 @@ Add the ```react-native-reanimated/plugin``` to your ```babel.config.js``` file.
 **Example ```babel.config.js```:**
 
 
-```
+```javascript
 module.exports = {
   presets: ['module:metro-react-native-babel-preset'],
   plugins: [
@@ -66,7 +66,7 @@ Wrap your entire application in the ```SafeAreaProvider``` and ```GestureHandler
 
 **Here’s an example setup:**
 
-```
+```typescript
 import React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -93,7 +93,7 @@ No additional steps are required for Android.
 
 Run the following commands to install the iOS dependencies:
 
-```
+```bash
 cd ios && pod install && cd ..
 
 ```
@@ -102,7 +102,7 @@ cd ios && pod install && cd ..
 
 Run this command to restart Metro and clean cache:
 
-```
+```bash
 yarn start --resetCache
 ```
 

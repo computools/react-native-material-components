@@ -22,7 +22,7 @@ The ```Navigation Bar (NavBar)``` component is a customizable navigation tool th
 
 The ```routes``` property accepts an array of ```NavBarRoute``` objects. Each route is structured as follows:
 
-```
+```typescript
 export interface NavBarRoute<T, Y> {
   name: T;                       // Route name
   icon: React.FC<Y>;             // Icon component for the route
@@ -39,7 +39,7 @@ export interface NavBarRoute<T, Y> {
 
 To enable animation on scroll, use the ```Animated.ScrollView``` and manage the ```scrollDirection``` and ```scrollContext``` values dynamically.
 
-```
+```typescript
 import { Animated, NativeSyntheticEvent, NativeScrollEvent } from 'react-native';
 
 export const MyComponent: React.FC = () => {

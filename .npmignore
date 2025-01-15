@@ -1,0 +1,29 @@
+# Ignore example and documentation files
+example/
+documentation/
+
+# Ignore development-related files and configurations
+.github/
+.yarn/
+scripts/
+
+# Ignore source files if lib/ contains the built files
+src/
+
+# node.js
+#
+node_modules/
+
+# Ignore configuration and temporary files
+.editorconfig
+.gitattributes
+.gitignore
+.nvmrc
+.watchmanconfig
+babel.config.js
+turbo.json
+lefthook.yml
+yarn.lock
+tsconfig.json
+tsconfig.build.json
+.DS_Store

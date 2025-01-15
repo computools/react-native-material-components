@@ -18,7 +18,7 @@ Create a ```react-native.config.js``` file at the root of your project and inclu
 
 ```
 module.exports = {
-    assets: ['node_modules/react-native-material-components/ios/fonts'],
+    assets: ['node_modules/@computools/react-native-material-components/ios/assets/fonts'],
 };
 
 ```

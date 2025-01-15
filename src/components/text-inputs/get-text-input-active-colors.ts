@@ -1,6 +1,6 @@
 import {type ColorValue} from 'react-native';
 
-import {type Theme} from '../theme/theme.types';
+import {type Theme} from '../../theme/theme.types';
 import {TextInputColors} from './text-input.types';
 
 export const getTextInputActiveColors = (theme: Theme, primaryColorBasedOnError: ColorValue, surfaceVariantColorBasedOnError: ColorValue) => ({

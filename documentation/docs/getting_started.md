@@ -98,7 +98,15 @@ cd ios && pod install && cd ..
 
 ```
 
-6. **Rebuild the Project**
+6. **Restart Metro and reset cache**
+
+Run this command to restart Metro and clean cache:
+
+```
+yarn start --resetCache
+```
+
+7. **Rebuild the Project**
 
 After completing the setup, rebuild your project to ensure all changes and dependencies are applied correctly:
 
@@ -108,6 +116,6 @@ Run ```yarn android``` or open the project in Android Studio and build it.
 - For iOS:
 Run ```yarn ios``` or open the .xcworkspace file in Xcode and build the project.
 
-7. **Learn more about Font installation [here](/styles/typography)**
+8. **Learn more about Font installation [here](/styles/typography)**
 
 

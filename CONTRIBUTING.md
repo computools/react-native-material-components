@@ -26,7 +26,7 @@ git remote add github https://github.com/computools-anastasiia-nahaiska/react-na
 
 The GitHub repository is integrated with Vercel for automatic deployment of the documentation. Pushing to GitHub ensures that the latest documentation changes are deployed seamlessly.
 
-Whenever you update the documentation, it’s important to push your changes to both remotes:
+**IMPORTANT:** Whenever you update the documentation and merge changes to **main**, it’s important to push **main**  branch to github remote.
 
 **origin (GitLab)**: For collaboration and code review.
 **github**: For triggering the deployment of documentation to Vercel.

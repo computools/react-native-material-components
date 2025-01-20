@@ -1,17 +1,14 @@
 {
   "name": "@computools/react-native-material-components",
-  "version": "0.0.5",
-  "description": "Computools react native material components package",
+  "version": "0.0.6",
+  "description": "React Native components which implement [Material Design](https://m3.material.io/).",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
   "react-native": "src/index",
   "source": "src/index",
   "files": [
-    "src",
     "lib",
-    "android",
-    "ios",
     "cpp",
     "*.podspec",
     "!lib/typescript/example",
@@ -41,16 +38,19 @@
   },
   "keywords": [
     "react-native",
-    "components",
     "material",
+    "components",
+    "ui",
+    "design",
+    "react-component",
     "ios",
     "android"
   ],
-  "repository": "https://newgit.computools.org/react-native/react-native-material-components",
+  "repository": "https://github.com/computools/react-native-material-components",
   "author": "Anastasiia Nahaiska & Bogdan Kusch <anastasiia.nahaiska@computools.com> (https://computools.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://newgit.computools.org/react-native/react-native-material-components/issues"
+    "url": "https://github.com/computools/react-native-material-components/issues"
   },
   "homepage": "https://react-native-material-components.vercel.app/",
   "publishConfig": {

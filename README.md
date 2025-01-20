@@ -1,6 +1,6 @@
 # @computools/react-native-material-components
 
-Computools' React Native material components package.
+React Native components which implement [Material Design](https://m3.material.io/).
 
 # Documentation
 
